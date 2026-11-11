@@ -54,6 +54,7 @@ only-include = [
   "packaging/audit_dependencies.py", "packaging/source_release_manifest.json",
   "packaging/RELEASE_QUICK_START.txt", "packaging/RELEASE_NOTICES.txt",
   "packaging/build_shared_portable.py", "packaging/build_portable.py", "packaging/PORTABLE_QUICK_START.txt",
+  "packaging/refresh_shared_desktop.py",
 ]
 
 [tool.pytest.ini_options]

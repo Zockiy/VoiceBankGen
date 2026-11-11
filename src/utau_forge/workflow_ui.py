@@ -78,16 +78,24 @@ def build_workbench(self):
     body=QHBoxLayout(prep)
     files_column=QVBoxLayout()
     label("添加录音，开始制作",files_column,"title")
-    label("同一说话人的日语或普通话录音。可拖入音频；已经处理的素材会复用缓存。",files_column,"muted")
-    self.source_table=QTableWidget(0,3)
-    self.source_table.setHorizontalHeaderLabels(["素材文件","时长","状态"])
+    label("同一说话人的语音与歌声可混合使用。拖入音频按语音处理；歌声请使用歌词入口。",files_column,"muted")
+    self.source_table=QTableWidget(0,4)
+    self.source_table.setHorizontalHeaderLabels(["素材文件","时长","来源","状态"])
     self.source_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
     self.source_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
+    self.source_table.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+    self.source_table.customContextMenuRequested.connect(self.source_menu)
     self.source_table.horizontalHeader().setSectionResizeMode(0,QHeaderView.ResizeMode.Stretch)
     self.source_table.verticalHeader().hide()
     files_column.addWidget(self.source_table,1)
+    self.source_notice=QLabel("语音：导入后开始切片。歌声：导入干声和歌词 → 检查波形 → 确认后自动对齐。")
+    self.source_notice.setWordWrap(True)
+    files_column.addWidget(self.source_notice)
     controls=QHBoxLayout()
-    self.workflow_controls.append(self.button("添加素材",self.add_files,controls))
+    speech=self.button("添加素材",self.add_files,controls)
+    speech.setText("导入语音")
+    self.workflow_controls.append(speech)
+    self.workflow_controls.append(self.button("导入歌声及歌词",self.add_song,controls))
     remove=QPushButton("移出待处理列表")
     remove.setToolTip("只移除选中的待处理素材；磁盘音频和已导入素材均保留。")
     remove.clicked.connect(self.remove_pending_source)
@@ -120,6 +128,7 @@ def build_workbench(self):
     analyze=self.button("自动切片",self.analyze,settings)
     analyze.setProperty("primary",True)
     analyze.setText("开始自动切片")
+    self.analyze_button=analyze
     self.workflow_controls.append(analyze)
     label("完成后进入「校对与选音」，检查推荐候选和缺音。",settings,"muted")
     settings.addStretch()
@@ -376,14 +385,16 @@ def build_workbench(self):
 def refresh_sources(self):
     from .models import SourceAsset
     assets=self.store.records("assets",SourceAsset) if self.store else []
-    entries=[(Path(a.original_path).name,f"{a.original_duration_s:.1f} 秒","已导入",None) for a in assets]
-    entries += [(Path(p).name,"—","待切片",i) for i,p in enumerate(self.pending_files)]
+    entries=[(Path(a.original_path).name,f"{a.original_duration_s:.1f} 秒","歌声" if a.source_kind=="singing" else "语音","已导入",None) for a in assets]
+    entries += [(Path(p).name,"—","歌声" if p in self.pending_songs else "语音","待切片",i) for i,p in enumerate(self.pending_files)]
     self.source_table.setRowCount(len(entries))
+    self.analyze_button.setText("重试对齐并提取音节" if self.pending_songs else "开始自动切片")
     for row,values in enumerate(entries):
-        for column,text in enumerate(values[:3]):
+        for column,text in enumerate(values[:4]):
             item=QTableWidgetItem(text)
-            item.setData(Qt.ItemDataRole.UserRole,values[3])
-            item.setToolTip(self.pending_files[values[3]] if values[3] is not None else assets[row].original_path)
+            item.setData(Qt.ItemDataRole.UserRole,values[4])
+            item.setData(Qt.ItemDataRole.UserRole+1,assets[row].source_id if values[4] is None else None)
+            item.setToolTip(self.pending_files[values[4]] if values[4] is not None else assets[row].original_path)
             self.source_table.setItem(row,column,item)
 
 def refresh_export(self):

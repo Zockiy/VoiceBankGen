@@ -58,7 +58,13 @@ def main(request_path: str):
                 result=import_candidates(store,bank_id,generation,request["selection_alias"],request.get("files",[]),emit)
             elif action == "analyze":
                 from .desktop_engine import analyze
-                result=analyze(store,bank_id,generation,request.get("files",[]),request.get("device","auto"),request.get("backend","mfa"),emit,model_paths=request.get("model_paths"),source_language=request.get("source_language","ja"))
+                result=analyze(store,bank_id,generation,request.get("files",[]),request.get("device","auto"),request.get("backend","mfa"),emit,model_paths=request.get("model_paths"),source_language=request.get("source_language","ja"),songs=request.get("songs",[]))
+            elif action == "song_preview":
+                from .song_import import preview_song
+                result=preview_song(store,request["audio"],request["lyrics"],request["source_language"],emit)
+            elif action == "remove_sources":
+                from .source_removal import remove_sources
+                result=remove_sources(store,request["source_ids"],bank_id,generation,emit)
             elif action == "transitions":
                 from .vc_timing import prepare_cvvc_version
                 result=prepare_cvvc_version(store,bank_id,generation,emit)

@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "version": "0.1.0",
-  "source_baseline": "c673795d097050dcc82703f411b027607aa6c81b",
+  "source_branch": "main",
+  "source_baseline": "e0036a8091af67d5cb11d64c22fe85b163de6b3e",
   "code_license": "MIT",
   "data_license": "CC-BY-SA-4.0",
-  "scope": "Source only; no development Git history, recordings, models or third-party runtimes",
+  "scope": "Reviewed source only; no private history, recordings, lyrics, models or runtimes",
   "files": [
     {
       "path": ".gitattributes",
@@ -48,13 +48,13 @@
     },
     {
       "path": "README.md",
-      "size": 14414,
-      "sha256": "6f5b1ec44ae15326b3416e7fa0ccf752fc3003aa3dcc27750e3beb9542ad59fc"
+      "size": 19078,
+      "sha256": "7c37ba37160449f832004c6b728912761b80c726b6e74e2694953d2a90a45b8c"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "size": 5358,
-      "sha256": "231b676ad9902962642aa53a7feef7c956b4155447063d1946935a3a35df1ae6"
+      "size": 5362,
+      "sha256": "1ae5a0e0710a4daaf43545e853cfc7abc6b8ebe3f8ce14065c7320bffe6b7f0b"
     },
     {
       "path": "docs/BUILDING.md",
@@ -68,13 +68,13 @@
     },
     {
       "path": "docs/LICENSE_AUDIT.md",
-      "size": 3893,
-      "sha256": "6ccd2e1432ea941d265401e0cd2feee9f3db990a3107ec727015ddcdfcfd4c74"
+      "size": 4330,
+      "sha256": "199f9496eff24231e94d0a29764d30a4536eef788945bcac5a60feb4aef5959c"
     },
     {
       "path": "docs/SOURCE_RELEASE.md",
-      "size": 1765,
-      "sha256": "e6d244f68a49b3cbef7be3feeb6ae03e3ae8d6ab6c4fe7a14ad9165d5bd01f86"
+      "size": 1505,
+      "sha256": "2ece87520568620402061d949e3a4ebf3b71dac08a4cc8781221cce832ddf3dc"
     },
     {
       "path": "docs/UI_WORKFLOW_FORK.md",
@@ -83,8 +83,8 @@
     },
     {
       "path": "docs/USAGE.md",
-      "size": 6451,
-      "sha256": "5bbad6503eee00acb08e650f5eb5fa1d61b2cac4895fc5e67919983e29a98e4b"
+      "size": 6891,
+      "sha256": "3a6ef3ff5e3cbd1060be83b5571ef45334600607abf0ebab39241eab11e70929"
     },
     {
       "path": "docs/dependency_inventory.json",
@@ -162,14 +162,19 @@
       "sha256": "f6b7afda490b5f094b69ebe9448a79ddcf7daa52d64b94ca0b84f079207fdab0"
     },
     {
+      "path": "packaging/refresh_shared_desktop.py",
+      "size": 4935,
+      "sha256": "a1d546a6181671fe599e38b90b320a3be01e019ffef557c370da4dd592fbe7cc"
+    },
+    {
       "path": "packaging/runtime_requirements.txt",
       "size": 475,
       "sha256": "a14232351c05a62287fed93abc62991df0a6f4f5ece8b9bdbe092e2b225e13f3"
     },
     {
       "path": "packaging/source_release_manifest.json",
-      "size": 4930,
-      "sha256": "a2facbfe8c00d9eb10084d0db2aba629d0737415cdfbe5ea19bbca16db73bbad"
+      "size": 5169,
+      "sha256": "5a894b2c287b8409cd039401c064fe231161cd271c459505c54bc22a75736c32"
     },
     {
       "path": "packaging/tifa_entry.py",
@@ -178,13 +183,13 @@
     },
     {
       "path": "pyproject.toml",
-      "size": 2225,
-      "sha256": "df727cac6e8d78797a5023cc5c7a682fef5c4ac6105781f726deb3dbd4f89814"
+      "size": 2266,
+      "sha256": "1dc9af14c7ebfa77f9d6ca8721c70f0925c7037d494a70821b5f98925a277bdf"
     },
     {
       "path": "resources/alignment-default.json",
-      "size": 45,
-      "sha256": "e58709c4f8e8d9bf231abbe718b3da764ea6578b6545bc5d742ece5e743936ba"
+      "size": 36,
+      "sha256": "1bcb05c516d541478c4b4a3d6104e9085e4d0b2001b67da06787a1b25c584ec2"
     },
     {
       "path": "resources/tifa.lock.json",
@@ -208,13 +213,13 @@
     },
     {
       "path": "src/utau_forge/app.py",
-      "size": 118813,
-      "sha256": "201bacd35e95c330cf6e9132f866117a2d559c07bf9cd854cf380f7b35b8e8b4"
+      "size": 125536,
+      "sha256": "ff90767ad4340c34299b54fdc3076be02e4417056d2174e2bd455b2702847780"
     },
     {
       "path": "src/utau_forge/audio.py",
-      "size": 5065,
-      "sha256": "09dafed7256e216627ec01ccca7ceae0d70b8d13b80f2fb7790d47293792320e"
+      "size": 5174,
+      "sha256": "7e8b2554c775ef3a9c9fe221390ee72a5e3f26a770d7e5ef5dd9e6ad0a8d8410"
     },
     {
       "path": "src/utau_forge/bank_aliases.py",
@@ -313,8 +318,8 @@
     },
     {
       "path": "src/utau_forge/desktop_engine.py",
-      "size": 11877,
-      "sha256": "5abf2a4cc83460b8a48a133f6c33de2ae8cecd615c5d570bd8a0e7dbca70b779"
+      "size": 13420,
+      "sha256": "a95feba84ee0e8890687d248dafb2c3283c49474937ca492bae1111f24cd5427"
     },
     {
       "path": "src/utau_forge/desktop_import.py",
@@ -353,8 +358,8 @@
     },
     {
       "path": "src/utau_forge/desktop_worker.py",
-      "size": 8495,
-      "sha256": "e52f97d6a4a8e91a05b9f4bbbaa120b1ce11da998461af6bd29b3369678c717e"
+      "size": 8927,
+      "sha256": "9b57495bfbaae34d81a74139dbb5a537ebe40640aaf8ed654103383392a894d3"
     },
     {
       "path": "src/utau_forge/devices.py",
@@ -418,8 +423,8 @@
     },
     {
       "path": "src/utau_forge/models.py",
-      "size": 7057,
-      "sha256": "564ff5fe44e55c8dc55549e7462a6c6637726a6addb99bdb47de2313f91e956f"
+      "size": 7114,
+      "sha256": "d006d338fa6220b34ed55dc6e63b39ded82a2967c963c7282c3d3dd435d53720"
     },
     {
       "path": "src/utau_forge/oto.py",
@@ -435,6 +440,11 @@
       "path": "src/utau_forge/project.py",
       "size": 1683,
       "sha256": "6b8d6d684df55fd9c56713eba22ba74970fded0313b1bb88d10b67b414da229a"
+    },
+    {
+      "path": "src/utau_forge/recycle.py",
+      "size": 2968,
+      "sha256": "463310ce0be4a8825eb473f44bd85293d17cef84d178a96293e27155bef1ddbd"
     },
     {
       "path": "src/utau_forge/render.py",
@@ -475,6 +485,21 @@
       "path": "src/utau_forge/slices.py",
       "size": 6757,
       "sha256": "b3b98a8ad95ba05e9bd2bc02e10a4aa73737cdd4f28e043fa878d89f5195a7a5"
+    },
+    {
+      "path": "src/utau_forge/song_import.py",
+      "size": 10997,
+      "sha256": "4e96f01ae6c8bf45ac1487095823f3a6c02f0b70a6d74774f3815da66243d973"
+    },
+    {
+      "path": "src/utau_forge/song_review.py",
+      "size": 9733,
+      "sha256": "f6f32667b10ef076cc188bf63e20d99094b278965bce902273acbb393d0813ac"
+    },
+    {
+      "path": "src/utau_forge/source_removal.py",
+      "size": 5715,
+      "sha256": "bcb4aa0736a73e6b75df316816a47b855465f0494edd1eec132694598bd9fabf"
     },
     {
       "path": "src/utau_forge/splice_workbench.py",
@@ -518,8 +543,8 @@
     },
     {
       "path": "src/utau_forge/workflow_ui.py",
-      "size": 21289,
-      "sha256": "077393e7546b4ca50f9f03ca664e519975d3f67a4faeceb3f51c301d6e358da4"
+      "size": 22194,
+      "sha256": "658bd65d758a4383497dead0243f497483f80dd44c3e90cc685fa04c85b737bb"
     },
     {
       "path": "tests/test_align_cache.py",
@@ -642,9 +667,19 @@
       "sha256": "039dad724e9ddd4498db3fee39eb8288de8d99d39d579a7ee2bd29c570fb7c9f"
     },
     {
+      "path": "tests/test_song_import.py",
+      "size": 3284,
+      "sha256": "c4b7465311106d1c07b24398382e76b66d4fa6580523975924a451082ad2a501"
+    },
+    {
       "path": "tests/test_source_export.py",
       "size": 3877,
       "sha256": "4d5b413813bc821050ebe7500a3f44e3f1c1c12109c6504fa798b77a7dd7d635"
+    },
+    {
+      "path": "tests/test_source_removal.py",
+      "size": 1648,
+      "sha256": "50787ca2eb1cfff80efc576e79c8132d8d98362c090f09f77de6f479db35e987"
     },
     {
       "path": "tests/test_startup.py",

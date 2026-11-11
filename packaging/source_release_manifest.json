@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "source_branch": "main",
-  "description": "First MIT source-only release; third-party notices and CC BY-SA data remain independent",
+  "description": "Reviewed mainline with singing/LRC visual review; source only, no private data or history",
   "files": [
     ".gitattributes",
     ".gitignore",
@@ -34,6 +34,7 @@
     "packaging/export_source.py",
     "packaging/prepare_download_catalog.py",
     "packaging/prepare_runtime_catalog.py",
+    "packaging/refresh_shared_desktop.py",
     "packaging/runtime_requirements.txt",
     "packaging/source_release_manifest.json",
     "packaging/tifa_entry.py",
@@ -89,6 +90,7 @@
     "src/utau_forge/oto.py",
     "src/utau_forge/pipeline.py",
     "src/utau_forge/project.py",
+    "src/utau_forge/recycle.py",
     "src/utau_forge/render.py",
     "src/utau_forge/repair.py",
     "src/utau_forge/resource_download.py",
@@ -97,6 +99,9 @@
     "src/utau_forge/segment.py",
     "src/utau_forge/shared_banks.py",
     "src/utau_forge/slices.py",
+    "src/utau_forge/song_import.py",
+    "src/utau_forge/song_review.py",
+    "src/utau_forge/source_removal.py",
     "src/utau_forge/splice_workbench.py",
     "src/utau_forge/startup.py",
     "src/utau_forge/startup_window.py",
@@ -130,12 +135,13 @@
     "tests/test_runtime_layout.py",
     "tests/test_shared_cv.py",
     "tests/test_slices.py",
+    "tests/test_song_import.py",
     "tests/test_source_export.py",
+    "tests/test_source_removal.py",
     "tests/test_startup.py",
     "tests/test_storage.py",
     "tests/test_vc_timing.py",
     "uv.lock"
   ],
-  "source_commit": "c673795d097050dcc82703f411b027607aa6c81b",
-  "version": "0.1.0"
+  "source_commit": "e0036a8091af67d5cb11d64c22fe85b163de6b3e"
 }

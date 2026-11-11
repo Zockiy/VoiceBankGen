@@ -58,6 +58,7 @@ class SourceAsset(Record):
     speaker_id: str
     recording_session: str | None = None
     language_id: str
+    source_kind: Literal["speech", "singing"] = "speech"
 
 
 class Utterance(Record):

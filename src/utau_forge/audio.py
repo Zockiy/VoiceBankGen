@@ -54,7 +54,7 @@ def _check_stereo_phase(path: Path, info: dict) -> None:
         raise ValueError("STEREO_PHASE_CANCELLATION: choose a single channel before import")
 
 
-def import_audio(project_dir: Path, input_path: Path, speaker_id: str, language_id: str, recording_session: str | None = None) -> SourceAsset:
+def import_audio(project_dir: Path, input_path: Path, speaker_id: str, language_id: str, recording_session: str | None = None, source_kind: str = "speech") -> SourceAsset:
     input_path = input_path.resolve(strict=True)
     info = probe_audio(input_path)
     if not math.isfinite(info["duration_s"]) or info["duration_s"] <= 0:
@@ -63,7 +63,8 @@ def import_audio(project_dir: Path, input_path: Path, speaker_id: str, language_
     digest = sha256_file(input_path)
     existing = read_jsonl(project_dir / "sources" / "manifest.jsonl", SourceAsset)
     for asset in existing:
-        if asset.sha256 == digest and asset.speaker_id == speaker_id and asset.language_id == language_id:
+        if (asset.sha256 == digest and asset.speaker_id == speaker_id
+                and asset.language_id == language_id and asset.source_kind == source_kind):
             return asset
     original_dir = project_dir / "sources" / "original"
     original_dir.mkdir(parents=True, exist_ok=True)
@@ -81,7 +82,7 @@ def import_audio(project_dir: Path, input_path: Path, speaker_id: str, language_
             raise ValueError("canonical decode failed validation")
         temporary.replace(canonical)
     sf_info = sf.info(canonical)
-    asset = SourceAsset(original_path=str(original.relative_to(project_dir)), sha256=digest, original_sample_rate=info["sample_rate"], original_channels=info["channels"], original_duration_s=info["duration_s"], canonical_path=str(canonical.relative_to(project_dir)), canonical_samples=sf_info.frames, speaker_id=speaker_id, recording_session=recording_session, language_id=language_id)
+    asset = SourceAsset(original_path=str(original.relative_to(project_dir)), sha256=digest, original_sample_rate=info["sample_rate"], original_channels=info["channels"], original_duration_s=info["duration_s"], canonical_path=str(canonical.relative_to(project_dir)), canonical_samples=sf_info.frames, speaker_id=speaker_id, recording_session=recording_session, language_id=language_id, source_kind=source_kind)
     write_jsonl(project_dir / "sources" / "manifest.jsonl", [*existing, asset])
     return asset
 

@@ -43,7 +43,7 @@ PROFILE_CHOICES={"日语 CV":"ja-cv","日语 CVVC":"ja-cvvc","普通话拼音 CV
 
 MARK_NAMES={"start":"使用起点","overlap":"重叠","preutter":"对拍点","fixed_end":"固定区结束","end":"使用终点"}
 COLORS=["#737f91","#46b8a6","#efb34c","#ec6f83","#779cec"]
-JOB_NAMES={"sync":"同步修改","build":"制作音源","optimize_vc":"批量优化 VC / VV 音素","analyze":"自动切片","transitions":"准备 CVVC 版本","force_oto":"强制标注 oto","preview":"加载试听","recover":"恢复音源","repair":"可选补音","slices":"导出切片"}
+JOB_NAMES={"sync":"同步修改","build":"制作音源","optimize_vc":"批量优化 VC / VV 音素","analyze":"自动切片","song_preview":"匹配歌声歌词","remove_sources":"删除素材","transitions":"准备 CVVC 版本","force_oto":"强制标注 oto","preview":"加载试听","recover":"恢复音源","repair":"可选补音","slices":"导出切片"}
 MARK_HELP={"start":"片段开始使用的位置；对应 oto 的 offset。", "overlap":"与相邻音重叠衔接的参考位置；oto overlap 是它与使用起点的时间差。", "preutter":"与乐谱音符起点对齐的位置；oto preutterance 是它与使用起点的时间差。", "fixed_end":"固定区结束的位置；后方元音可由渲染引擎按音符时长伸缩。", "end":"片段停止使用的位置；对应 oto 的 cutoff，尾部剩余音频不使用。"}
 
 BUTTON_HELP={
@@ -81,6 +81,7 @@ BUTTON_HELP={
     "模型 / 环境下载":("模型与设备","下载缺少的模型，或修复随单文件安装器提供的运行环境。","选择官方 GitHub/Hugging Face 或自定义镜像，勾选组件后下载；支持续传、哈希校验，下载源会记忆。CPU 环境随 EXE 提供，默认不安装 MFA。"),
     "按钮说明":("工程与版本","集中查看全部按钮的用途、条件和操作结果。","打开可滚动的说明窗口；也可把鼠标停在任一按钮上查看该按钮说明。"),
     "添加素材":("素材与制作","添加同一说话人的音频，供后续切片使用。","选择 WAV/FLAC/MP3 等音频，加入待处理列表；点击自动切片才开始处理和导入。"),
+    "导入歌声及歌词":("素材与制作","匹配歌声干声和带时间戳的 LRC 歌词。","选择音频及 UTF-8 编码的逐行 LRC，在波形界面试听、修改后点击“确认并开始对齐”，程序自动用 TIFA 对齐并提取音节。失败原因保留在素材页，可点击重试；同一文件可分别作为语音与歌声使用并共用音频缓存。"),
     "自动切片":("素材与制作","对素材执行语音检测、转写、音素对齐和候选提取。","使用上方所选设备和对齐方式；已有素材可继续已保存的转写进度，耗时取决于录音长度。"),
     "可选补音":("素材与制作","尝试为缺失的 CV 音生成元音补尾或辅音与元音拼接候选。","需要已分析的素材；更新候选和推荐，供试听校对。没有合适供体时保留缺音，安装仍需手动同步。"),
     "制作音源":("素材与制作","按当前选音、标线和设置准备可用音源。","在工程内生成 WAV、oto 和清单；已有音源复用未变化的音。生成后可试听处理音、渲染、导出或安装。"),
@@ -200,6 +201,7 @@ class MainWindow(QMainWindow):
         self.splice_source_cache={}
         self.request=None
         self.pending_files=[]
+        self.pending_songs={}
         self.installation_id=None
         self.loading=False
         self.mark_dragging=False
@@ -360,9 +362,45 @@ class MainWindow(QMainWindow):
         indices={self.source_table.item(row,0).data(Qt.ItemDataRole.UserRole) for row in rows}
         previous=len(self.pending_files)
         self.pending_files=[path for i,path in enumerate(self.pending_files) if i not in indices]
+        self.pending_songs={path:song for path,song in self.pending_songs.items() if path in self.pending_files}
         from .workflow_ui import refresh_sources
         refresh_sources(self)
         self.status(f"已移出 {previous-len(self.pending_files)} 个待处理素材；剩余 {len(self.pending_files)} 个，原文件保留")
+
+    def source_menu(self,position):
+        if not self.store or self.process or self.applying_task:
+            return
+        item=self.source_table.itemAt(position)
+        if item is None:
+            return
+        if not item.isSelected():
+            self.source_table.selectRow(item.row())
+        rows={i.row() for i in self.source_table.selectedItems()}
+        identifiers=list(dict.fromkeys(self.source_table.item(r,0).data(Qt.ItemDataRole.UserRole+1) for r in rows))
+        identifiers=[i for i in identifiers if i]
+        menu=QMenu(self)
+        if identifiers:
+            action=menu.addAction("删除素材…")
+            action.triggered.connect(lambda:self.remove_imported_sources(identifiers))
+        else:
+            action=menu.addAction("移出待处理列表")
+            action.triggered.connect(self.remove_pending_source)
+        menu.exec(self.source_table.viewport().mapToGlobal(position))
+
+    def remove_imported_sources(self,identifiers):
+        from .source_removal import removal_plan
+        try:
+            self.save_marks()
+            plan=removal_plan(self.store,identifiers)
+            answer=QMessageBox.question(self,"确认删除素材",
+                f"删除 {len(identifiers)} 份已导入素材？\n将移除 {len(plan['candidate_ids'])} 个相关候选（含依赖它的拼接音），清除 {plan['selections']} 个版本选音。\n\n"
+                "删除前会备份工程数据库。项目内独占的原音频副本移入回收站；共用副本保留，外部原录音不会删除。\n已安装音源需手动同步后才更新。",
+                QMessageBox.StandardButton.Yes|QMessageBox.StandardButton.No,QMessageBox.StandardButton.No)
+            if answer==QMessageBox.StandardButton.Yes:
+                self.player.stop()
+                self.start_job("remove_sources",source_ids=identifiers)
+        except Exception as error:
+            self.error(error)
 
     def create_menus(self):
         self.menu_actions=[]
@@ -658,6 +696,7 @@ class MainWindow(QMainWindow):
             self.store=ProjectStore(directory)
             self.current_candidate=None
             self.pending_files=[]
+            self.pending_songs={}
             self.loading=True
             self.banks.clear()
             for bank in self.store.banks():
@@ -1383,10 +1422,20 @@ class MainWindow(QMainWindow):
         if not self.store or self.process or self.applying_task:
             return
         files,_=QFileDialog.getOpenFileNames(self,"导入同一人的语音",filter="音频 (*.wav *.flac *.mp3 *.ogg *.m4a);;所有文件 (*)")
-        self.pending_files=list(dict.fromkeys([*self.pending_files,*files]))
+        self.pending_files=list(dict.fromkeys([*self.pending_files,*[f for f in files if f not in self.pending_songs]]))
         if files:
             self.status(f"待处理素材共 {len(self.pending_files)} 个（已去重）；点击自动切片开始")
             self.show_stage(0)
+
+    def add_song(self):
+        if not self.store or self.process or self.applying_task:
+            return
+        audio,_=QFileDialog.getOpenFileName(self,"选择歌声干声",filter="音频 (*.wav *.flac *.mp3 *.ogg *.m4a);;所有文件 (*)")
+        if not audio:
+            return
+        lyrics,_=QFileDialog.getOpenFileName(self,"选择逐行带时间戳的 LRC 歌词",filter="LRC 歌词 (*.lrc);;所有文件 (*)")
+        if lyrics:
+            self.start_job("song_preview",audio=audio,lyrics=lyrics,source_language=self.source_language.currentData())
 
     def dragEnterEvent(self,event):
         if event.mimeData().hasUrls():
@@ -1395,7 +1444,7 @@ class MainWindow(QMainWindow):
     def dropEvent(self,event):
         if self.store and not self.process and not self.applying_task:
             files=[url.toLocalFile() for url in event.mimeData().urls() if url.isLocalFile() and Path(url.toLocalFile()).is_file() and Path(url.toLocalFile()).suffix.lower() in {".wav",".flac",".mp3",".ogg",".m4a"}]
-            self.pending_files=list(dict.fromkeys([*self.pending_files,*files]))
+            self.pending_files=list(dict.fromkeys([*self.pending_files,*[f for f in files if f not in self.pending_songs]]))
             self.status(f"待处理素材共 {len(self.pending_files)} 个（已去重）；点击自动切片开始")
             self.show_stage(0)
 
@@ -1405,9 +1454,20 @@ class MainWindow(QMainWindow):
         if self.source_language.currentData()=="zh": self.backend.setCurrentIndex(self.backend.findData("tifa"))
 
     def analyze(self):
-        files=self.pending_files.copy()
-        if self.start_job("analyze",files=files,device=self.device.currentData(),backend=self.backend.currentData(),source_language=self.source_language.currentData()):
+        files=[path for path in self.pending_files if path not in self.pending_songs]
+        songs=list(self.pending_songs.values())
+        if songs and self.backend.currentData()!="tifa":
+            self.source_notice.setText("歌声歌词对齐需要 TIFA；请将对齐工具切换为 TIFA，然后重试。")
+            self.error(self.source_notice.text())
+            return
+        if any(song["language"]!=self.source_language.currentData() for song in songs):
+            self.source_notice.setText("已检查歌声的语言与当前素材语言不同；请分别处理或重新匹配。")
+            self.error(self.source_notice.text())
+            return
+        if self.start_job("analyze",files=files,songs=songs,device=self.device.currentData(),backend=self.backend.currentData(),source_language=self.source_language.currentData()):
+            self.source_notice.setText("正在后台对齐并提取候选；进度显示在下方，完成后自动进入校对与选音。")
             self.pending_files=[]
+            self.pending_songs={}
             from .workflow_ui import refresh_sources
             refresh_sources(self)
 
@@ -1756,6 +1816,14 @@ class MainWindow(QMainWindow):
                 state="cancelled" if self.cancelled else ("applying" if action=="optimize_vc" and exit_code==0 and not self.job_error else ("complete" if exit_code==0 else "failed"))
                 connection.execute("UPDATE jobs SET status=? WHERE id=?",(state,self.request["job_id"]))
         result=self.job_result or {}
+        if action=="analyze" and (self.cancelled or self.job_error):
+            # Keep reviewed lyrics available when the worker is cancelled or
+            # fails, including after partial import/checkpointing.
+            for song in self.request.get("songs",[]):
+                self.pending_songs[song["audio"]]=song
+            self.pending_files=list(dict.fromkeys([*self.pending_files,*self.request.get("files",[]),*self.pending_songs]))
+            from .workflow_ui import refresh_sources
+            refresh_sources(self)
         if result.get("installation_id"):
             self.installation_id=result["installation_id"]
         if self.cancelled:
@@ -1766,13 +1834,42 @@ class MainWindow(QMainWindow):
             return
         if self.job_error:
             self.error(self.job_error+" · 工程已保存，可重试；详情见任务详情")
+            if action in {"analyze","song_preview"}:
+                retry_hint="已确认的歌词保留在队列中，请修正后点击“重试对齐并提取音节”。" if self.pending_songs else "请检查素材、歌词或模型设置后重试。"
+                self.source_notice.setText("处理失败："+self.job_error+"\n"+retry_hint)
         elif result.get("stale"):
             self.status("旧任务结果已忽略，保留当前编辑")
         elif action=="recover":
             self.open_directory(Path(result["project"]))
             self.banks.setCurrentIndex(self.banks.findData(result["bank_id"]))
             self.status(f"已恢复 {result['imported']} 行；原安装文件保留。可安装绑定后点击“同步修改”。")
+        elif action=="song_preview":
+            from .song_review import SongReviewDialog
+            dialog=SongReviewDialog(result,self)
+            if dialog.exec():
+                song=dialog.result
+                path=song["audio"]
+                self.pending_files=list(dict.fromkeys([*self.pending_files,path]))
+                self.pending_songs[path]=song
+                from .workflow_ui import refresh_sources
+                refresh_sources(self)
+                self.show_stage(0)
+                self.backend.setCurrentIndex(self.backend.findData("tifa"))
+                self.source_notice.setText(f"已确认 {len(song['rows'])} 段歌词，正在进入 TIFA 对齐与音节提取。")
+                self.status(self.source_notice.text())
+                QTimer.singleShot(0,self.analyze)
+            else:
+                self.status("已取消歌声歌词检查，未加入待处理列表")
         else:
+            if action=="remove_sources":
+                self.preview_token+=1
+                self.preview_ready=False
+                self.current_candidate=None
+                self.wave_cache.clear()
+                self.refresh_targets()
+                from .workflow_ui import refresh_sources
+                refresh_sources(self)
+                self.source_notice.setText(f"已删除 {result.get('removed_sources',0)} 份素材、{result.get('removed_candidates',0)} 个相关候选；请同步修改更新音源。备份：{result.get('backup','')}"+("\n"+result["warning"] if result.get("warning") else ""))
             if action=="optimize_vc":
                 self.status("衔接参数已计算，正在校验并暂存；完成后可整批撤销")
             else:
@@ -1810,6 +1907,9 @@ class MainWindow(QMainWindow):
                 from .workflow_ui import refresh_sources
                 refresh_sources(self)
                 self.show_stage(1)
+                failures=result.get("alignment",{}).get("failed",[])
+                if failures:
+                    self.status(f"已有候选可校对；{len(failures)} 个片段尚未对齐成功，请查看任务详情并检查歌词或范围后重试。")
 
     def apply_vc_optimization(self,result):
         self.save_marks()

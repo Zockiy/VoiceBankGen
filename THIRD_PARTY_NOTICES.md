@@ -1,6 +1,6 @@
 # 第三方组件与许可
 
-审查日期：2026-11-11。此说明对应 **v0.1.0 首个 Release 的仅源码公开版本**。许可证原文、文件范围及来源见 [LICENSES](LICENSES/README.md)，详细证据和分发限制见 [许可审查](docs/LICENSE_AUDIT.md)。
+审查日期：2026-11-11。此说明对应 **main 主线含歌声导入的仅源码公开版本**。许可证原文、文件范围及来源见 [LICENSES](LICENSES/README.md)，详细证据和分发限制见 [许可审查](docs/LICENSE_AUDIT.md)。
 
 ## 随源码保留的内容
 

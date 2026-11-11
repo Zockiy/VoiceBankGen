@@ -29,7 +29,7 @@ def link_tree(source: Path, target: Path):
             except OSError:
                 shutil.copy2(path, destination)
 
-def prepare_engine(store: ProjectStore, model_paths: dict | None = None) -> Path:
+def prepare_engine(store: ProjectStore, model_paths: dict | None = None, require_asr: bool = True) -> Path:
     from .model_settings import load_model_paths, validate_model_paths, apply_engine_model_paths, bundled_model_lock
     model_paths = validate_model_paths(load_model_paths() if model_paths is None else model_paths)
     root = store.directory / "analyses" / "engine"
@@ -45,12 +45,12 @@ def prepare_engine(store: ProjectStore, model_paths: dict | None = None) -> Path
     # Resolve the installed local model every run, including after cancellation.
     # The original project config may still say large-v3 after small was bundled.
     asr_models = [item for item in lock.get("models", []) if "faster-whisper" in item["model_id"]]
-    if not asr_models and not model_paths["asr"]:
+    if require_asr and not asr_models and not model_paths["asr"]:
         raise RuntimeError("未找到本地 Whisper 模型；请打开 设置 → 模型设置 指定模型目录")
     if asr_models and not model_paths["asr"]:
         config.asr.model = next((item["model_id"] for item in asr_models if item["model_id"] == config.asr.model or item["model_id"].endswith("faster-whisper-" + config.asr.model)), asr_models[0]["model_id"])
         chosen = next(item for item in asr_models if item["model_id"] == config.asr.model)
-        if not Path(chosen["local_absolute_path"]).is_dir():
+        if require_asr and not Path(chosen["local_absolute_path"]).is_dir():
             raise RuntimeError("软件目录中的 Whisper 模型缺失，请恢复软件资源或在模型设置中指定本地目录")
     config.runtime.offline = True
     runtime = application_root() / "runtime" / "mfa"
@@ -108,7 +108,7 @@ def ingest_engine(store: ProjectStore, root: Path, generation: int, bank_id: str
     link_tree(root / "derived", store.directory / "derived")
     return True
 
-def analyze(store: ProjectStore, bank_id: str, generation: int, files: list[str], device: str, backend: str, emit, model_paths: dict | None = None, source_language: str = "ja"):
+def analyze(store: ProjectStore, bank_id: str, generation: int, files: list[str], device: str, backend: str, emit, model_paths: dict | None = None, source_language: str = "ja", songs: list[dict] | None = None):
     from .audio import import_audio
     from .segment import segment_source
     from .transcribe import transcribe
@@ -118,12 +118,22 @@ def analyze(store: ProjectStore, bank_id: str, generation: int, files: list[str]
     from .languages import language
     from .languages.ja_cvvc import transition_candidates
     from .model_settings import load_model_paths, detect_model_paths
+    from .song_import import save_song_utterances
+    from .storage import sha256_file
+    songs = songs or []
+    if songs and backend != "tifa":
+        raise ValueError("歌声歌词对齐请使用 TIFA")
     model_paths = load_model_paths() if model_paths is None else model_paths
     language(source_language)
-    if files and source_language not in store.meta("source_languages"):
+    if (files or songs) and source_language not in store.meta("source_languages"):
         store.set_meta("source_languages",[*store.meta("source_languages"),source_language])
         store._write_identity()
-    root = prepare_engine(store, model_paths)
+    existing_utterances = store.records("utterances", Utterance)
+    segmented_sources = {u.source_id for u in existing_utterances}
+    needs_asr = (bool(files) or any(not (u.revised_text or u.asr_text) for u in existing_utterances)
+                 or any(a.source_kind == "speech" and a.source_id not in segmented_sources
+                        for a in store.records("assets", SourceAsset)))
+    root = prepare_engine(store, model_paths, require_asr=needs_asr)
     config = read_config(root / "config.yaml")
     resolved = detect_model_paths(application_root(),store.directory)
     emit(stage="模型路径", current=0, total=0, models={key: model_paths.get(key) or path for key,path in resolved.items()})
@@ -131,24 +141,35 @@ def analyze(store: ProjectStore, bank_id: str, generation: int, files: list[str]
         emit(stage="导入素材",current=index,total=len(files))
         import_audio(root, Path(filename), store.meta("speaker_id"), language_id=source_language)
         ingest_engine(store,root,generation,bank_id)
+    for index, song in enumerate(songs):
+        emit(stage="导入已检查歌声", current=index, total=len(songs))
+        if song.get("language") != source_language or sha256_file(Path(song["audio"])) != song["audio_sha256"]:
+            raise ValueError("歌声素材或语言在检查后发生变化，请重新匹配并检查")
+        asset = import_audio(root, Path(song["audio"]), store.meta("speaker_id"), language_id=source_language, source_kind="singing")
+        save_song_utterances(root, asset, song["rows"])
+        ingest_engine(store,root,generation,bank_id)
     for asset in read_jsonl(root / "sources/manifest.jsonl", SourceAsset):
+        if asset.source_kind == "singing":
+            continue
         emit(stage="分段",current=0,total=0,device="cpu")
         segment_source(root, asset, config)
     ingest_engine(store,root,generation,bank_id)
-    actual = whisper_device(device)
-    config.asr.device, config.asr.compute_type = actual["device"], actual["precision"]
-    emit(stage="转写",current=0,total=0,**actual)
     def checkpoint(**event):
         ingest_engine(store,root,generation,bank_id)
         emit(**event)
-    try:
-        transcribe(root,config,checkpoint)
-    except RuntimeError as error:
-        if device != "auto" or actual["device"] != "cuda":
-            raise
-        config.asr.device,config.asr.compute_type = "cpu","int8"
-        emit(stage="转写",current=0,total=0,device="cpu",reason=f"CUDA 推理失败后继续已保存语句：{error}")
-        transcribe(root,config,checkpoint)
+    pending = any(not (u.revised_text or u.asr_text) for u in read_jsonl(root / "utterances.jsonl", Utterance))
+    if pending:
+        actual = whisper_device(device)
+        config.asr.device, config.asr.compute_type = actual["device"], actual["precision"]
+        emit(stage="转写",current=0,total=0,**actual)
+        try:
+            transcribe(root,config,checkpoint)
+        except RuntimeError as error:
+            if device != "auto" or actual["device"] != "cuda":
+                raise
+            config.asr.device,config.asr.compute_type = "cpu","int8"
+            emit(stage="转写",current=0,total=0,device="cpu",reason=f"CUDA 推理失败后继续已保存语句：{error}")
+            transcribe(root,config,checkpoint)
     emit(stage="对齐",current=0,total=0,device="cpu" if backend == "mfa" else device)
     if backend == "tifa":
         from .tifa_adapter import align_tifa

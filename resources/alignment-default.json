@@ -1,4 +1,1 @@
-{
-  "default": "tifa",
-  "fallback": "mfa"
-}
+{"default":"tifa","fallback":"mfa"}
