@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "version": "2026.10.07",
+  "components": [
+    {
+      "id": "tifa-model",
+      "name": "TIFA 多语言对齐模型",
+      "version": "1.0.0",
+      "required": true,
+      "description": "日语与普通话对齐；官方 GitHub。模型 CC BY-NC-SA 4.0。",
+      "artifacts": [
+        {
+          "url": "https://github.com/openvpi/TIFA/releases/download/v1.0.0/TIFA-1.0-ST.zip",
+          "cache": "TIFA-1.0-ST.zip",
+          "format": "zip",
+          "size": 150789526,
+          "sha256": "6da6832cd2cb981aae1ccc2d9330f8f7c085ce7977d1eb13bff63531d038a88b",
+          "files": [
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/config.yaml",
+              "size": 1567,
+              "sha256": "b4bdfd5c73ca3a01ff8675ca353c54d4c14eefa75a188eac9a22ab94e147f8ac",
+              "member": "TIFA-1.0-ST/config.yaml"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/model.pt",
+              "size": 158588551,
+              "sha256": "8d9bf896da1827f36bf135f80c7ab1fc4f3c1d48f328818b8402c9527c0f014b",
+              "member": "TIFA-1.0-ST/model.pt"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/vocabulary.json",
+              "size": 4115,
+              "sha256": "644c85ac28cfe4f26fcf60de5a6d1fe192c11a6a837746119ef2dbc6dac9246c",
+              "member": "TIFA-1.0-ST/vocabulary.json"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/char.json",
+              "size": 457,
+              "sha256": "99db14a8dfeb313f7190b80098693c02d5b7530af282ef6fe81c4da0cd982138",
+              "member": "TIFA-1.0-ST/assets/LstmG2p-Eng/char.json"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/config.json",
+              "size": 217,
+              "sha256": "72357a005ff51874041086583a2ad2537842b4b0635fe8e6df31d090d54bb77a",
+              "member": "TIFA-1.0-ST/assets/LstmG2p-Eng/config.json"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/decoder.onnx",
+              "size": 1491741,
+              "sha256": "b5c7e48bd08b4b1d4e1449fdf37e6e07d468f3bea6b5ff6752d470e6f91b2f99",
+              "member": "TIFA-1.0-ST/assets/LstmG2p-Eng/decoder.onnx"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/encoder.onnx",
+              "size": 2536734,
+              "sha256": "00c6475b6a4c28389f236ca9985157c9b59fe2eabddb4f44d562c999194d7645",
+              "member": "TIFA-1.0-ST/assets/LstmG2p-Eng/encoder.onnx"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/phonemes.json",
+              "size": 634,
+              "sha256": "4c2e4f50744a88993cda3e7a8f208f5d0e9198995163a1cf5ea71258278b6a85",
+              "member": "TIFA-1.0-ST/assets/LstmG2p-Eng/phonemes.json"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/dictionaries/ds-zh-pinyin-lite.txt",
+              "size": 6494,
+              "sha256": "1d52f8c9c7821edf46bac484229c0695e93a37a9644c6ff6cfc5bc3b09a245ae",
+              "member": "TIFA-1.0-ST/dictionaries/ds-zh-pinyin-lite.txt"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/dictionaries/ds_cmudict-07b.txt",
+              "size": 3370331,
+              "sha256": "6604680f94ad57fcdbdc359d867e9f8d2267965f8793bcdbfbbc135c54c49903",
+              "member": "TIFA-1.0-ST/dictionaries/ds_cmudict-07b.txt"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/dictionaries/japanese_dict_full.txt",
+              "size": 1552,
+              "sha256": "96812fcac957d4d393f5ca2d605f04773824a71d1b51175f5b5eda10281298db",
+              "member": "TIFA-1.0-ST/dictionaries/japanese_dict_full.txt"
+            },
+            {
+              "path": "resources/tifa/TIFA-1.0-ST/dictionaries/jyutping_dict.txt",
+              "size": 6897,
+              "sha256": "21f6e62320b454a3fec292d227af14e2ba6ec81fe51f1894138227703975475a",
+              "member": "TIFA-1.0-ST/dictionaries/jyutping_dict.txt"
+            }
+          ]
+        }
+      ],
+      "generated": [
+        {
+          "path": "resources/tifa.lock.json",
+          "size": 2511,
+          "sha256": "c37c9fc87754c514ecd0733afef6dc63977097390523c83a215cd1f2cfc5b222",
+          "content": "{\n  \"model\": \"TIFA-1.0-ST\",\n  \"version\": \"v1.0.0\",\n  \"upstream_commit\": \"32a0a13aebce580844ad1dc281ea11ef1be94f14\",\n  \"source\": \"https://github.com/openvpi/TIFA/releases/tag/v1.0.0\",\n  \"license\": \"CC-BY-NC-SA-4.0 (model only)\",\n  \"model_sha256\": \"8d9bf896da1827f36bf135f80c7ab1fc4f3c1d48f328818b8402c9527c0f014b\",\n  \"frontend\": \"official japanese-mecab + full UniDic 2.3.0\",\n  \"frontend_source\": \"https://github.com/polm/unidic-py/releases/tag/v1.0.2\",\n  \"frontend_license\": \"BSD-3-Clause (selected from tri-license)\",\n  \"files\": {\n    \"tifa/TIFA-1.0-ST/config.yaml\": \"b4bdfd5c73ca3a01ff8675ca353c54d4c14eefa75a188eac9a22ab94e147f8ac\",\n    \"tifa/TIFA-1.0-ST/model.pt\": \"8d9bf896da1827f36bf135f80c7ab1fc4f3c1d48f328818b8402c9527c0f014b\",\n    \"tifa/TIFA-1.0-ST/vocabulary.json\": \"644c85ac28cfe4f26fcf60de5a6d1fe192c11a6a837746119ef2dbc6dac9246c\",\n    \"tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/char.json\": \"99db14a8dfeb313f7190b80098693c02d5b7530af282ef6fe81c4da0cd982138\",\n    \"tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/config.json\": \"72357a005ff51874041086583a2ad2537842b4b0635fe8e6df31d090d54bb77a\",\n    \"tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/decoder.onnx\": \"b5c7e48bd08b4b1d4e1449fdf37e6e07d468f3bea6b5ff6752d470e6f91b2f99\",\n    \"tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/encoder.onnx\": \"00c6475b6a4c28389f236ca9985157c9b59fe2eabddb4f44d562c999194d7645\",\n    \"tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/phonemes.json\": \"4c2e4f50744a88993cda3e7a8f208f5d0e9198995163a1cf5ea71258278b6a85\",\n    \"tifa/TIFA-1.0-ST/dictionaries/ds-zh-pinyin-lite.txt\": \"1d52f8c9c7821edf46bac484229c0695e93a37a9644c6ff6cfc5bc3b09a245ae\",\n    \"tifa/TIFA-1.0-ST/dictionaries/ds_cmudict-07b.txt\": \"6604680f94ad57fcdbdc359d867e9f8d2267965f8793bcdbfbbc135c54c49903\",\n    \"tifa/TIFA-1.0-ST/dictionaries/japanese_dict_full.txt\": \"96812fcac957d4d393f5ca2d605f04773824a71d1b51175f5b5eda10281298db\",\n    \"tifa/TIFA-1.0-ST/dictionaries/jyutping_dict.txt\": \"21f6e62320b454a3fec292d227af14e2ba6ec81fe51f1894138227703975475a\",\n    \"unidic/sys.dic\": \"fa908c06d53ff14846130f51de77fdb00a1d2f626daf49befacfb45206575144\",\n    \"unidic/unk.dic\": \"1b45eaea72504bc30bd289baea8f67f20fde4b4e04259a35f2ef2e9e459835c7\",\n    \"unidic/char.bin\": \"dd31396563d8924645b80fd3c9aa7b13ca089d7748f25553a1d6bc3f9b511ae8\",\n    \"unidic/matrix.bin\": \"d42b7fa7129da618479c2fa5c26d826a1014c8865a51c096d299adf66b3f71d2\",\n    \"unidic/mecabrc\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n    \"unidic/dicrc\": \"8a0b89f33348c64af4532aa8dc226f3d0df5ee0fac5da1a19ba4734621572a6e\"\n  }\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "unidic",
+      "name": "UniDic 日语词典",
+      "version": "2.3.0",
+      "required": true,
+      "description": "日语读音分析；维护者官方 GitHub。BSD 许可。",
+      "artifacts": [
+        {
+          "url": "https://github.com/polm/unidic-py/releases/download/v1.0.2/unidic.zip",
+          "cache": "unidic-2.3.0.zip",
+          "format": "zip",
+          "size": 608180035,
+          "files": [
+            {
+              "path": "resources/unidic/sys.dic",
+              "size": 241581206,
+              "sha256": "fa908c06d53ff14846130f51de77fdb00a1d2f626daf49befacfb45206575144",
+              "member": "sys.dic"
+            },
+            {
+              "path": "resources/unidic/unk.dic",
+              "size": 5475,
+              "sha256": "1b45eaea72504bc30bd289baea8f67f20fde4b4e04259a35f2ef2e9e459835c7",
+              "member": "unk.dic"
+            },
+            {
+              "path": "resources/unidic/char.bin",
+              "size": 262496,
+              "sha256": "dd31396563d8924645b80fd3c9aa7b13ca089d7748f25553a1d6bc3f9b511ae8",
+              "member": "char.bin"
+            },
+            {
+              "path": "resources/unidic/matrix.bin",
+              "size": 749606164,
+              "sha256": "d42b7fa7129da618479c2fa5c26d826a1014c8865a51c096d299adf66b3f71d2",
+              "member": "matrix.bin"
+            },
+            {
+              "path": "resources/unidic/dicrc",
+              "size": 1767,
+              "sha256": "8a0b89f33348c64af4532aa8dc226f3d0df5ee0fac5da1a19ba4734621572a6e",
+              "member": "dicrc"
+            }
+          ]
+        }
+      ],
+      "generated": [
+        {
+          "path": "resources/unidic/mecabrc",
+          "size": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "id": "whisper-small",
+      "name": "Whisper small 转写模型",
+      "version": "536b0662742c02347bc0e980a01041f333bce120",
+      "required": true,
+      "description": "日语与普通话转写；Systran 官方 Hugging Face，未在 GitHub 发布权重。MIT 许可。",
+      "artifacts": [
+        {
+          "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/config.json",
+          "cache": "whisper-small/config.json",
+          "format": "raw",
+          "size": 2370,
+          "sha256": "b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828",
+          "files": [
+            {
+              "path": "resources/engine/models/1ba55c9afea96500/config.json",
+              "size": 2370,
+              "sha256": "b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828"
+            }
+          ]
+        },
+        {
+          "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/model.bin",
+          "cache": "whisper-small/model.bin",
+          "format": "raw",
+          "size": 483546902,
+          "sha256": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671",
+          "files": [
+            {
+              "path": "resources/engine/models/1ba55c9afea96500/model.bin",
+              "size": 483546902,
+              "sha256": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671"
+            }
+          ]
+        },
+        {
+          "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json",
+          "cache": "whisper-small/tokenizer.json",
+          "format": "raw",
+          "size": 2203239,
+          "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+          "files": [
+            {
+              "path": "resources/engine/models/1ba55c9afea96500/tokenizer.json",
+              "size": 2203239,
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab"
+            }
+          ]
+        },
+        {
+          "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/vocabulary.txt",
+          "cache": "whisper-small/vocabulary.txt",
+          "format": "raw",
+          "size": 459861,
+          "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+          "files": [
+            {
+              "path": "resources/engine/models/1ba55c9afea96500/vocabulary.txt",
+              "size": 459861,
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913"
+            }
+          ]
+        }
+      ],
+      "generated": [
+        {
+          "path": "resources/engine/models.lock.json",
+          "size": 920,
+          "sha256": "3d6c3338fb3af66c334f34e3d9260ae3d78828a5000e653fce3636c4fd274df3",
+          "content": "{\n  \"schema_version\": 1,\n  \"models\": [\n    {\n      \"provider\": \"HuggingFace\",\n      \"model_id\": \"Systran/faster-whisper-small\",\n      \"revision\": \"536b0662742c02347bc0e980a01041f333bce120\",\n      \"sha256\": \"7d183970a47aff61e4778a3998f7c8ff4c964f89ad718bf2a9aa70d508031031\",\n      \"files\": {\n        \"config.json\": \"b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828\",\n        \"model.bin\": \"3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671\",\n        \"tokenizer.json\": \"fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab\",\n        \"vocabulary.txt\": \"34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913\"\n      },\n      \"license\": \"mit\",\n      \"source_url\": \"https://huggingface.co/Systran/faster-whisper-small\",\n      \"local_relative_path\": \"models/1ba55c9afea96500\",\n      \"required_sample_rate\": 16000,\n      \"device\": \"cpu\",\n      \"precision\": \"int8\"\n    }\n  ]\n}\n"
+        }
+      ]
+    }
+  ]
+}

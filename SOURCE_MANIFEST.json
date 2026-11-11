@@ -1,0 +1,670 @@
+{
+  "schema": 1,
+  "version": "0.1.0",
+  "source_baseline": "c673795d097050dcc82703f411b027607aa6c81b",
+  "code_license": "MIT",
+  "data_license": "CC-BY-SA-4.0",
+  "scope": "Source only; no development Git history, recordings, models or third-party runtimes",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 45,
+      "sha256": "67c8553872a8e7d08366c8ec66767ef13938ea04f749c3bcdbe050c664d340af"
+    },
+    {
+      "path": ".gitignore",
+      "size": 1178,
+      "sha256": "552860d28a43daa356f4b121054847bff7bb43185f1ad0a523501f0af47eafb1"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1082,
+      "sha256": "a6771bee65ef355dd3efa878576eb58c03a0dc81a13cd896d42a11bba36cffb0"
+    },
+    {
+      "path": "LICENSES/CC-BY-SA-4.0.txt",
+      "size": 18375,
+      "sha256": "cde7883b9050a1104f4ac19a1572aafd6e5d7323b68351aaf51fbf4beba54966"
+    },
+    {
+      "path": "LICENSES/OpenUtau-MIT.txt",
+      "size": 1074,
+      "sha256": "cdef6370f9e705c804fd1acbe1b1c65027c13186c466b51ccb0323d5607cc9c4"
+    },
+    {
+      "path": "LICENSES/README.md",
+      "size": 1369,
+      "sha256": "4cad467b92c89542ca2aded3964714de482d51123b3aa5830e3d8bdf14ab9949"
+    },
+    {
+      "path": "LICENSES/TIFA-MIT.txt",
+      "size": 1069,
+      "sha256": "515ecbf58c3f070e2bc8e95b0c3aa66a41431950ce31cd25d3e9abd49db28d0f"
+    },
+    {
+      "path": "LICENSES/sources.json",
+      "size": 859,
+      "sha256": "cf39be7e251f11bdd10ee9b8a0859c061a614aa3f312ff0cf80946b450800cf4"
+    },
+    {
+      "path": "README.md",
+      "size": 14414,
+      "sha256": "6f5b1ec44ae15326b3416e7fa0ccf752fc3003aa3dcc27750e3beb9542ad59fc"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 5358,
+      "sha256": "231b676ad9902962642aa53a7feef7c956b4155447063d1946935a3a35df1ae6"
+    },
+    {
+      "path": "docs/BUILDING.md",
+      "size": 8175,
+      "sha256": "6f9a76e63b407dd9ed44f1efa983397c9762209d5d5f920f6d33e6af4b6bff5c"
+    },
+    {
+      "path": "docs/DEPENDENCIES.md",
+      "size": 34446,
+      "sha256": "b0a33c7ebb9adfbb469418ab540d8ab95685f0e2c9d2536306bc62d3d3cd00fa"
+    },
+    {
+      "path": "docs/LICENSE_AUDIT.md",
+      "size": 3893,
+      "sha256": "6ccd2e1432ea941d265401e0cd2feee9f3db990a3107ec727015ddcdfcfd4c74"
+    },
+    {
+      "path": "docs/SOURCE_RELEASE.md",
+      "size": 1765,
+      "sha256": "e6d244f68a49b3cbef7be3feeb6ae03e3ae8d6ab6c4fe7a14ad9165d5bd01f86"
+    },
+    {
+      "path": "docs/UI_WORKFLOW_FORK.md",
+      "size": 4861,
+      "sha256": "f4c9b8882925ee68033513e86b1ee12a101e32ab6f1c0d7e0f42a668d64a091e"
+    },
+    {
+      "path": "docs/USAGE.md",
+      "size": 6451,
+      "sha256": "5bbad6503eee00acb08e650f5eb5fa1d61b2cac4895fc5e67919983e29a98e4b"
+    },
+    {
+      "path": "docs/dependency_inventory.json",
+      "size": 109650,
+      "sha256": "4ba8aa97ab2e70fb4c7ec4ce5be5be63be9a37db1310e6752dec0207592be604"
+    },
+    {
+      "path": "packaging/PORTABLE_QUICK_START.txt",
+      "size": 1992,
+      "sha256": "825cb1c61496a23cca9d7c1234e8723619bb06efa5738360c1add2e02a8dd685"
+    },
+    {
+      "path": "packaging/RELEASE_NOTICES.txt",
+      "size": 2162,
+      "sha256": "c008cfc2b35476d478ad63f5cb4a56ea76adc9a34b1568f8802a67c76c91a10f"
+    },
+    {
+      "path": "packaging/RELEASE_QUICK_START.txt",
+      "size": 2055,
+      "sha256": "1cf11a4cbac7fc89a8dba32bda0f26fe20acde4026ac4457b579a46197f9e47e"
+    },
+    {
+      "path": "packaging/audit_dependencies.py",
+      "size": 5827,
+      "sha256": "131fce874bc85ffb7cd7215eadf951c067914ec14db774539cb5a4594d15e068"
+    },
+    {
+      "path": "packaging/bootstrap_entry.py",
+      "size": 14675,
+      "sha256": "9f0100cbbde1b0c87287ce9e172f0b463231816ade333ee2c85c4b314f1787d0"
+    },
+    {
+      "path": "packaging/build_desktop.py",
+      "size": 4696,
+      "sha256": "7ee133b043654c67e15df33c9936102171d128f6d155682affff90ac57e72744"
+    },
+    {
+      "path": "packaging/build_portable.py",
+      "size": 8609,
+      "sha256": "ccd31e0abe1bd55786f0b1547c195ff78a59dae0ac76b7a21dfaa5341c6ab603"
+    },
+    {
+      "path": "packaging/build_shared_portable.py",
+      "size": 9483,
+      "sha256": "2dc6b0f28b1e249e0ed5ea6c53be3db7a1551f659e02739170855786734a0818"
+    },
+    {
+      "path": "packaging/build_single_exe.py",
+      "size": 14567,
+      "sha256": "f21ecbfcb8f7064e74b22d5211e859ccdbfb4ebdd6fffb60f31e951a19a4b15d"
+    },
+    {
+      "path": "packaging/create_shortcut.ps1",
+      "size": 544,
+      "sha256": "734306f2c8609e3c6b3b2f106103a3ae6c7fa47718e6307b410c4898d1a216c0"
+    },
+    {
+      "path": "packaging/desktop_entry.py",
+      "size": 246,
+      "sha256": "0a31bf7577382880dc8527f8a0d8545312f43e7ab61ad7057901b399e0d4daa5"
+    },
+    {
+      "path": "packaging/export_source.py",
+      "size": 6472,
+      "sha256": "7c0b716d42dd9687e54bba0324dbffe04a3ee241db316d3077a507f7bf7fa15e"
+    },
+    {
+      "path": "packaging/prepare_download_catalog.py",
+      "size": 4543,
+      "sha256": "7a05601a4a4a405207c2013abdadef43cb27cd7c4d7eedaa27b4863d0b238c6b"
+    },
+    {
+      "path": "packaging/prepare_runtime_catalog.py",
+      "size": 10849,
+      "sha256": "f6b7afda490b5f094b69ebe9448a79ddcf7daa52d64b94ca0b84f079207fdab0"
+    },
+    {
+      "path": "packaging/runtime_requirements.txt",
+      "size": 475,
+      "sha256": "a14232351c05a62287fed93abc62991df0a6f4f5ece8b9bdbe092e2b225e13f3"
+    },
+    {
+      "path": "packaging/source_release_manifest.json",
+      "size": 4930,
+      "sha256": "a2facbfe8c00d9eb10084d0db2aba629d0737415cdfbe5ea19bbca16db73bbad"
+    },
+    {
+      "path": "packaging/tifa_entry.py",
+      "size": 4570,
+      "sha256": "86571b9bb5324ed96f817438bdb4bbd57c7bedaa83359a03f0e1f76e684d5bc4"
+    },
+    {
+      "path": "pyproject.toml",
+      "size": 2225,
+      "sha256": "df727cac6e8d78797a5023cc5c7a682fef5c4ac6105781f726deb3dbd4f89814"
+    },
+    {
+      "path": "resources/alignment-default.json",
+      "size": 45,
+      "sha256": "e58709c4f8e8d9bf231abbe718b3da764ea6578b6545bc5d742ece5e743936ba"
+    },
+    {
+      "path": "resources/tifa.lock.json",
+      "size": 2511,
+      "sha256": "c37c9fc87754c514ecd0733afef6dc63977097390523c83a215cd1f2cfc5b222"
+    },
+    {
+      "path": "src/utau_forge/__init__.py",
+      "size": 80,
+      "sha256": "c8caa06a6cfc84cfe6a41cdf5b45cc73a6e8086151e3199c9139cb55b5027120"
+    },
+    {
+      "path": "src/utau_forge/align.py",
+      "size": 11613,
+      "sha256": "e8174e557aff7f2d564e347b3e57802d8b3175be170948da9ffe2c7020a2d7f3"
+    },
+    {
+      "path": "src/utau_forge/analyze.py",
+      "size": 11734,
+      "sha256": "2dacae1d450c7e4c6597cc26ba6e8049a3860d2570414e81c5d90c828d4ae582"
+    },
+    {
+      "path": "src/utau_forge/app.py",
+      "size": 118813,
+      "sha256": "201bacd35e95c330cf6e9132f866117a2d559c07bf9cd854cf380f7b35b8e8b4"
+    },
+    {
+      "path": "src/utau_forge/audio.py",
+      "size": 5065,
+      "sha256": "09dafed7256e216627ec01ccca7ceae0d70b8d13b80f2fb7790d47293792320e"
+    },
+    {
+      "path": "src/utau_forge/bank_aliases.py",
+      "size": 2387,
+      "sha256": "f87bf1ab2f9951c270ce972d48a367cd34515ca7605e38ea943830fb7b4b437c"
+    },
+    {
+      "path": "src/utau_forge/breaths.py",
+      "size": 1719,
+      "sha256": "53a18d793795f5b9e5157b1c2b2a3acbdd439895da9bb421d8446144214bc9ba"
+    },
+    {
+      "path": "src/utau_forge/build.py",
+      "size": 23450,
+      "sha256": "17b62a0ba5870b29eab718d78dc5a270be8a065040cf8c5dc5f2e04dbdc070a9"
+    },
+    {
+      "path": "src/utau_forge/cli.py",
+      "size": 14542,
+      "sha256": "3365a7d88beae3a900d528f8ae76d496da59285716af173ea8300d676991d724"
+    },
+    {
+      "path": "src/utau_forge/config.py",
+      "size": 4413,
+      "sha256": "26b7c88db6e63daefbaa6df499fb493a16cf432768b51e55be06b47a9fea4d13"
+    },
+    {
+      "path": "src/utau_forge/cross_language.py",
+      "size": 12355,
+      "sha256": "038cf786bca30a97632278033422bbd083c71a4acc90f8c914e3d145bdbe52b9"
+    },
+    {
+      "path": "src/utau_forge/custom_units.py",
+      "size": 1446,
+      "sha256": "9fd0677648049d70dbe150b97e4e92e5c3b61076777563a0d0d52accbee09997"
+    },
+    {
+      "path": "src/utau_forge/data/ja_cv_inventory.yaml",
+      "size": 1634,
+      "sha256": "676e5a57328c36522d2b0ff69f2e83367d5dbb579a8c886722b83b0b8ad23104"
+    },
+    {
+      "path": "src/utau_forge/data/mfa_ja_phone_map.yaml",
+      "size": 907,
+      "sha256": "15bd0b52603ae7a2cf3da42ce562ee506163c7a08a86eed549f7c3d52fd42802"
+    },
+    {
+      "path": "src/utau_forge/data/resource-catalog.json",
+      "size": 12944,
+      "sha256": "898ba93c37ec8fadaf0450e50b7ddf2aed1da091d70f25b0b552dc5a341acec1"
+    },
+    {
+      "path": "src/utau_forge/data/runtime-catalog.json",
+      "size": 4157893,
+      "sha256": "476f684e0f94aae01d7cfa1384b8a5a8358441e4038b6f799fab2ffdb2719cf3"
+    },
+    {
+      "path": "src/utau_forge/data/ui/voicebankgen.ico",
+      "size": 16683,
+      "sha256": "935583fb269491fb40646c8d71760b302722813cf23c2bba16e2bc439ad7c598"
+    },
+    {
+      "path": "src/utau_forge/data/ui/voicebankgen.png",
+      "size": 11430,
+      "sha256": "ba5f2a1fd905a43b4f23504deddd7857aa56bc538c72075c9a01393c37ea4fb7"
+    },
+    {
+      "path": "src/utau_forge/data/ui/voicebankgen.svg",
+      "size": 341,
+      "sha256": "d9ab496a8f16e2e7de6f0973f5e97e083a2e0568f4b16d5a26cf96c61707fac3"
+    },
+    {
+      "path": "src/utau_forge/data/zh_cv_inventory.json",
+      "size": 17665,
+      "sha256": "5ac8299c72e5195268a72ea4785849dea5401c9b66657f7b4126e7e439319ed8"
+    },
+    {
+      "path": "src/utau_forge/data/zh_cv_inventory.json.license",
+      "size": 365,
+      "sha256": "ff445c8c8b005b080babfe8be4cb4d55cd11d5149bffc8e5ee7ef3d611bcb9f6"
+    },
+    {
+      "path": "src/utau_forge/data/zh_inventory_LICENSE.txt",
+      "size": 1474,
+      "sha256": "b5ad769196e170951a8bf59963602d523ea616c63cf57dd3ac35b724c6a6a71c"
+    },
+    {
+      "path": "src/utau_forge/desktop_adopt.py",
+      "size": 4970,
+      "sha256": "45e845617976c41b9b07063f27d9b176eb9f233ce6c5c434fef1167a715cf938"
+    },
+    {
+      "path": "src/utau_forge/desktop_audio_import.py",
+      "size": 4460,
+      "sha256": "5705e15cd76e521afede31575eb1b7a7e50a73d0a0694b0613d0b020e70ab9cb"
+    },
+    {
+      "path": "src/utau_forge/desktop_engine.py",
+      "size": 11877,
+      "sha256": "5abf2a4cc83460b8a48a133f6c33de2ae8cecd615c5d570bd8a0e7dbca70b779"
+    },
+    {
+      "path": "src/utau_forge/desktop_import.py",
+      "size": 8429,
+      "sha256": "d4a4feae19905c31e466bd9cd82d111fe99cde2afb4a3778180bc4e1c99da450"
+    },
+    {
+      "path": "src/utau_forge/desktop_jobs.py",
+      "size": 5504,
+      "sha256": "b2dce65940e2603c208f5d9eadb2ce58e8fec89277805dd08eed9152d694a213"
+    },
+    {
+      "path": "src/utau_forge/desktop_render.py",
+      "size": 2270,
+      "sha256": "346795f43c65e6518478fea5b685dbec83ced7bf950770c6eae90d390ce8baf2"
+    },
+    {
+      "path": "src/utau_forge/desktop_service.py",
+      "size": 34810,
+      "sha256": "df10e912b765fd6984050bb2e437a0d5aa4ed501ed2bad939d53da3332bda6f7"
+    },
+    {
+      "path": "src/utau_forge/desktop_splice.py",
+      "size": 14735,
+      "sha256": "e1584c3b6d521878c12e0fa0a2567deecb612cc781bcd5be0b4fa1e3606111bb"
+    },
+    {
+      "path": "src/utau_forge/desktop_store.py",
+      "size": 51238,
+      "sha256": "81ef02b098c1b7950b48761fc4a01a45186a6137c1f4260e485321db3e175046"
+    },
+    {
+      "path": "src/utau_forge/desktop_sync.py",
+      "size": 16415,
+      "sha256": "089feb8e9bbb8dd40425a83496a5fad7dfebe63694adbeee6d45a042c863d2c5"
+    },
+    {
+      "path": "src/utau_forge/desktop_worker.py",
+      "size": 8495,
+      "sha256": "e52f97d6a4a8e91a05b9f4bbbaa120b1ce11da998461af6bd29b3369678c717e"
+    },
+    {
+      "path": "src/utau_forge/devices.py",
+      "size": 2255,
+      "sha256": "0d8298af453787ffa6af1f385c7ff48d734aff5ef8e3775daabe91b1c11f6caa"
+    },
+    {
+      "path": "src/utau_forge/evaluation.py",
+      "size": 11242,
+      "sha256": "be43a64a02581a5568b89f0c39296217a75e01a1c47ba93e4dd9d8508ae69be4"
+    },
+    {
+      "path": "src/utau_forge/issue_labels.py",
+      "size": 1383,
+      "sha256": "62fd4d91e45c28c6a8a2ed431844579ad1463d26440b2daa6630444e0e8f26e6"
+    },
+    {
+      "path": "src/utau_forge/languages/__init__.py",
+      "size": 576,
+      "sha256": "9ba11b40efae08e7095ebc5198ce0a9d533ee0a42944d28a8fe62efe79323934"
+    },
+    {
+      "path": "src/utau_forge/languages/base.py",
+      "size": 2618,
+      "sha256": "448d0e4b6c061cabebe59353022b7036dd8215dad9ce4d7658bb9b165ac621ea"
+    },
+    {
+      "path": "src/utau_forge/languages/ja.py",
+      "size": 6666,
+      "sha256": "30ec40d80b20909a2746e9066385b6a1c09cdf997397c41cd1c8989c92370a74"
+    },
+    {
+      "path": "src/utau_forge/languages/ja_cvvc.py",
+      "size": 4367,
+      "sha256": "95750b2a03cbf42c22dd4791c3269d05415f5e55806d7e38a0b29277eb34cee2"
+    },
+    {
+      "path": "src/utau_forge/languages/zh.py",
+      "size": 7717,
+      "sha256": "ec4e3176dda45a077dd49c8e336687e098d13121537dc8ec264104c11a3d0c08"
+    },
+    {
+      "path": "src/utau_forge/linked_sync.py",
+      "size": 2418,
+      "sha256": "15a7d2c8e625725d9107f053c98cdbc0b8e72de37031fd0dab05ca3db044c591"
+    },
+    {
+      "path": "src/utau_forge/model_lock.py",
+      "size": 3517,
+      "sha256": "381d4a8394dfabecf00036223bfd5969111c63a147dd551862d0e14648167bb8"
+    },
+    {
+      "path": "src/utau_forge/model_settings.py",
+      "size": 8181,
+      "sha256": "3de690b901d7bc3f4af36ea049ad5a33dc4d203a9d23109945adbeba7711d344"
+    },
+    {
+      "path": "src/utau_forge/model_settings_dialog.py",
+      "size": 4747,
+      "sha256": "a56f4854fc74e7500e75c0647a5382c84bed22fe0af75f9b9a9b547833ef521b"
+    },
+    {
+      "path": "src/utau_forge/models.py",
+      "size": 7057,
+      "sha256": "564ff5fe44e55c8dc55549e7462a6c6637726a6addb99bdb47de2313f91e956f"
+    },
+    {
+      "path": "src/utau_forge/oto.py",
+      "size": 2516,
+      "sha256": "42f978e49b494ddfe6fc5919c8bb0d9cb669062eaf03538d4e87b70b5b647e7f"
+    },
+    {
+      "path": "src/utau_forge/pipeline.py",
+      "size": 3738,
+      "sha256": "9150a485c3801bc4582ea61851eaf1c452aef07f1cce6d95583c153e6ebb8621"
+    },
+    {
+      "path": "src/utau_forge/project.py",
+      "size": 1683,
+      "sha256": "6b8d6d684df55fd9c56713eba22ba74970fded0313b1bb88d10b67b414da229a"
+    },
+    {
+      "path": "src/utau_forge/render.py",
+      "size": 5850,
+      "sha256": "2f2f22ad6b01eb6588a7ca23d23103ae06371aea5b10db541d1c55886a283312"
+    },
+    {
+      "path": "src/utau_forge/repair.py",
+      "size": 16433,
+      "sha256": "f12c09e9f3ba1a54bda097418f6224230bc3e81cee01f6edd773448b5360c1b6"
+    },
+    {
+      "path": "src/utau_forge/resource_download.py",
+      "size": 24577,
+      "sha256": "dc86cb31e382cd8e307f993a1462c8706f19bd97fff8cc60851f4907b8a851de"
+    },
+    {
+      "path": "src/utau_forge/resource_download_dialog.py",
+      "size": 11556,
+      "sha256": "7e65b6f3f26c5f45be8d401ddcc0d8179abcf43bb40e042b2e463b39ce6f32a4"
+    },
+    {
+      "path": "src/utau_forge/review.py",
+      "size": 24313,
+      "sha256": "bba35af3295cbd6449cba288a1efa9fc81d251456f137ba537ea5ee6cf806055"
+    },
+    {
+      "path": "src/utau_forge/segment.py",
+      "size": 4815,
+      "sha256": "d6be17a5e81782a362780ba37e2dbb07186e57ad102b52495f70328603c83523"
+    },
+    {
+      "path": "src/utau_forge/shared_banks.py",
+      "size": 4314,
+      "sha256": "20e6f4e4c4d56492ba0f2978232dab39fa21179d3abcc113a7c0f03777ec5b5b"
+    },
+    {
+      "path": "src/utau_forge/slices.py",
+      "size": 6757,
+      "sha256": "b3b98a8ad95ba05e9bd2bc02e10a4aa73737cdd4f28e043fa878d89f5195a7a5"
+    },
+    {
+      "path": "src/utau_forge/splice_workbench.py",
+      "size": 43241,
+      "sha256": "a901cebfe8b130b326e28521fc925f3cc695df358312f22fd17845545e83f903"
+    },
+    {
+      "path": "src/utau_forge/startup.py",
+      "size": 2631,
+      "sha256": "04d02ff36bc9935b5ac965be487f1f9e96b4fcb69c1a1bac907a6809962aef0e"
+    },
+    {
+      "path": "src/utau_forge/startup_window.py",
+      "size": 2133,
+      "sha256": "86d6cfcf65f60eb20353e2e21c15bececaf8d2dbec522f2a0f947823e0ad74e8"
+    },
+    {
+      "path": "src/utau_forge/storage.py",
+      "size": 2345,
+      "sha256": "9bdc48c3fefafa807b8850ecd9afe218efe538b554c335e72b0e866949b81864"
+    },
+    {
+      "path": "src/utau_forge/tifa_adapter.py",
+      "size": 11526,
+      "sha256": "59ccab7b9375ed636eaffa36255673235dd4515bd64b544ae2320c2282d106cf"
+    },
+    {
+      "path": "src/utau_forge/transcribe.py",
+      "size": 3809,
+      "sha256": "a6da59d7baa52d6abf1703caa440286964b73564ae1572d1f617ccbaafc2fc7a"
+    },
+    {
+      "path": "src/utau_forge/ui_theme.py",
+      "size": 5498,
+      "sha256": "b10c606e0871501b01bdc2ec54d4996664f94829e7179e33c11917cfbd659027"
+    },
+    {
+      "path": "src/utau_forge/vc_timing.py",
+      "size": 4600,
+      "sha256": "cff5bdebb96e8771b7ae39d833b0042c9d6f20f9bbf6161462691a42811206a6"
+    },
+    {
+      "path": "src/utau_forge/workflow_ui.py",
+      "size": 21289,
+      "sha256": "077393e7546b4ca50f9f03ca664e519975d3f67a4faeceb3f51c301d6e358da4"
+    },
+    {
+      "path": "tests/test_align_cache.py",
+      "size": 5769,
+      "sha256": "8dbd77f1ce8b94c787bad813f7f3976f5bf1722eabe94a74e1866a4d88f6f8df"
+    },
+    {
+      "path": "tests/test_analyze.py",
+      "size": 1000,
+      "sha256": "9b87eb3aaa21e525a5f726b7ae2616ac3886af1643e973aaaf1a3a376ad986c3"
+    },
+    {
+      "path": "tests/test_audio_segment.py",
+      "size": 1609,
+      "sha256": "df588e0d164f83f7cfb314425fe5d74e42e49e80dff7aaf2447414fb55659e59"
+    },
+    {
+      "path": "tests/test_bank_options.py",
+      "size": 16786,
+      "sha256": "fa3b1ec50a6917b384d56d563bddc1a369e952c8e0cabe525e4c2a7443c8af8b"
+    },
+    {
+      "path": "tests/test_build.py",
+      "size": 3473,
+      "sha256": "91e804e360ca0a634b3c54c7f744501f9a5df4af5798b5c75afb36adb27823a3"
+    },
+    {
+      "path": "tests/test_custom_audio.py",
+      "size": 7688,
+      "sha256": "81cf88bfa4aebc9396d964b8dd0c13c4251fc176e741b4ca9953310dd8f87b5c"
+    },
+    {
+      "path": "tests/test_desktop_jobs.py",
+      "size": 3280,
+      "sha256": "c5e9bebafaac5a07eb78045f9959bda71ce1aca4c7f3eb6cea04ecfdd1c9b371"
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "size": 5076,
+      "sha256": "551aedd600ce9b5fe6d91f638b1650fa47ebd7788f438ea75f0fffeae527cc78"
+    },
+    {
+      "path": "tests/test_force_oto.py",
+      "size": 9454,
+      "sha256": "7948fe9c0be1e09740d025421908305175159b262fa837791fff23b4fb143740"
+    },
+    {
+      "path": "tests/test_katakana_history.py",
+      "size": 4728,
+      "sha256": "f73c398258ec4af5e5f724deaf701011dd762bc07ba36d841d690ed052fcffc1"
+    },
+    {
+      "path": "tests/test_languages.py",
+      "size": 2659,
+      "sha256": "eb0dfeeae82f18a66bc0de6379fe8beffdef87601c805087d2038ca5bc3c8560"
+    },
+    {
+      "path": "tests/test_model_lock.py",
+      "size": 847,
+      "sha256": "6c0f10976a6362657ab738b412055d38c455d85fea2e795b5a4020432d072875"
+    },
+    {
+      "path": "tests/test_model_settings.py",
+      "size": 10206,
+      "sha256": "197bf472e558104b56cd4fb890d3d4469c26d99ff536b88bc193871f61c40b55"
+    },
+    {
+      "path": "tests/test_multilingual.py",
+      "size": 9696,
+      "sha256": "f93678017ea47d6beff01089173127e42661fbf55f865872513ea9226ae1fd0d"
+    },
+    {
+      "path": "tests/test_oto.py",
+      "size": 2171,
+      "sha256": "ded7682368c4c80e1684c7a758a0ec0a0374600b8a79f065eadc3aa575c3ccd7"
+    },
+    {
+      "path": "tests/test_packaging_source.py",
+      "size": 3043,
+      "sha256": "7152740d48d2ae3ddcb19610ec12ee3b59a2db2c473aca4a70337ef95615c951"
+    },
+    {
+      "path": "tests/test_recent_projects.py",
+      "size": 1233,
+      "sha256": "2d822e97cb8ca0537d1beb1103ad0eaa2ce5b1da1f9a767fc3a2197276ddd0d1"
+    },
+    {
+      "path": "tests/test_render_gate.py",
+      "size": 1280,
+      "sha256": "03b106930e489408a6adbca93045f80e8527e70e1a1f56e576567fae324dde91"
+    },
+    {
+      "path": "tests/test_repair.py",
+      "size": 5939,
+      "sha256": "73a8172ece0509e341afc300ea78adb1ba76b8306ee7272ba28d2d3fe3cabeb8"
+    },
+    {
+      "path": "tests/test_resource_download.py",
+      "size": 16288,
+      "sha256": "3c5367835140fe6351606bd3dae15eb5d4602027fbaea662a8cccc1e52c2d0fa"
+    },
+    {
+      "path": "tests/test_review.py",
+      "size": 3149,
+      "sha256": "3a2b4f1bb61e7a5e053333cd995b5159a258e78b12e0350be40d9c3a309b0b07"
+    },
+    {
+      "path": "tests/test_runtime_layout.py",
+      "size": 2255,
+      "sha256": "4692f2d7480f64e0ac70c1d96ce4fcbd60fc36af034bd6ef9c827590d9b40f60"
+    },
+    {
+      "path": "tests/test_shared_cv.py",
+      "size": 10590,
+      "sha256": "6813330e464bad9936122dd587bb0613d03af225c4689bdeff4537ab023cd5d9"
+    },
+    {
+      "path": "tests/test_slices.py",
+      "size": 7295,
+      "sha256": "039dad724e9ddd4498db3fee39eb8288de8d99d39d579a7ee2bd29c570fb7c9f"
+    },
+    {
+      "path": "tests/test_source_export.py",
+      "size": 3877,
+      "sha256": "4d5b413813bc821050ebe7500a3f44e3f1c1c12109c6504fa798b77a7dd7d635"
+    },
+    {
+      "path": "tests/test_startup.py",
+      "size": 1044,
+      "sha256": "c76bfdaa33b1e363b2c11c4acbc046351fd5f2185d7a476d693edef5130b5691"
+    },
+    {
+      "path": "tests/test_storage.py",
+      "size": 417,
+      "sha256": "6a8dc5c50d7bcde4f0ccc81e7416f9482c99ba8ee4385ffdff6809163d25d9a8"
+    },
+    {
+      "path": "tests/test_vc_timing.py",
+      "size": 9419,
+      "sha256": "54077a70c31d5b928fd6e6ad0c3e4f9f0dd6ba01de4afe1d87ec797129d4bd00"
+    },
+    {
+      "path": "uv.lock",
+      "size": 145449,
+      "sha256": "e31578b041110e8b8610b26afe6b1777caaabf043291d0fcb47948a7cf352c19"
+    }
+  ]
+}

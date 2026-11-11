@@ -1,0 +1,31 @@
+VoiceBankGen 第三方许可说明
+
+VoiceBankGen 自研程序与安装器采用 MIT，原文见 LICENSE。
+本发行包含第三方软件、词典和模型，它们各自适用独立许可。
+安装目录的 LICENSES 与 licenses 文件夹保留许可文本与来源说明。
+
+主要组件：
+- Qt / PySide6 6.8.3 / Shiboken：使用 LGPLv3 许可路径。
+  用户享有适用 LGPL 条款规定的修改、替换库及为调试修改所需的逆向工程权利。
+  程序采用可独立替换的 Qt DLL；保留其关联依赖并使用兼容构建替换。
+  对应源码来源见 licenses/RELEASE_SOURCE_REFERENCES.txt。
+- pyqtgraph、faster-whisper、CTranslate2、Silero VAD：MIT。
+- NumPy / SciPy：BSD 等；随 wheel 附带的原生库采用各自许可。
+- SoundFile：BSD；libsndfile、libsoxr 等原生库适用 LGPL 等许可。
+- PyTorch、Lightning、librosa、fugashi / MeCab：见各组件附带许可。
+- 可选 NVIDIA GPU 组件：PyTorch 2.6.0+cu124 及 CUDA 12.4 / cuDNN 运行库。
+  NVIDIA 库采用 NVIDIA 的独立条款，并非本项目 MIT；仅随本应用提供推理用途。
+  许可文本与来源见 licenses/GPU。安装器不提供或安装 NVIDIA 显卡驱动。
+- FFmpeg / ffprobe：本离线发行复用的固定构建为 GPLv3-or-later，
+  与独立进程交互；实际构建配置和许可见 licenses/FFmpeg-license-build.txt。
+- UniDic 2.3.0：选择 BSD 许可；版权属于 UniDic Consortium。
+- TIFA 上游代码：MIT，Copyright (c) 2026 Team OpenVPI。
+- TIFA-1.0-ST v1.0.0 模型：CC BY-NC-SA 4.0。
+  模型仅在符合署名、非商业和相同方式共享等许可条件时使用与分发。
+  上游说明此模型许可约束模型文件本身，不约束流经模型的数据。
+  该说明不授予第三方录音、角色素材或人物声音的权利。
+- Whisper small 转换模型：按固定 Systran 模型卡的 MIT 许可。
+- 普通话内置音节表：CC BY-SA 4.0，保留 CC-CEDICT / MDBG / CEDICT 署名；
+  改编说明与原始署名见 LICENSES/zh_inventory_LICENSE.txt。
+
+主程序和安装器的 MIT 不覆盖上述独立组件、模型、词典或音频输出的权利。

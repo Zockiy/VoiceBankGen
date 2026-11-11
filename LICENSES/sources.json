@@ -1,0 +1,21 @@
+[
+  {
+    "file": "TIFA-MIT.txt",
+    "source_url": "https://raw.githubusercontent.com/openvpi/TIFA/32a0a13aebce580844ad1dc281ea11ef1be94f14/LICENSE",
+    "sha256": "515ecbf58c3f070e2bc8e95b0c3aa66a41431950ce31cd25d3e9abd49db28d0f",
+    "verified_on": "2026-11-03"
+  },
+  {
+    "file": "OpenUtau-MIT.txt",
+    "source_url": "https://raw.githubusercontent.com/openutau/OpenUtau/master/LICENSE.txt",
+    "sha256": "cdef6370f9e705c804fd1acbe1b1c65027c13186c466b51ccb0323d5607cc9c4",
+    "verified_on": "2026-11-03"
+  },
+  {
+    "file": "CC-BY-SA-4.0.txt",
+    "source_url": "https://raw.githubusercontent.com/spdx/license-list-data/main/text/CC-BY-SA-4.0.txt",
+    "canonical_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+    "sha256": "cde7883b9050a1104f4ac19a1572aafd6e5d7323b68351aaf51fbf4beba54966",
+    "verified_on": "2026-11-03"
+  }
+]

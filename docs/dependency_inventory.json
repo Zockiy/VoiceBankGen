@@ -1,0 +1,3144 @@
+{
+  "audit_date": "2026-11-03",
+  "scope": "Declared locks; metadata is evidence, not a binary redistribution clearance. No dependency code or models are included.",
+  "packages": [
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/aiohappyeyeballs/2.7.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Python Software Foundation License"
+      ],
+      "license_metadata_excerpt": "PSF-2.0",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/aio-libs/aiohappyeyeballs/issues",
+        "Changelog": "https://github.com/aio-libs/aiohappyeyeballs/blob/main/CHANGELOG.md",
+        "Documentation": "https://aiohappyeyeballs.readthedocs.io",
+        "Repository": "https://github.com/aio-libs/aiohappyeyeballs"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.4",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/aiohttp/3.14.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0 AND MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "CI: GitHub Actions": "https://github.com/aio-libs/aiohttp/actions?query=workflow%3ACI",
+        "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/aiohttp",
+        "Docs: Changelog": "https://docs.aiohttp.org/en/stable/changes.html",
+        "Docs: RTD": "https://docs.aiohttp.org",
+        "GitHub: issues": "https://github.com/aio-libs/aiohttp/issues",
+        "GitHub: repo": "https://github.com/aio-libs/aiohttp",
+        "Homepage": "https://github.com/aio-libs/aiohttp"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/aiosignal/1.4.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache 2.0",
+      "project_urls": {
+        "CI: GitHub Actions": "https://github.com/aio-libs/aiosignal/actions",
+        "Chat: Gitter": "https://gitter.im/aio-libs/Lobby",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/aiosignal",
+        "Docs: RTD": "https://docs.aiosignal.org",
+        "GitHub: issues": "https://github.com/aio-libs/aiosignal/issues",
+        "GitHub: repo": "https://github.com/aio-libs/aiosignal",
+        "Homepage": "https://github.com/aio-libs/aiosignal"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "altgraph",
+      "version": "0.17.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/altgraph/0.17.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Documentation": "https://altgraph.readthedocs.io/en/latest/",
+        "Download": "http://pypi.python.org/pypi/altgraph",
+        "Homepage": "https://altgraph.readthedocs.io",
+        "Issue tracker": "https://github.com/ronaldoussoren/altgraph/issues",
+        "Repository": "https://github.com/ronaldoussoren/altgraph"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/annotated-doc/0.0.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/fastapi/annotated-doc/release-notes.md",
+        "Documentation": "https://github.com/fastapi/annotated-doc",
+        "Homepage": "https://github.com/fastapi/annotated-doc",
+        "Issues": "https://github.com/fastapi/annotated-doc/issues",
+        "Repository": "https://github.com/fastapi/annotated-doc"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "annotated-types",
+      "version": "0.8.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/annotated-types/0.8.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/annotated-types/annotated-types/releases",
+        "Homepage": "https://github.com/annotated-types/annotated-types",
+        "Source": "https://github.com/annotated-types/annotated-types"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "anyio",
+      "version": "4.15.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/anyio/4.15.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://anyio.readthedocs.io/en/stable/versionhistory.html",
+        "Documentation": "https://anyio.readthedocs.io/en/latest/",
+        "Issue tracker": "https://github.com/agronholm/anyio/issues",
+        "Source code": "https://github.com/agronholm/anyio"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/attrs/26.1.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://www.attrs.org/en/stable/changelog.html",
+        "Documentation": "https://www.attrs.org/",
+        "Funding": "https://github.com/sponsors/hynek",
+        "GitHub": "https://github.com/python-attrs/attrs",
+        "Tidelift": "https://tidelift.com/subscription/pkg/pypi-attrs?utm_source=pypi-attrs&utm_medium=pypi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "audioread",
+      "version": "3.1.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/audioread/3.1.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/beetbox/audioread/issues",
+        "Homepage": "https://github.com/beetbox/audioread",
+        "Repository": "https://github.com/beetbox/audioread"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "av",
+      "version": "18.1.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/av/18.1.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/PyAV-Org/PyAV/issues",
+        "Source Code": "https://github.com/PyAV-Org/PyAV",
+        "homepage": "https://pyav.basswood.io"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "brotli",
+      "version": "1.2.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/brotli/1.2.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/google/brotli"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/certifi/2026.7.22/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "license_metadata_excerpt": "MPL-2.0",
+      "project_urls": {
+        "Homepage": "https://github.com/certifi/python-certifi",
+        "Source": "https://github.com/certifi/python-certifi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cffi",
+      "version": "2.1.1",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cffi/2.1.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT-0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://cffi.readthedocs.io/en/latest/whatsnew.html",
+        "Contact": "https://groups.google.com/forum/#!forum/python-cffi",
+        "Documentation": "https://cffi.readthedocs.io/",
+        "Download": "https://github.com/python-cffi/cffi/releases",
+        "Issue Tracker": "https://github.com/python-cffi/cffi/issues",
+        "Source Code": "https://github.com/python-cffi/cffi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/charset-normalizer/3.5.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Changelog": "https://github.com/jawah/charset_normalizer/blob/master/CHANGELOG.md",
+        "Code": "https://github.com/jawah/charset_normalizer",
+        "Documentation": "https://charset-normalizer.readthedocs.io/",
+        "Issue tracker": "https://github.com/jawah/charset_normalizer/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "click",
+      "version": "8.5.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/click/8.5.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changes": "https://click.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://click.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/click/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cloudpickle",
+      "version": "3.1.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cloudpickle/3.1.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD-3-Clause",
+      "project_urls": {
+        "Homepage": "https://github.com/cloudpipe/cloudpickle"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/colorama/0.4.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/tartley/colorama"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "coloredlogs",
+      "version": "15.0.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/coloredlogs/15.0.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://coloredlogs.readthedocs.io"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "colorednoise",
+      "version": "2.2.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/colorednoise/2.2.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Download": "https://github.com/felixpatzelt/colorednoise/archive/2.2.0.tar.gz",
+        "Homepage": "http://github.com/felixpatzelt/colorednoise"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.3.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/contourpy/1.3.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD 3-Clause License\n         \n         Copyright (c) 2021-2025, ContourPy Developers.\n         All rights reserved.\n         \n         Redistribution and use in source and binary forms, with or without\n         modification, are permitted ",
+      "project_urls": {
+        "Changelog": "https://contourpy.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://contourpy.readthedocs.io",
+        "Homepage": "https://github.com/contourpy/contourpy",
+        "Repository": "https://github.com/contourpy/contourpy"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "ctranslate2",
+      "version": "4.8.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/ctranslate2/4.8.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Documentation": "https://opennmt.net/CTranslate2",
+        "Forum": "https://forum.opennmt.net",
+        "Gitter": "https://gitter.im/OpenNMT/CTranslate2",
+        "Homepage": "https://opennmt.net",
+        "Source": "https://github.com/OpenNMT/CTranslate2"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cuda-bindings",
+      "version": "13.4.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cuda-bindings/13.4.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://nvidia.github.io/cuda-python/",
+        "Repository": "https://github.com/NVIDIA/cuda-python"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cuda-pathfinder",
+      "version": "1.8.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cuda-pathfinder/1.8.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://nvidia.github.io/cuda-python/",
+        "Repository": "https://github.com/NVIDIA/cuda-python"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cuda-toolkit",
+      "version": "13.0.3.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cuda-toolkit/13.0.3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "documentation": "https://docs.nvidia.com/cuda/",
+        "homepage": "https://developer.nvidia.com/cuda-toolkit"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/cycler/0.12.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "Copyright (c) 2015, matplotlib project All rights reserved.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  * Redistributions of source code mu",
+      "project_urls": {
+        "homepage": "https://matplotlib.org/cycler/",
+        "repository": "https://github.com/matplotlib/cycler"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "decorator",
+      "version": "5.3.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/decorator/5.3.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "BSD-2-Clause",
+      "project_urls": {},
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "einops",
+      "version": "0.8.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/einops/0.8.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/arogozhnikov/einops"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "fastapi",
+      "version": "0.141.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/fastapi/0.141.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://fastapi.tiangolo.com/release-notes/",
+        "Documentation": "https://fastapi.tiangolo.com/",
+        "Homepage": "https://github.com/fastapi/fastapi",
+        "Issues": "https://github.com/fastapi/fastapi/issues",
+        "Repository": "https://github.com/fastapi/fastapi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "faster-whisper",
+      "version": "1.2.1",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/faster-whisper/1.2.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/SYSTRAN/faster-whisper"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.12",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/filelock/4.0.12/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://py-filelock.readthedocs.io",
+        "Homepage": "https://github.com/tox-dev/py-filelock",
+        "Source": "https://github.com/tox-dev/py-filelock",
+        "Tracker": "https://github.com/tox-dev/py-filelock/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.6",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/filelock/4.0.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://py-filelock.readthedocs.io",
+        "Homepage": "https://github.com/tox-dev/py-filelock",
+        "Source": "https://github.com/tox-dev/py-filelock",
+        "Tracker": "https://github.com/tox-dev/py-filelock/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "flatbuffers",
+      "version": "25.12.19",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/flatbuffers/25.12.19/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache 2.0",
+      "project_urls": {
+        "Documentation": "https://google.github.io/flatbuffers/",
+        "Homepage": "https://google.github.io/flatbuffers/",
+        "Source": "https://github.com/google/flatbuffers"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.66.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/fonttools/4.66.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "http://github.com/fonttools/fonttools"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/frozenlist/1.8.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "CI: Github Actions": "https://github.com/aio-libs/frozenlist/actions",
+        "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+        "Code of Conduct": "https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/frozenlist",
+        "Docs: Changelog": "https://github.com/aio-libs/frozenlist/blob/master/CHANGES.rst#changelog",
+        "Docs: RTD": "https://frozenlist.aio-libs.org",
+        "GitHub: issues": "https://github.com/aio-libs/frozenlist/issues",
+        "GitHub: repo": "https://github.com/aio-libs/frozenlist",
+        "Homepage": "https://github.com/aio-libs/frozenlist"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "fsspec",
+      "version": "2025.12.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/fsspec/2025.12.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://filesystem-spec.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://filesystem-spec.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/fsspec/filesystem_spec"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "fsspec",
+      "version": "2026.9.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/fsspec/2026.9.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://filesystem-spec.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://filesystem-spec.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/fsspec/filesystem_spec"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "fugashi",
+      "version": "1.4.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/fugashi/1.4.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/polm/fugashi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "gradio",
+      "version": "6.28.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/gradio/6.28.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/gradio-app/gradio"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "gradio-client",
+      "version": "2.7.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/gradio-client/2.7.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/gradio-app/gradio"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "groovy",
+      "version": "0.1.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/groovy/0.1.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "homepage": "https://github.com/gradio-app/groovy",
+        "repository": "https://github.com/gradio-app/groovy"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "h11",
+      "version": "0.16.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/h11/0.16.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/python-hyper/h11"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "h5py",
+      "version": "3.13.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/h5py/3.13.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD-3-Clause",
+      "project_urls": {
+        "Discussion forum": "https://forum.hdfgroup.org/c/hdf5/h5py",
+        "Documentation": "https://docs.h5py.org/en/stable/",
+        "Homepage": "https://www.h5py.org/",
+        "Release notes": "https://docs.h5py.org/en/stable/whatsnew/index.html",
+        "Source": "https://github.com/h5py/h5py"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "hf-gradio",
+      "version": "0.4.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/hf-gradio/0.4.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/gradio-app/hf-gradio#"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/hf-xet/1.6.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://huggingface.co/docs/hub/xet/index",
+        "Homepage": "https://github.com/huggingface/xet-core",
+        "Issues": "https://github.com/huggingface/xet-core/issues",
+        "Repository": "https://github.com/huggingface/xet-core.git"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "httpcore",
+      "version": "1.0.9",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/httpcore/1.0.9/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://www.encode.io/httpcore",
+        "Homepage": "https://www.encode.io/httpcore/",
+        "Source": "https://github.com/encode/httpcore"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "httpx",
+      "version": "0.28.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/httpx/0.28.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD-3-Clause",
+      "project_urls": {
+        "Changelog": "https://github.com/encode/httpx/blob/master/CHANGELOG.md",
+        "Documentation": "https://www.python-httpx.org",
+        "Homepage": "https://github.com/encode/httpx",
+        "Source": "https://github.com/encode/httpx"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "huggingface-hub",
+      "version": "1.33.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/huggingface-hub/1.33.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Homepage": "https://github.com/huggingface/huggingface_hub"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "humanfriendly",
+      "version": "10.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/humanfriendly/10.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://humanfriendly.readthedocs.io"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/idna/3.20/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/kjd/idna/blob/master/HISTORY.md",
+        "Issue tracker": "https://github.com/kjd/idna/issues",
+        "Source": "https://github.com/kjd/idna"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/iniconfig/2.3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/pytest-dev/iniconfig"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "jinja2",
+      "version": "3.1.6",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/jinja2/3.1.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changes": "https://jinja.palletsprojects.com/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://jinja.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/jinja/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "joblib",
+      "version": "1.6.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/joblib/1.6.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://joblib.readthedocs.io",
+        "Source": "https://github.com/joblib/joblib"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/kiwisolver/1.5.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "=========================\n         The Kiwi licensing terms\n        =========================\n        Kiwi is licensed under the terms of the Modified BSD License (also known as\n        New or Revised BSD), as follows:\n        \n        Copy",
+      "project_urls": {
+        "changelog": "https://github.com/nucleic/kiwi/blob/main/releasenotes.rst",
+        "documentation": "https://kiwisolver.readthedocs.io/en/latest/",
+        "homepage": "https://github.com/nucleic/kiwi",
+        "repository": "https://github.com/nucleic/kiwi"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "lazy-loader",
+      "version": "0.6",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/lazy-loader/0.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Home": "https://scientific-python.org/specs/spec-0001/",
+        "Source": "https://github.com/scientific-python/lazy-loader"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "librosa",
+      "version": "0.11.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/librosa/0.11.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: ISC License (ISCL)"
+      ],
+      "license_metadata_excerpt": "ISC",
+      "project_urls": {
+        "Discussion forum": "https://groups.google.com/g/librosa",
+        "Documentation": "https://librosa.org/doc",
+        "Download": "https://github.com/librosa/librosa/releases",
+        "Homepage": "https://librosa.org",
+        "Source": "https://github.com/librosa/librosa",
+        "Tracker": "https://github.com/librosa/librosa/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "lightning",
+      "version": "2.5.0.post0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/lightning/2.5.0.post0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/Lightning-AI/lightning/issues",
+        "Documentation": "https://lightning.ai/lightning-docs",
+        "Download": "https://github.com/Lightning-AI/lightning",
+        "Homepage": "https://github.com/Lightning-AI/lightning",
+        "Source Code": "https://github.com/Lightning-AI/lightning"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "lightning-utilities",
+      "version": "0.15.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/lightning-utilities/0.15.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/Lightning-AI/utilities/issues",
+        "Documentation": "https://dev-toolbox.rtfd.io/en/latest/",
+        "Download": "https://github.com/Lightning-AI/utilities",
+        "Homepage": "https://github.com/Lightning-AI/utilities",
+        "Source Code": "https://github.com/Lightning-AI/utilities"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "llvmlite",
+      "version": "0.44.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/llvmlite/0.44.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Homepage": "http://llvmlite.readthedocs.io",
+        "Source": "https://github.com/numba/llvmlite"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "loguru",
+      "version": "0.7.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/loguru/0.7.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/Delgan/loguru/blob/master/CHANGELOG.rst",
+        "Documentation": "https://loguru.readthedocs.io/en/stable/index.html",
+        "Homepage": "https://github.com/Delgan/loguru"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "macholib",
+      "version": "1.16.4",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/macholib/1.16.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Documentation": "https://macholib.readthedocs.io/en/latest/",
+        "Download": "http://pypi.python.org/pypi/macholib",
+        "Homepage": "http://github.com/ronaldoussoren/macholib",
+        "Issue tracker": "https://github.com/ronaldoussoren/macholib/issues",
+        "Repository": "https://github.com/ronaldoussoren/macholib"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/markdown-it-py/4.2.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://markdown-it-py.readthedocs.io",
+        "Homepage": "https://github.com/executablebooks/markdown-it-py"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/markupsafe/3.0.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changes": "https://markupsafe.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://markupsafe.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/markupsafe/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "markupsafe",
+      "version": "3.0.4",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/markupsafe/3.0.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changes": "https://markupsafe.palletsprojects.com/page/changes/",
+        "Chat": "https://discord.gg/pallets",
+        "Documentation": "https://markupsafe.palletsprojects.com/",
+        "Donate": "https://palletsprojects.com/donate",
+        "Source": "https://github.com/pallets/markupsafe/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/matplotlib/3.10.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Python Software Foundation License"
+      ],
+      "license_metadata_excerpt": "License agreement for matplotlib versions 1.3.0 and later =========================================================  1. This LICENSE AGREEMENT is between the Matplotlib Development Team (\"MDT\"), and the Individual or Organization (\"Licensee",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/matplotlib/matplotlib/issues",
+        "Documentation": "https://matplotlib.org",
+        "Donate": "https://numfocus.org/donate-to-matplotlib",
+        "Download": "https://matplotlib.org/stable/install/index.html",
+        "Forum": "https://discourse.matplotlib.org/",
+        "Homepage": "https://matplotlib.org",
+        "Source Code": "https://github.com/matplotlib/matplotlib"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "mdurl",
+      "version": "0.1.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/mdurl/0.1.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/executablebooks/mdurl"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.3.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/mpmath/1.3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Documentation": "http://mpmath.org/doc/current/",
+        "Homepage": "http://mpmath.org/",
+        "Source": "https://github.com/fredrik-johansson/mpmath",
+        "Tracker": "https://github.com/fredrik-johansson/mpmath/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/msgpack/1.2.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/msgpack/msgpack-python/blob/main/CHANGELOG.md",
+        "Documentation": "https://msgpack-python.readthedocs.io/",
+        "Homepage": "https://msgpack.org/",
+        "Repository": "https://github.com/msgpack/msgpack-python/",
+        "Tracker": "https://github.com/msgpack/msgpack-python/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "multidict",
+      "version": "6.9.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/multidict/6.9.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache License 2.0",
+      "project_urls": {
+        "CI: GitHub": "https://github.com/aio-libs/multidict/actions",
+        "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+        "Code of Conduct": "https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/multidict",
+        "Docs: Changelog": "https://multidict.aio-libs.org/en/latest/changes/",
+        "Docs: RTD": "https://multidict.aio-libs.org",
+        "GitHub: issues": "https://github.com/aio-libs/multidict/issues",
+        "GitHub: repo": "https://github.com/aio-libs/multidict",
+        "Homepage": "https://github.com/aio-libs/multidict"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "narwhals",
+      "version": "2.26.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/narwhals/2.26.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/narwhals-dev/narwhals/issues",
+        "Documentation": "https://narwhals-dev.github.io/narwhals/",
+        "Homepage": "https://github.com/narwhals-dev/narwhals",
+        "Repository": "https://github.com/narwhals-dev/narwhals"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "networkx",
+      "version": "3.6.1",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/networkx/3.6.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/networkx/networkx/issues",
+        "Documentation": "https://networkx.org/documentation/stable/",
+        "Homepage": "https://networkx.org/",
+        "Source Code": "https://github.com/networkx/networkx"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "numba",
+      "version": "0.61.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/numba/0.61.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Homepage": "https://numba.pydata.org"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/numpy/2.2.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "Copyright (c) 2005-2024, NumPy Developers.\n         All rights reserved.\n         \n         Redistribution and use in source and binary forms, with or without\n         modification, are permitted provided that the following conditions are\n ",
+      "project_urls": {
+        "documentation": "https://numpy.org/doc/",
+        "download": "https://pypi.org/project/numpy/#files",
+        "homepage": "https://numpy.org",
+        "release notes": "https://numpy.org/doc/stable/release",
+        "source": "https://github.com/numpy/numpy",
+        "tracker": "https://github.com/numpy/numpy/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "numpy",
+      "version": "2.4.6",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/numpy/2.4.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "documentation": "https://numpy.org/doc/",
+        "download": "https://pypi.org/project/numpy/#files",
+        "homepage": "https://numpy.org",
+        "release notes": "https://numpy.org/doc/stable/release",
+        "source": "https://github.com/numpy/numpy",
+        "tracker": "https://github.com/numpy/numpy/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cublas",
+      "version": "13.1.1.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cublas/13.1.1.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "LicenseRef-NVIDIA-Proprietary",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cuda-cupti",
+      "version": "13.0.85",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cuda-cupti/13.0.85/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cuda-nvrtc",
+      "version": "13.0.88",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cuda-nvrtc/13.0.88/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cuda-runtime",
+      "version": "13.0.96",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cuda-runtime/13.0.96/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cudnn-cu13",
+      "version": "9.24.0.43",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cudnn-cu13/9.24.0.43/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cufft",
+      "version": "12.0.0.61",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cufft/12.0.0.61/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cufile",
+      "version": "1.15.1.6",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cufile/1.15.1.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-curand",
+      "version": "10.4.0.35",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-curand/10.4.0.35/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cusolver",
+      "version": "12.0.4.66",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cusolver/12.0.4.66/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cusparse",
+      "version": "12.6.3.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cusparse/12.6.3.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LicenseRef-NVIDIA-Proprietary",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-cusparselt-cu13",
+      "version": "0.8.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-cusparselt-cu13/0.8.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "NVIDIA Proprietary Software",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cusparselt"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-nccl-cu13",
+      "version": "2.30.7",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-nccl-cu13/2.30.7/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-nvjitlink",
+      "version": "13.4.92",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-nvjitlink/13.4.92/json",
+      "vendored_in_source_release": false,
+      "license_expression": "LicenseRef-NVIDIA-Proprietary",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-nvshmem-cu13",
+      "version": "3.4.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-nvshmem-cu13/3.4.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "nvidia-nvtx",
+      "version": "13.0.85",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/nvidia-nvtx/13.0.85/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "Apache 2.0",
+      "project_urls": {
+        "Homepage": "https://developer.nvidia.com/cuda-zone"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "omegaconf",
+      "version": "2.3.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/omegaconf/2.3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/omry/omegaconf"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.22.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/onnxruntime/1.22.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT License",
+      "project_urls": {
+        "Download": "https://github.com/microsoft/onnxruntime/tags",
+        "Homepage": "https://onnxruntime.ai"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "onnxruntime",
+      "version": "1.30.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/onnxruntime/1.30.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT License",
+      "project_urls": {
+        "Download": "https://github.com/microsoft/onnxruntime/tags",
+        "Homepage": "https://onnxruntime.ai"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "orjson",
+      "version": "3.12.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/orjson/3.12.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MPL-2.0 AND (Apache-2.0 OR MIT)",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: MIT License",
+        "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "changelog": "https://github.com/ijl/orjson/blob/master/CHANGELOG.md",
+        "documentation": "https://github.com/ijl/orjson",
+        "source": "https://github.com/ijl/orjson"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "packaging",
+      "version": "24.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/packaging/24.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://packaging.pypa.io/",
+        "Source": "https://github.com/pypa/packaging"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/packaging/26.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0 OR BSD-2-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://packaging.pypa.io/",
+        "Source": "https://github.com/pypa/packaging"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pandas",
+      "version": "3.0.6",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pandas/3.0.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD 3-Clause License\n         \n         Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team\n         All rights reserved.\n         \n         Copyright (c) 2011-2026, Open source contributor",
+      "project_urls": {
+        "documentation": "https://pandas.pydata.org/docs/",
+        "homepage": "https://pandas.pydata.org",
+        "repository": "https://github.com/pandas-dev/pandas"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pefile",
+      "version": "2024.8.26",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pefile/2024.8.26/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Download": "https://github.com/erocarrera/pefile/releases/download/v2024.8.26/pefile-2024.8.26.tar.gz",
+        "Homepage": "https://github.com/erocarrera/pefile"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pillow/12.3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT-CMU",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/python-pillow/Pillow/releases",
+        "Documentation": "https://pillow.readthedocs.io",
+        "Funding": "https://tidelift.com/subscription/pkg/pypi-pillow?utm_source=pypi-pillow&utm_medium=pypi",
+        "Homepage": "https://python-pillow.github.io",
+        "Mastodon": "https://fosstodon.org/@pillow",
+        "Release notes": "https://pillow.readthedocs.io/en/stable/releasenotes/index.html",
+        "Source": "https://github.com/python-pillow/Pillow"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.12.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/platformdirs/4.12.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://platformdirs.readthedocs.io/en/latest/changelog.html",
+        "Documentation": "https://platformdirs.readthedocs.io",
+        "Homepage": "https://github.com/tox-dev/platformdirs",
+        "Source": "https://github.com/tox-dev/platformdirs",
+        "Tracker": "https://github.com/tox-dev/platformdirs/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "plotly",
+      "version": "6.9.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/plotly/6.9.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/plotly/plotly.py/blob/main/CHANGELOG.md",
+        "Documentation": "https://plotly.com/python/",
+        "GitHub": "https://github.com/plotly/plotly.py",
+        "Homepage": "https://plotly.com/python/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pluggy/1.6.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {},
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pooch",
+      "version": "1.9.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pooch/1.9.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/fatiando/pooch/issues",
+        "Changelog": "https://www.fatiando.org/pooch/latest/changes.html",
+        "Documentation": "https://www.fatiando.org/pooch",
+        "Source Code": "https://github.com/fatiando/pooch"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/propcache/0.5.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "CI: GitHub Workflows": "https://github.com/aio-libs/propcache/actions?query=branch:master",
+        "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+        "Code of Conduct": "https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/propcache",
+        "Docs: Changelog": "https://propcache.readthedocs.io/en/latest/changes/",
+        "Docs: RTD": "https://propcache.readthedocs.io",
+        "GitHub: issues": "https://github.com/aio-libs/propcache/issues",
+        "GitHub: repo": "https://github.com/aio-libs/propcache",
+        "Homepage": "https://github.com/aio-libs/propcache"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "protobuf",
+      "version": "7.36.2",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/protobuf/7.36.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "3-Clause BSD License",
+      "project_urls": {
+        "Homepage": "https://developers.google.com/protocol-buffers/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pycparser",
+      "version": "3.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pycparser/3.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/eliben/pycparser"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.11.7",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pydantic/2.11.7/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://docs.pydantic.dev/latest/changelog/",
+        "Documentation": "https://docs.pydantic.dev",
+        "Funding": "https://github.com/sponsors/samuelcolvin",
+        "Homepage": "https://github.com/pydantic/pydantic",
+        "Source": "https://github.com/pydantic/pydantic"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pydantic",
+      "version": "2.13.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pydantic/2.13.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://docs.pydantic.dev/latest/changelog/",
+        "Documentation": "https://docs.pydantic.dev",
+        "Funding": "https://github.com/sponsors/samuelcolvin",
+        "Homepage": "https://github.com/pydantic/pydantic",
+        "Source": "https://github.com/pydantic/pydantic"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.33.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pydantic-core/2.33.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Funding": "https://github.com/sponsors/samuelcolvin",
+        "Homepage": "https://github.com/pydantic/pydantic-core",
+        "Source": "https://github.com/pydantic/pydantic-core"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pydantic-core",
+      "version": "2.46.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pydantic-core/2.46.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Funding": "https://github.com/sponsors/samuelcolvin",
+        "Homepage": "https://github.com/pydantic",
+        "Source": "https://github.com/pydantic/pydantic/tree/main/pydantic-core"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pydub",
+      "version": "0.25.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pydub/0.25.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "http://pydub.com"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pygments",
+      "version": "2.21.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pygments/2.21.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-2-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/pygments/pygments/issues",
+        "Changelog": "https://github.com/pygments/pygments/blob/master/CHANGES",
+        "Documentation": "https://pygments.org/docs",
+        "Homepage": "https://pygments.org",
+        "Source": "https://github.com/pygments/pygments"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyinstaller",
+      "version": "6.22.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyinstaller/6.22.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
+      ],
+      "license_metadata_excerpt": "GPLv2-or-later with a special exception which allows to use PyInstaller to build and distribute non-free programs (including commercial ones)",
+      "project_urls": {
+        "Documentation": "https://pyinstaller.org",
+        "Homepage": "https://pyinstaller.org",
+        "Release Notes": "https://pyinstaller.org/en/stable/CHANGES.html",
+        "Source Code": "https://github.com/pyinstaller/pyinstaller"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyinstaller-hooks-contrib",
+      "version": "2026.7",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyinstaller-hooks-contrib/2026.7/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Download": "https://pypi.org/project/pyinstaller-hooks-contrib",
+        "Homepage": "https://github.com/pyinstaller/pyinstaller-hooks-contrib"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyparsing/3.3.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://pyparsing-docs.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/pyparsing/pyparsing/",
+        "Source": "https://github.com/pyparsing/pyparsing.git"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyqtgraph",
+      "version": "0.14.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyqtgraph/0.14.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Documentation": "https://pyqtgraph.readthedocs.io",
+        "Homepage": "http://www.pyqtgraph.org",
+        "Source": "https://github.com/pyqtgraph/pyqtgraph"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyreadline3",
+      "version": "3.5.6",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyreadline3/3.5.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Changelog": "https://github.com/pyreadline3/pyreadline3/blob/master/doc/ChangeLog",
+        "Documentation": "https://github.com/pyreadline3/pyreadline3",
+        "Homepage": "https://github.com/pyreadline3/pyreadline3",
+        "Issues": "https://github.com/pyreadline3/pyreadline3/issues",
+        "Repository": "https://github.com/pyreadline3/pyreadline3.git"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyside6",
+      "version": "6.8.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyside6/6.8.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "project_urls": {
+        "Changelog": "https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Documentation": "https://doc.qt.io/qtforpython",
+        "Homepage": "https://pyside.org",
+        "Repository": "https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Tracker": "https://bugreports.qt.io/projects/PYSIDE"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyside6-addons",
+      "version": "6.8.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyside6-addons/6.8.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "project_urls": {
+        "Changelog": "https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Documentation": "https://doc.qt.io/qtforpython",
+        "Homepage": "https://pyside.org",
+        "Repository": "https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Tracker": "https://bugreports.qt.io/projects/PYSIDE"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyside6-essentials",
+      "version": "6.8.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyside6-essentials/6.8.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "project_urls": {
+        "Changelog": "https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Documentation": "https://doc.qt.io/qtforpython",
+        "Homepage": "https://pyside.org",
+        "Repository": "https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Tracker": "https://bugreports.qt.io/projects/PYSIDE"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pytest/9.1.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://docs.pytest.org/en/stable/changelog.html",
+        "Contact": "https://docs.pytest.org/en/stable/contact.html",
+        "Funding": "https://docs.pytest.org/en/stable/sponsor.html",
+        "Homepage": "https://docs.pytest.org/en/latest/",
+        "Source": "https://github.com/pytest-dev/pytest",
+        "Tracker": "https://github.com/pytest-dev/pytest/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "2.9.0.post0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/python-dateutil/2.9.0.post0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License",
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "Dual License",
+      "project_urls": {
+        "Documentation": "https://dateutil.readthedocs.io/en/stable/",
+        "Homepage": "https://github.com/dateutil/dateutil",
+        "Source": "https://github.com/dateutil/dateutil"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "python-multipart",
+      "version": "0.0.32",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/python-multipart/0.0.32/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0",
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/Kludex/python-multipart/blob/master/CHANGELOG.md",
+        "Documentation": "https://kludex.github.io/python-multipart/",
+        "Homepage": "https://github.com/Kludex/python-multipart",
+        "Source": "https://github.com/Kludex/python-multipart"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pytorch-lightning",
+      "version": "2.6.6",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pytorch-lightning/2.6.6/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/Lightning-AI/pytorch-lightning/issues",
+        "Documentation": "https://pytorch-lightning.rtfd.io/en/latest/",
+        "Download": "https://github.com/Lightning-AI/lightning",
+        "Homepage": "https://github.com/Lightning-AI/lightning",
+        "Source Code": "https://github.com/Lightning-AI/lightning"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pytz",
+      "version": "2026.4",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pytz/2026.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Download": "https://pypi.org/project/pytz/",
+        "Homepage": "http://pythonhosted.org/pytz",
+        "Issues": "https://github.com/stub42/pytz/issues",
+        "Source": "https://github.com/stub42/pytz.git"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pywin32-ctypes",
+      "version": "0.2.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pywin32-ctypes/0.2.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "BSD-3-Clause",
+      "project_urls": {
+        "Homepage": "https://github.com/enthought/pywin32-ctypes"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyworld",
+      "version": "0.3.5",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyworld/0.3.5/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/JeremyCCHsu/Python-Wrapper-for-World-Vocoder"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "pyyaml",
+      "version": "6.0.3",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/pyyaml/6.0.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/yaml/pyyaml/issues",
+        "CI": "https://github.com/yaml/pyyaml/actions",
+        "Documentation": "https://pyyaml.org/wiki/PyYAMLDocumentation",
+        "Download": "https://pypi.org/project/PyYAML/",
+        "Homepage": "https://pyyaml.org/",
+        "Mailing lists": "http://lists.sourceforge.net/lists/listinfo/yaml-core",
+        "Source Code": "https://github.com/yaml/pyyaml"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/requests/2.34.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Documentation": "https://requests.readthedocs.io",
+        "Source": "https://github.com/psf/requests"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "resampy",
+      "version": "0.4.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/resampy/0.4.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: ISC License (ISCL)"
+      ],
+      "license_metadata_excerpt": "ISC",
+      "project_urls": {
+        "Download": "https://github.com/bmcfee/resampy/releases",
+        "Homepage": "https://github.com/bmcfee/resampy"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "rich",
+      "version": "15.0.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/rich/15.0.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Documentation": "https://rich.readthedocs.io/en/latest/",
+        "Homepage": "https://github.com/Textualize/rich"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "safehttpx",
+      "version": "0.1.7",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/safehttpx/0.1.7/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "homepage": "https://github.com/gradio-app/safehttpx",
+        "repository": "https://github.com/gradio-app/safehttpx"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/scikit-learn/1.9.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "download": "https://pypi.org/project/scikit-learn/#files",
+        "homepage": "https://scikit-learn.org",
+        "release notes": "https://scikit-learn.org/stable/whats_new",
+        "source": "https://github.com/scikit-learn/scikit-learn",
+        "tracker": "https://github.com/scikit-learn/scikit-learn/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/scipy/1.15.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "Copyright (c) 2001-2002 Enthought, Inc. 2003-2024, SciPy Developers. All rights reserved.  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:  1. Re",
+      "project_urls": {
+        "documentation": "https://docs.scipy.org/doc/scipy/",
+        "download": "https://github.com/scipy/scipy/releases",
+        "homepage": "https://scipy.org/",
+        "source": "https://github.com/scipy/scipy",
+        "tracker": "https://github.com/scipy/scipy/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "scipy",
+      "version": "1.17.1",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/scipy/1.17.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.\n         All rights reserved.\n         \n         Redistribution and use in source and binary forms, with or without\n         modification, are permitted provided that the follo",
+      "project_urls": {
+        "documentation": "https://docs.scipy.org/doc/scipy/",
+        "download": "https://github.com/scipy/scipy/releases",
+        "homepage": "https://scipy.org/",
+        "source": "https://github.com/scipy/scipy",
+        "tracker": "https://github.com/scipy/scipy/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "semantic-version",
+      "version": "2.10.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/semantic-version/2.10.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Homepage": "https://github.com/rbarrois/python-semanticversion"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.0.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/setuptools/84.0.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://setuptools.pypa.io/en/stable/history.html",
+        "Documentation": "https://setuptools.pypa.io/",
+        "Source": "https://github.com/pypa/setuptools"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "shellingham",
+      "version": "1.5.4",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/shellingham/1.5.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: ISC License (ISCL)"
+      ],
+      "license_metadata_excerpt": "ISC License",
+      "project_urls": {
+        "Homepage": "https://github.com/sarugaku/shellingham"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "shiboken6",
+      "version": "6.8.3",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/shiboken6/6.8.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
+        "License :: Other/Proprietary License"
+      ],
+      "license_metadata_excerpt": "LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only",
+      "project_urls": {
+        "Changelog": "https://code.qt.io/cgit/pyside/pyside-setup.git/tree/doc/changelogs",
+        "Documentation": "https://doc.qt.io/qtforpython",
+        "Homepage": "https://pyside.org",
+        "Repository": "https://code.qt.io/cgit/pyside/pyside-setup.git/",
+        "Tracker": "https://bugreports.qt.io/projects/PYSIDE"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "silero-vad",
+      "version": "6.2.3",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/silero-vad/6.2.3/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/snakers4/silero-vad",
+        "Issues": "https://github.com/snakers4/silero-vad/issues"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "six",
+      "version": "1.17.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/six/1.17.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/benjaminp/six"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "soundfile",
+      "version": "0.14.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/soundfile/0.14.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD 3-Clause License",
+      "project_urls": {
+        "Homepage": "https://github.com/bastibe/python-soundfile"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "soxr",
+      "version": "1.1.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/soxr/1.1.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "LGPL-2.1-or-later",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/dofuuz/python-soxr/issues",
+        "Documentation": "https://python-soxr.readthedocs.io",
+        "Homepage": "https://github.com/dofuuz/python-soxr",
+        "Release Notes": "https://github.com/dofuuz/python-soxr/releases",
+        "Source": "https://github.com/dofuuz/python-soxr"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "starlette",
+      "version": "1.7.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/starlette/1.7.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://starlette.dev/release-notes/",
+        "Documentation": "https://starlette.dev/",
+        "Funding": "https://github.com/sponsors/Kludex",
+        "Homepage": "https://github.com/Kludex/starlette",
+        "Source": "https://github.com/Kludex/starlette"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "sympy",
+      "version": "1.13.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/sympy/1.13.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Homepage": "https://sympy.org",
+        "Source": "https://github.com/sympy/sympy"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/sympy/1.14.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: BSD License"
+      ],
+      "license_metadata_excerpt": "BSD",
+      "project_urls": {
+        "Homepage": "https://sympy.org",
+        "Source": "https://github.com/sympy/sympy"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "threadpoolctl",
+      "version": "3.7.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/threadpoolctl/3.7.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "homepage": "https://github.com/joblib/threadpoolctl"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "tokenizers",
+      "version": "0.23.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/tokenizers/0.23.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Homepage": "https://github.com/huggingface/tokenizers",
+        "Source": "https://github.com/huggingface/tokenizers"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "tomlkit",
+      "version": "0.14.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/tomlkit/0.14.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/sdispater/tomlkit",
+        "Repository": "https://github.com/sdispater/tomlkit"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "torch",
+      "version": "2.14.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/torch/2.14.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "Apache-2.0 AND Apache-2.0 WITH LLVM-exception AND BSD-2-Clause AND BSD-3-Clause AND BSL-1.0 AND MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Documentation": "https://pytorch.org/docs",
+        "Forum": "https://discuss.pytorch.org",
+        "Homepage": "https://pytorch.org",
+        "Issue Tracker": "https://github.com/pytorch/pytorch/issues",
+        "Repository": "https://github.com/pytorch/pytorch"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "torch",
+      "version": "2.6.0+cpu",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/torch/2.6.0+cpu/json",
+      "vendored_in_source_release": false,
+      "metadata_status": "upstream-source-license-only",
+      "source_license_url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.6.0/LICENSE",
+      "license_metadata_excerpt": "From PyTorch:\n\nCopyright (c) 2016-     Facebook, Inc            (Adam Paszke)\nCopyright (c) 2014-     Facebook, Inc            (Soumith Chintala)\nCopyright (c) 2011-2014 Idiap Research Institute (Ronan Collobert)\nCopyright (c) 2012-2014 Dee",
+      "note": "Fixed base-release source license checked. The +cpu wheel and bundled native notices still require a binary-specific audit."
+    },
+    {
+      "name": "torchmetrics",
+      "version": "1.7.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/torchmetrics/1.7.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: Apache Software License"
+      ],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/Lightning-AI/torchmetrics/issues",
+        "Documentation": "https://torchmetrics.rtfd.io/en/latest/",
+        "Download": "https://github.com/Lightning-AI/torchmetrics/archive/master.zip",
+        "Homepage": "https://github.com/Lightning-AI/torchmetrics",
+        "Source Code": "https://github.com/Lightning-AI/torchmetrics"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/tqdm/4.70.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MPL-2.0 AND MIT",
+      "project_urls": {
+        "changelog": "https://tqdm.github.io/releases",
+        "homepage": "https://tqdm.github.io",
+        "repository": "https://github.com/tqdm/tqdm",
+        "wiki": "https://github.com/tqdm/tqdm/wiki"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "triton",
+      "version": "3.8.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/triton/3.8.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://github.com/triton-lang/triton/"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "typer",
+      "version": "0.27.2",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/typer/0.27.2/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://typer.tiangolo.com/release-notes/",
+        "Documentation": "https://typer.tiangolo.com",
+        "Homepage": "https://github.com/fastapi/typer",
+        "Issues": "https://github.com/fastapi/typer/issues",
+        "Repository": "https://github.com/fastapi/typer"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "typing-extensions",
+      "version": "4.16.0",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/typing-extensions/4.16.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "PSF-2.0",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Bug Tracker": "https://github.com/python/typing_extensions/issues",
+        "Changes": "https://github.com/python/typing_extensions/blob/main/CHANGELOG.md",
+        "Documentation": "https://typing-extensions.readthedocs.io/",
+        "Home": "https://github.com/python/typing_extensions",
+        "Q & A": "https://github.com/python/typing/discussions",
+        "Repository": "https://github.com/python/typing_extensions"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "typing-inspection",
+      "version": "0.4.4",
+      "declared_in": [
+        "runtime-catalog",
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/typing-inspection/0.4.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/pydantic/typing-inspection/blob/main/HISTORY.md",
+        "Documentation": "https://pydantic.github.io/typing-inspection/dev/",
+        "Homepage": "https://github.com/pydantic/typing-inspection",
+        "Source": "https://github.com/pydantic/typing-inspection"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.4",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/tzdata/2026.4/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "Bug Reports": "https://github.com/python/tzdata/issues",
+        "Documentation": "https://tzdata.python.org",
+        "Homepage": "https://github.com/python/tzdata",
+        "Source": "https://github.com/python/tzdata"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/urllib3/2.8.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "MIT",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://github.com/urllib3/urllib3/blob/main/CHANGES.rst",
+        "Code": "https://github.com/urllib3/urllib3",
+        "Documentation": "https://urllib3.readthedocs.io",
+        "Issue tracker": "https://github.com/urllib3/urllib3/issues",
+        "Security policy": "https://urllib3.readthedocs.io/en/latest/security.html"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "uvicorn",
+      "version": "0.54.0",
+      "declared_in": [
+        "uv.lock"
+      ],
+      "metadata_url": "https://pypi.org/pypi/uvicorn/0.54.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": "BSD-3-Clause",
+      "license_classifiers": [],
+      "license_metadata_excerpt": "",
+      "project_urls": {
+        "Changelog": "https://uvicorn.dev/release-notes",
+        "Funding": "https://github.com/sponsors/Kludex",
+        "Homepage": "https://uvicorn.dev/",
+        "Source": "https://github.com/Kludex/uvicorn"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "wasabi",
+      "version": "0.10.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/wasabi/0.10.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "MIT",
+      "project_urls": {
+        "Homepage": "https://ines.io"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "win32-setctime",
+      "version": "1.2.0",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/win32-setctime/1.2.0/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [
+        "License :: OSI Approved :: MIT License"
+      ],
+      "license_metadata_excerpt": "MIT license",
+      "project_urls": {
+        "Download": "https://github.com/Delgan/win32-setctime/archive/1.2.0.tar.gz",
+        "Homepage": "https://github.com/Delgan/win32-setctime"
+      },
+      "metadata_status": "retrieved"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "declared_in": [
+        "runtime-catalog"
+      ],
+      "metadata_url": "https://pypi.org/pypi/yarl/1.25.1/json",
+      "vendored_in_source_release": false,
+      "license_expression": null,
+      "license_classifiers": [],
+      "license_metadata_excerpt": "Apache-2.0",
+      "project_urls": {
+        "CI: GitHub Workflows": "https://github.com/aio-libs/yarl/actions?query=branch:master",
+        "Chat: Matrix": "https://matrix.to/#/#aio-libs:matrix.org",
+        "Chat: Matrix Space": "https://matrix.to/#/#aio-libs-space:matrix.org",
+        "Code of Conduct": "https://github.com/aio-libs/.github/blob/master/CODE_OF_CONDUCT.md",
+        "Coverage: codecov": "https://codecov.io/github/aio-libs/yarl",
+        "Docs: Changelog": "https://yarl.aio-libs.org/en/latest/changes/",
+        "Docs: RTD": "https://yarl.aio-libs.org",
+        "GitHub: issues": "https://github.com/aio-libs/yarl/issues",
+        "GitHub: repo": "https://github.com/aio-libs/yarl",
+        "Homepage": "https://github.com/aio-libs/yarl"
+      },
+      "metadata_status": "retrieved"
+    }
+  ]
+}

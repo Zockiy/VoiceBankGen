@@ -1,0 +1,31 @@
+{
+  "model": "TIFA-1.0-ST",
+  "version": "v1.0.0",
+  "upstream_commit": "32a0a13aebce580844ad1dc281ea11ef1be94f14",
+  "source": "https://github.com/openvpi/TIFA/releases/tag/v1.0.0",
+  "license": "CC-BY-NC-SA-4.0 (model only)",
+  "model_sha256": "8d9bf896da1827f36bf135f80c7ab1fc4f3c1d48f328818b8402c9527c0f014b",
+  "frontend": "official japanese-mecab + full UniDic 2.3.0",
+  "frontend_source": "https://github.com/polm/unidic-py/releases/tag/v1.0.2",
+  "frontend_license": "BSD-3-Clause (selected from tri-license)",
+  "files": {
+    "tifa/TIFA-1.0-ST/config.yaml": "b4bdfd5c73ca3a01ff8675ca353c54d4c14eefa75a188eac9a22ab94e147f8ac",
+    "tifa/TIFA-1.0-ST/model.pt": "8d9bf896da1827f36bf135f80c7ab1fc4f3c1d48f328818b8402c9527c0f014b",
+    "tifa/TIFA-1.0-ST/vocabulary.json": "644c85ac28cfe4f26fcf60de5a6d1fe192c11a6a837746119ef2dbc6dac9246c",
+    "tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/char.json": "99db14a8dfeb313f7190b80098693c02d5b7530af282ef6fe81c4da0cd982138",
+    "tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/config.json": "72357a005ff51874041086583a2ad2537842b4b0635fe8e6df31d090d54bb77a",
+    "tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/decoder.onnx": "b5c7e48bd08b4b1d4e1449fdf37e6e07d468f3bea6b5ff6752d470e6f91b2f99",
+    "tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/encoder.onnx": "00c6475b6a4c28389f236ca9985157c9b59fe2eabddb4f44d562c999194d7645",
+    "tifa/TIFA-1.0-ST/assets/LstmG2p-Eng/phonemes.json": "4c2e4f50744a88993cda3e7a8f208f5d0e9198995163a1cf5ea71258278b6a85",
+    "tifa/TIFA-1.0-ST/dictionaries/ds-zh-pinyin-lite.txt": "1d52f8c9c7821edf46bac484229c0695e93a37a9644c6ff6cfc5bc3b09a245ae",
+    "tifa/TIFA-1.0-ST/dictionaries/ds_cmudict-07b.txt": "6604680f94ad57fcdbdc359d867e9f8d2267965f8793bcdbfbbc135c54c49903",
+    "tifa/TIFA-1.0-ST/dictionaries/japanese_dict_full.txt": "96812fcac957d4d393f5ca2d605f04773824a71d1b51175f5b5eda10281298db",
+    "tifa/TIFA-1.0-ST/dictionaries/jyutping_dict.txt": "21f6e62320b454a3fec292d227af14e2ba6ec81fe51f1894138227703975475a",
+    "unidic/sys.dic": "fa908c06d53ff14846130f51de77fdb00a1d2f626daf49befacfb45206575144",
+    "unidic/unk.dic": "1b45eaea72504bc30bd289baea8f67f20fde4b4e04259a35f2ef2e9e459835c7",
+    "unidic/char.bin": "dd31396563d8924645b80fd3c9aa7b13ca089d7748f25553a1d6bc3f9b511ae8",
+    "unidic/matrix.bin": "d42b7fa7129da618479c2fa5c26d826a1014c8865a51c096d299adf66b3f71d2",
+    "unidic/mecabrc": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "unidic/dicrc": "8a0b89f33348c64af4532aa8dc226f3d0df5ee0fac5da1a19ba4734621572a6e"
+  }
+}

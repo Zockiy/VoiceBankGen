@@ -1,0 +1,57 @@
+schema_version: 1
+language_id: ja
+model_id: japanese_mfa
+model_sha256: 85928ffb1024486872a677a92e1fa94d2f997462d0b84c73a58aa9bb0e35179a
+dictionary_sha256: 4a0c66760576e4b7f3748f3169e7d5217c0135f857f0b5d34637c93a85fd1c91
+audit_status: partial
+# Exact raw labels from MFA Japanese acoustic model 3.0. Labels not listed remain unknown.
+# Devoicing/length are retained in raw_model_label and allophone, and are checked downstream.
+labels:
+  sil: sil
+  a: a
+  aː: a
+  e: e
+  eː: e
+  i: i
+  iː: i
+  i̥: i
+  o: o
+  oː: o
+  ɨ: u
+  ɨː: u
+  ɨ̥: u
+  ɯ: u
+  ɯː: u
+  ɯ̥: u
+  b: b
+  bʲ: by
+  c: ky
+  d: d
+  dʑ: j
+  dz: z
+  h: h
+  j: y
+  k: k
+  m: m
+  mʲ: my
+  n: n
+  p: p
+  pʲ: py
+  s: s
+  t: t
+  ts: ts
+  tɕ: ch
+  w: w
+  z: z
+  ç: hy
+  ɕ: sh
+  ɟ: gy
+  ɡ: g
+  ɲ: ny
+  ɴ: N
+  ɴː: N
+  ɰ̃: N  # MFA Japanese nasal mora allophone before fricatives and vowels.
+  ɸ: f
+  ɾ: r
+  ɾʲ: ry
+  ʑ: j
