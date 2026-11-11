@@ -60,7 +60,7 @@ def acquire(url, path, expected=None):
 
 
 def wheel_target(member):
-    if member.startswith(("torch/include/", "torch/share/")):
+    if member.startswith(("torch/include/", "torch/share/", "torch/bin/")) or Path(member).suffix.lower() in {".lib", ".pdb", ".exp"}:
         return None  # C++ extension build headers are unused by this inference environment.
     parts = member.split("/")
     if parts[0].endswith(".data"):
@@ -108,6 +108,8 @@ def main():
     parser.add_argument("--pip-python", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=ROOT / "src/utau_forge/data/runtime-catalog.json")
     parser.add_argument("--skip-resolve", action="store_true", help="Reuse a completed pinned download directory")
+    parser.add_argument("--backend", choices=("cpu", "directml"), default="directml")
+    parser.add_argument("--support-catalog", type=Path, help="Keep pinned FFmpeg/VAD components from an existing catalog")
     args = parser.parse_args()
     cache = args.cache.resolve()
     cache.mkdir(parents=True, exist_ok=True)
@@ -115,18 +117,18 @@ def main():
     METADATA_CACHE = cache / ".metadata"
     METADATA_CACHE.mkdir(exist_ok=True)
     if not args.skip_resolve:
-        subprocess.run([str(args.pip_python), "-m", "pip", "download", "--timeout", "120", "--retries", "8", "--only-binary=:all:",
+        subprocess.run([str(args.pip_python), "-m", "pip", "download", "--no-cache-dir", "--timeout", "120", "--retries", "8", "--only-binary=:all:",
                         "--no-binary=textgrid,antlr4-python3-runtime,unidic", "--index-url", "https://pypi.org/simple",
-                        "-r", str(ROOT / "packaging/runtime_requirements.txt"), "-d", str(cache)], check=True)
+                        "-r", str(ROOT / "packaging" / ("runtime_directml_requirements.txt" if args.backend == "directml" else "runtime_requirements.txt")), "-d", str(cache)], check=True)
     artifacts = [archive(PYTHON_URL, cache / "python-3.11.9-embed-amd64.zip",
                          lambda m: None if m == "python311._pth" else RUNTIME + m)]
     wheels = sorted(cache.glob("*.whl")) + sorted(cache.glob("*.tar.gz"))
     dependencies = []
     for path in wheels:
         print("Pin", path.name, flush=True)
-        if path.name.startswith("torch-"):
+        if path.name.startswith(("torch-", "torchvision-")) and "+cpu" in path.name:
             url = "https://download.pytorch.org/whl/cpu/" + path.name.replace("+", "%2B")
-            name, version = "torch", "2.6.0+cpu"
+            name, version = path.name.split("-")[:2]
         else:
             # Filename's distribution and version are resolved to primary PyPI metadata.
             if path.suffix == ".whl":
@@ -148,6 +150,20 @@ def main():
         else:
             raise ValueError("Unmapped source distribution: " + path.name)
         artifacts.append(archive(url, path, mapper))
+    by_name = {item["name"].replace("_", "-").lower(): item for item in dependencies}
+    expected_torch = {"2.4.1", "2.4.1+cpu"} if args.backend == "directml" else {"2.6.0+cpu"}
+    if by_name.get("torch", {}).get("version") not in expected_torch:
+        raise ValueError("Wrong torch wheel; use a fresh cache for each backend")
+    if args.backend == "directml":
+        torch_wheel = next(p for p in wheels if p.name.startswith("torch-"))
+        with zipfile.ZipFile(torch_wheel) as source:
+            version_source = source.read("torch/version.py").decode("utf-8")
+            if "'2.4.1+cpu'" not in version_source or any(name.lower().endswith("torch_cuda.dll") for name in source.namelist()):
+                raise ValueError("DirectML requires the verified CPU-only torch build")
+    if args.backend == "directml" and by_name.get("torch-directml", {}).get("version") != "0.2.5.dev240914":
+        raise ValueError("DirectML wheel is missing or unpinned")
+    if args.backend == "cpu" and "torch-directml" in by_name:
+        raise ValueError("CPU-only cache contains DirectML; use a fresh cache")
     url = f"https://github.com/openvpi/TIFA/archive/{TIFA_COMMIT}.zip"
     artifacts.append(archive(url, cache / ("TIFA-source-" + TIFA_COMMIT + ".zip"),
                              lambda m: "resources/upstream/TIFA/" + m.split("/", 1)[1] if "/" in m else None))
@@ -157,6 +173,25 @@ def main():
                 generated(RUNTIME + "dependencies.json", json.dumps(dependencies, ensure_ascii=False, indent=2))],
            "probe_files": [RUNTIME + "python.exe", RUNTIME + "python311.dll", RUNTIME + "Lib/site-packages/torch/lib/torch_cpu.dll",
                            RUNTIME + "Lib/site-packages/unidic/__init__.py", "resources/upstream/TIFA/inference/api.py"]}
+    if args.backend == "directml":
+        cpu.update(name="TIFA CPU / DirectML 共享运行环境", version="python3.11.9-torch2.4.1-dml0.2.5",
+                   description="共用一份 CPU PyTorch，DirectML 加速 TIFA 神经网络；不包含 CUDA/cuDNN。语音识别使用 CPU。")
+        dml_files = [item["path"] for artifact in artifacts for item in artifact["files"]
+                     if item["path"].endswith("torch_directml/__init__.py")
+                     or ("directml" in item["path"].lower() and item["path"].endswith(".pyd"))]
+        if not dml_files:
+            raise ValueError("DirectML wheel has no usable Windows runtime files")
+        cpu["probe_files"] += dml_files
+    if args.support_catalog:
+        sys.path.insert(0, str(ROOT / "src"))
+        from utau_forge.resource_download import save_json, validate_catalog
+        previous = validate_catalog(json.loads(args.support_catalog.read_text(encoding="utf-8")))
+        support = {c["id"]: c for c in previous["components"]}
+        result = {"schema": 1, "version": "2026.11.05-directml" if args.backend == "directml" else "2026.11.05-cpu",
+                  "components": [cpu, support["ffmpeg"], support["vad-model"]]}
+        save_json(args.output, validate_catalog(result))
+        print(args.output, flush=True)
+        return
     releases = get_json("https://api.github.com/repos/BtbN/FFmpeg-Builds/releases?per_page=100")
     # The maintainer prunes daily assets after 14 builds. Month-end snapshots
     # are retained for two years, so don't ship a soon-to-expire daily URL.

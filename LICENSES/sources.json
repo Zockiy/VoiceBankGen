@@ -17,5 +17,34 @@
     "canonical_url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
     "sha256": "cde7883b9050a1104f4ac19a1572aafd6e5d7323b68351aaf51fbf4beba54966",
     "verified_on": "2026-11-03"
+  },
+  {
+    "file": "torch-directml-MIT.txt",
+    "source_url": "https://files.pythonhosted.org/packages/84/8b/00528e6c75e030cc5f1fc1d08c58c46ecdbec9cd406b1dfd03023e3af4aa/torch_directml-0.2.5.dev240914-cp311-cp311-win_amd64.whl",
+    "wheel_member": "torch_directml-0.2.5.dev240914.dist-info/LICENSE",
+    "wheel_sha256": "3315b6c7e898685827607f1d8170dacc386ac248502aba9bd36cf82e78d930bb",
+    "sha256": "27ebda9d51f0a56b7e281ccd8230a27236dcb51c05f64b07869ecf6e965d68b0",
+    "verified_on": "2026-11-05"
+  },
+  {
+    "file": "torch-directml-NOTICE.txt",
+    "source_url": "https://files.pythonhosted.org/packages/84/8b/00528e6c75e030cc5f1fc1d08c58c46ecdbec9cd406b1dfd03023e3af4aa/torch_directml-0.2.5.dev240914-cp311-cp311-win_amd64.whl",
+    "wheel_member": "torch_directml-0.2.5.dev240914.dist-info/NOTICE",
+    "wheel_sha256": "3315b6c7e898685827607f1d8170dacc386ac248502aba9bd36cf82e78d930bb",
+    "sha256": "86f5686ccdf4466cdb32a785e2408173b3b8f99c477260a1da0bd6590f8e83cc",
+    "verified_on": "2026-11-05"
+  },
+  {
+    "file": "Apache-2.0.txt",
+    "source_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "verified_on": "2026-11-05"
+  },
+  {
+    "file": "Whisper-ONNX-NOTICE.txt",
+    "source_url": "https://huggingface.co/api/models/openai/whisper-small",
+    "conversion_source": "https://huggingface.co/onnx-community/whisper-small/tree/36050c46d777d46dc4b5f43f6d90574fc38f8732",
+    "declared_base_model_license": "apache-2.0",
+    "verified_on": "2026-11-05"
   }
 ]

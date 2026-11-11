@@ -29,11 +29,14 @@ def test_frozen_tifa_uses_private_python_and_preserves_bundled_worker(tmp_path, 
     python.write_bytes(b"private interpreter")
     bridge.write_text("# application entry point", encoding="utf-8")
     assert tifa_adapter.runtime_command("cpu") == [str(python), str(bridge)]
+    assert tifa_adapter.runtime_command("directml") == [str(python), str(bridge)]
     worker = python.with_name("TIFAWorker.exe")
     worker.write_bytes(b"bundled worker")
     assert tifa_adapter.runtime_command("cpu") == [str(worker)]
-    with pytest.raises(RuntimeError, match="缺少 TIFA cuda"):
-        tifa_adapter.runtime_command("cuda")
+    assert tifa_adapter.runtime_command("directml") == [str(python), str(bridge)]  # Old worker cannot advertise DML.
+    worker.with_name("voicebankgen-backend.json").write_text(json.dumps({"adapter":"directml-1"}),encoding="utf-8")
+    assert tifa_adapter.runtime_command("directml") == [str(worker)]
+    assert tifa_adapter.runtime_command("cuda") == [str(worker)]  # Legacy policy migrates to DirectML.
 
 
 def model_directory(base, key):

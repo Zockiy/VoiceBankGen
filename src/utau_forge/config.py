@@ -28,7 +28,7 @@ class VadConfig(StrictModel):
 
 
 class AsrConfig(StrictModel):
-    backend: Literal["faster_whisper"] = "faster_whisper"
+    backend: Literal["faster_whisper", "onnx_whisper"] = "faster_whisper"
     model: str = "large-v3"
     device: str = "cpu"
     compute_type: str = "int8"

@@ -30,7 +30,7 @@ def link_tree(source: Path, target: Path):
                 shutil.copy2(path, destination)
 
 def prepare_engine(store: ProjectStore, model_paths: dict | None = None) -> Path:
-    from .model_settings import load_model_paths, validate_model_paths, apply_engine_model_paths, bundled_model_lock
+    from .model_settings import load_model_paths, validate_model_paths, apply_engine_model_paths, bundled_model_lock, asr_record
     model_paths = validate_model_paths(load_model_paths() if model_paths is None else model_paths)
     root = store.directory / "analyses" / "engine"
     root.mkdir(parents=True, exist_ok=True)
@@ -44,12 +44,14 @@ def prepare_engine(store: ProjectStore, model_paths: dict | None = None) -> Path
     lock = bundled_model_lock(application_root())
     # Resolve the installed local model every run, including after cancellation.
     # The original project config may still say large-v3 after small was bundled.
-    asr_models = [item for item in lock.get("models", []) if "faster-whisper" in item["model_id"]]
+    asr_models = [item for item in lock.get("models", []) if asr_record(item)]
+    asr_models.sort(key=lambda item: item.get("backend") != "onnx_whisper")
     if not asr_models and not model_paths["asr"]:
         raise RuntimeError("未找到本地 Whisper 模型；请打开 设置 → 模型设置 指定模型目录")
     if asr_models and not model_paths["asr"]:
         config.asr.model = next((item["model_id"] for item in asr_models if item["model_id"] == config.asr.model or item["model_id"].endswith("faster-whisper-" + config.asr.model)), asr_models[0]["model_id"])
         chosen = next(item for item in asr_models if item["model_id"] == config.asr.model)
+        config.asr.backend = chosen.get("backend", "faster_whisper")
         if not Path(chosen["local_absolute_path"]).is_dir():
             raise RuntimeError("软件目录中的 Whisper 模型缺失，请恢复软件资源或在模型设置中指定本地目录")
     config.runtime.offline = True
@@ -135,20 +137,18 @@ def analyze(store: ProjectStore, bank_id: str, generation: int, files: list[str]
         emit(stage="分段",current=0,total=0,device="cpu")
         segment_source(root, asset, config)
     ingest_engine(store,root,generation,bank_id)
-    actual = whisper_device(device)
-    config.asr.device, config.asr.compute_type = actual["device"], actual["precision"]
-    emit(stage="转写",current=0,total=0,**actual)
+    # Keep the requested policy for ONNX; its sessions report the actual device.
+    if config.asr.backend == "onnx_whisper":
+        config.asr.device = device
+        emit(stage="转写",current=0,total=0,device=device,reason="正在加载 ONNX Whisper")
+    else:
+        actual = whisper_device(device)
+        config.asr.device, config.asr.compute_type = actual["device"], actual["precision"]
+        emit(stage="转写",current=0,total=0,**actual)
     def checkpoint(**event):
         ingest_engine(store,root,generation,bank_id)
         emit(**event)
-    try:
-        transcribe(root,config,checkpoint)
-    except RuntimeError as error:
-        if device != "auto" or actual["device"] != "cuda":
-            raise
-        config.asr.device,config.asr.compute_type = "cpu","int8"
-        emit(stage="转写",current=0,total=0,device="cpu",reason=f"CUDA 推理失败后继续已保存语句：{error}")
-        transcribe(root,config,checkpoint)
+    transcribe(root,config,checkpoint)
     emit(stage="对齐",current=0,total=0,device="cpu" if backend == "mfa" else device)
     if backend == "tifa":
         from .tifa_adapter import align_tifa

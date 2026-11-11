@@ -1,6 +1,6 @@
 # 第三方组件与许可
 
-审查日期：2026-11-11。此说明对应 **v0.1.0 首个 Release 的仅源码公开版本**。许可证原文、文件范围及来源见 [LICENSES](LICENSES/README.md)，详细证据和分发限制见 [许可审查](docs/LICENSE_AUDIT.md)。
+源码发布复核：2026-11-11。此说明对应 **`codex/directml` 独立分支的仅源码公开版本**；旧依赖清点保留其原采集日期。许可证原文、文件范围及来源见 [LICENSES](LICENSES/README.md)，详细证据和分发限制见 [许可审查](docs/LICENSE_AUDIT.md)。
 
 ## 随源码保留的内容
 
@@ -32,10 +32,11 @@ CC-CEDICT 为社区维护、MDBG 发布，继承 Paul Andrew Denisowski 的 CEDI
 | PyInstaller | 开发打包工具 | GPL-2.0-or-later 带 bootloader 分发例外；不是使用它就自动要求自研代码 GPL |
 | CPython | 运行环境 | PSF 及其附属 notices |
 | FFmpeg / ffprobe | 解码 | 依构建为 LGPL / GPL；带 enable-nonfree 的构建不可按开源条款再分发 |
-| CUDA / cuDNN / NVIDIA 库 | 可选 GPU | NVIDIA 等权利人的专有条款，不因 PyTorch 开源而成为 MIT / BSD |
+| torch-directml 0.2.5.dev240914 / torchvision 0.19.1 | 本分支的 TIFA 加速 / 依赖 | torch-directml 官方 wheel 的 MIT 与完整 NOTICE 见 LICENSES/torch-directml-*；torchvision 为 BSD；保留配套二进制的实际许可。此分支不打包 CUDA / cuDNN |
+| ONNX Runtime DirectML / ONNX | ONNX Whisper 推理 / 仅开发机的图转换 | MIT / Apache-2.0，准确分发物另有附带 notices；源码不包含其 wheel 或 DLL |
 | MFA | 可选旧对齐接口 | MFA 代码 MIT；Kaldi、模型、词典等另有许可。本源码包不提供 MFA 环境 |
 
-准确版本与哈希见 `uv.lock`、`packaging/runtime_requirements.txt`、下载 catalog；元数据清点见 [依赖清单](docs/dependency_inventory.json)。清单包含开发 / 可选 / 平台依赖，不代表运行时全部都会安装，也不是二进制分发批准。
+准确版本与哈希见 `uv.lock`、`packaging/runtime_requirements.txt`、`packaging/runtime_directml_requirements.txt`、下载 catalog；DirectML 核对见 [依赖记录](docs/directml_dependencies.json)。原清点见 [依赖清单](docs/dependency_inventory.json)，它早于本分支且不代替 DirectML 的固定版本记录。清单包含开发 / 可选 / 平台依赖，不代表运行时全部都会安装，也不是二进制分发批准。
 
 ## 不随源码分发的模型与词典
 
@@ -43,6 +44,7 @@ CC-CEDICT 为社区维护、MDBG 发布，继承 Paul Andrew Denisowski 的 CEDI
 | --- | --- | --- |
 | TIFA-1.0-ST 1.0.0 | [TIFA release](https://github.com/openvpi/TIFA/releases/tag/v1.0.0) | CC BY-NC-SA 4.0，非 OSI 开源许可；不上传、不放入源码 ZIP，不作为无条件商用资源 |
 | Whisper small CTranslate2 | [Systran](https://huggingface.co/Systran/faster-whisper-small)，revision 536b0662742c02347bc0e980a01041f333bce120 | 模型卡 MIT；本次仍排除权重，使用者自行下载 |
+| Whisper small ONNX | [onnx-community](https://huggingface.co/onnx-community/whisper-small)，revision 36050c46d777d46dc4b5f43f6d90574fc38f8732；基础模型 openai/whisper-small | 原始基础模型卡声明 Apache-2.0；本仓库仅保留来源与下载清单，不包含权重。本项目拆分解码图并提升计算精度，详见 LICENSES/Whisper-ONNX-NOTICE.txt |
 | UniDic 2.3.0 | [unidic-py v1.0.2](https://github.com/polm/unidic-py/releases/tag/v1.0.2) | 词典 GPL / LGPL / BSD 三选一中的 BSD 路径；实际包内 notices 为准，Python 包 MIT 不能替代词典许可 |
 
 ## 录音、声库与输出

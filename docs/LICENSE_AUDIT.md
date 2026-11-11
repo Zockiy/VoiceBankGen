@@ -1,6 +1,6 @@
-# 首个 Release 源码许可复核
+# DirectML 分支源码许可复核
 
-日期：2026-11-11；公开版本：v0.1.0；程序基线：`c673795d097050dcc82703f411b027607aa6c81b`。
+日期：2026-11-11；公开分支：codex/directml；程序基线：`d16f0ec86067fa09caab8bbb55c58495cc7ac5b5`。
 
 ## 发布结论
 
@@ -37,3 +37,13 @@ PyPI 元数据原采集日期为 2026-11-03；没有声称所有包都在 2026-1
 
 首次公开快照通过文件白名单、媒体/权重/二进制排除、常见凭据模式与哈希检查。这不等于完整安全审计或真实素材质量验收。
 本项目不提供实验录音，测试代码可以生成合成数据；本地试验许可不能视为公开素材授权。
+
+## DirectML / ONNX 补充（2026-11-11）
+
+- torch-directml 0.2.5.dev240914 官方 wheel 的 MIT 与完整 NOTICE 保留在 LICENSES；CPU torch / torchvision 仍分别适用原始许可。本次没有上传 wheel / DLL。
+- ONNX Runtime 1.24.4 使用 MIT，图转换工具 ONNX 使用 Apache-2.0；推理库和转换工具均另行安装，不能用顶层许可替代精确二进制附属 notices。
+- openai/whisper-small 官方模型卡声明 Apache-2.0；固定 ONNX 转换来源、拆分图与计算精度改编说明见 LICENSES/Whisper-ONNX-NOTICE.txt，并保留 Apache-2.0 全文。不将其改标为本项目 MIT。
+- 本轮重新读取官方 PyPI torch-directml、Whisper 官方模型卡和 ONNX Runtime 1.24.4 LICENSE；DirectML 历史环境/哈希记录的日期仍为 2026-11-05。没有重新进行全部传递依赖或全部硬件验收。
+- 上述历史 CPU 清点不等于本分支的实际安装版本；DirectML 固定版本见 runtime_directml_requirements.txt 和 docs/directml_dependencies.json。
+
+官方来源：[torch-directml](https://pypi.org/project/torch-directml/0.2.5.dev240914/)、[Whisper 模型卡](https://huggingface.co/openai/whisper-small/blob/main/README.md)、[ORT 1.24.4 MIT](https://github.com/microsoft/onnxruntime/blob/v1.24.4/LICENSE)。

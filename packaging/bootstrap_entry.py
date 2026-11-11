@@ -24,7 +24,6 @@ def arguments():
     parser.add_argument("--payload-dir", type=Path)
     parser.add_argument("--auto", action="store_true")
     parser.add_argument("--no-models", action="store_true")
-    parser.add_argument("--gpu", action="store_true", help="Install the optional NVIDIA GPU runtime")
     parser.add_argument("--prepare-only", action="store_true")
     parser.add_argument("--launch-smoke", action="store_true")
     parser.add_argument("--report", type=Path)
@@ -98,8 +97,6 @@ def main():
     other = tk.StringVar(value=preferences["other_mirror"])
     proxy = tk.StringVar(value=preferences["proxy"])
     models = tk.BooleanVar(value=not args.no_models)
-    gpu_component = next((c for c in catalog["components"] if c["id"] == "tifa-gpu"), None)
-    gpu = tk.BooleanVar(value=bool(args.gpu and gpu_component))
     shortcut = tk.BooleanVar(value=not args.auto)
     fields = ttk.Frame(frame)
     fields.pack(fill="x")
@@ -118,19 +115,14 @@ def main():
     network_bytes = sum(a["size"] for c in catalog["components"] for a in c["artifacts"] if a.get("url"))
     ttk.Label(frame, text="GitHub / 其他镜像：URL 前缀或 {url} 模板；Hugging Face：根地址。其他镜像留空则使用官方。\n"
               "代理示例：http://127.0.0.1:7890（填 HTTP 端口）；留空使用系统代理。\n"
-              f"完整首次下载约 {network_bytes / 1024**3:.2f} GB；CPU 建议预留 8 GB，含 GPU 建议预留 16 GB。", wraplength=840).pack(anchor="w", pady=10)
+              f"完整首次下载约 {network_bytes / 1024**3:.2f} GB；建议预留至少 8 GB，实际按所选组件计算。", wraplength=840).pack(anchor="w", pady=10)
     option_widgets = []
     model_option = ttk.Checkbutton(frame, text="安装必要模型（推荐；完整版从 EXE 提取，联网版从网络下载）", variable=models)
     model_option.pack(anchor="w")
     option_widgets.append(model_option)
-    if gpu_component:
-        gpu_size = sum(f["size"] for a in gpu_component["artifacts"] for f in a["files"]) / 1024**3
-        gpu_option = ttk.Checkbutton(frame, text=f"安装 NVIDIA GPU 加速组件（可选，额外约 {gpu_size:.1f} GiB，保留 CPU 环境）", variable=gpu)
-        gpu_option.pack(anchor="w")
-        option_widgets.append(gpu_option)
-        ttk.Label(frame, text="为转写和 TIFA 对齐安装 CUDA / cuDNN / GPU 版 PyTorch；需要兼容的 NVIDIA 显卡与驱动。\n"
-                  "不会安装显卡驱动或完整 CUDA Toolkit；不勾选也可使用 CPU，之后可重开此安装器补装。",
-                  wraplength=840).pack(anchor="w", pady=(2, 6))
+    ttk.Label(frame, text="TIFA 使用 CPU / DirectML 共享环境（以所选发行包为准）。DirectML 只加速 TIFA，语音识别使用 CPU。\n"
+              "不安装 CUDA、cuDNN 或显卡驱动。自动模式在 DirectML 不可用时回退 CPU。",
+              wraplength=840).pack(anchor="w", pady=(2, 6))
     shortcut_option = ttk.Checkbutton(frame, text="创建桌面快捷方式", variable=shortcut)
     shortcut_option.pack(anchor="w")
     option_widgets.append(shortcut_option)
@@ -152,11 +144,10 @@ def main():
             events.put(("progress", event))
             state["last_time"], state["stage"] = now, stage
 
-    def task(install_root, selected_preferences, include_models, include_gpu):
+    def task(install_root, selected_preferences, include_models):
         try:
             selected = [c for c in catalog["components"] if
-                        (c.get("required") and (include_models or c["id"] in {"app-core", "tifa-cpu", "ffmpeg", "vad-model"}))
-                        or (include_gpu and c["id"] == "tifa-gpu")]
+                        (c.get("required") and (include_models or c["id"] in {"app-core", "tifa-cpu", "ffmpeg", "vad-model"}))]
             selected_catalog = {**catalog, "components": selected}
             unpacked = sum(f["size"] for c in selected for a in c["artifacts"] for f in a["files"])
             archives = sum(a["size"] for c in selected for a in c["artifacts"])
@@ -165,7 +156,6 @@ def main():
                 raise OSError(f"所选组件需要约 {minimum / 1024**3:.1f} GiB 空闲空间（包含安装缓存）。")
             installer = ComponentInstaller(install_root, catalog, selected_preferences, cancel, emit)
             identifiers = [c["id"] for c in selected]
-            # Optional GPU payload must remain inside the EXE when unchecked.
             installer.run(identifiers, prepare=lambda: install_payload(install_root, selected_catalog, args.payload_dir, cancel, emit))
             save_json(install_root / "components.json", catalog)
             events.put(("done", {"install_dir": str(install_root), "components": identifiers,
@@ -195,7 +185,7 @@ def main():
             child.configure(state="disabled")
         for widget in option_widgets:
             widget.configure(state="disabled")
-        state["thread"] = threading.Thread(target=task, args=(install_root, selected_preferences, models.get(), gpu.get()), daemon=True)
+        state["thread"] = threading.Thread(target=task, args=(install_root, selected_preferences, models.get()), daemon=True)
         state["thread"].start()
 
     def stop():

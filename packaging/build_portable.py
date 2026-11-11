@@ -40,8 +40,11 @@ def main():
         parser.error("--reuse-in-place requires --prepared-dir")
     catalog = copy.deepcopy(validate_catalog(json.loads(args.catalog.read_text(encoding="utf-8"))))
     catalog["edition"] = "portable"
+    if any(c["id"] == "tifa-gpu" for c in catalog["components"]):
+        raise ValueError("Use a CPU/DirectML catalog from this fork; legacy CUDA components cannot be published")
     if args.cpu_only:
-        catalog["components"] = [c for c in catalog["components"] if c["id"] != "tifa-gpu"]
+        if any("torch_directml/" in f["path"] for c in catalog["components"] for f in component_files(c)):
+            raise ValueError("CPU-only requires a separate CPU runtime catalog; the DirectML runtime is shared")
     # Keep the original app archive checksum while replacing its installer
     # instructions through the catalog's supported generated-file mechanism.
     app = next(c for c in catalog["components"] if c["id"] == "app-core")
@@ -54,10 +57,7 @@ def main():
             "CPU 版\n本压缩包仅包含 CPU 运行环境及全部必要模型，不含 GPU / CUDA 运行库。\n"
             "无需另外安装 Python、Conda 或 MFA，首次使用不需要下载模型。\n"
             "请在“素材与切分”的计算设备中选择“CPU”。\n\n") + quick_start[end:]
-        replacements["第三方许可说明.txt"] = (ROOT / "packaging/RELEASE_NOTICES.txt").read_text(encoding="utf-8").replace(
-            "- 可选 NVIDIA GPU 组件：PyTorch 2.6.0+cu124 及 CUDA 12.4 / cuDNN 运行库。\n"
-            "  NVIDIA 库采用 NVIDIA 的独立条款，并非本项目 MIT；仅随本应用提供推理用途。\n"
-            "  许可文本与来源见 licenses/GPU。安装器不提供或安装 NVIDIA 显卡驱动。\n", "")
+        replacements["第三方许可说明.txt"] = (ROOT / "packaging/RELEASE_NOTICES.txt").read_text(encoding="utf-8")
     for artifact in app["artifacts"]:
         artifact["files"] = [f for f in artifact["files"] if f["path"] not in replacements
                              and not (args.cpu_only and f["path"].startswith("licenses/GPU/"))]
@@ -70,8 +70,8 @@ def main():
     if args.reuse_in_place:
         if package.name != "VoiceBankGen" or not (package / "VoiceBankGen.exe").is_file():
             raise ValueError("Prepared directory must be the VoiceBankGen application folder")
-        if args.cpu_only and (package / "runtime/tifa-gpu").exists():
-            raise ValueError("CPU in-place profile must already exclude the GPU directory")
+        if (package / "runtime/tifa-gpu").exists() or (package / ".component-cache").exists():
+            raise ValueError("In-place publication must exclude legacy CUDA runtimes and duplicate component caches")
     else:
         package.mkdir()
     for component in catalog["components"]:
@@ -99,10 +99,6 @@ def main():
                 unpack(artifact, archive, package, None, lambda **_: None)
         for item in component.get("generated", []):
             path = destination(package, item["path"])
-            if "content" not in item:
-                if not path.is_file() or path.stat().st_size != item["size"]:
-                    raise ValueError("Prepared portable file missing or changed: " + item["path"])
-                continue
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(item["content"].encode("utf-8"))
     (package / "components.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -121,7 +117,7 @@ def main():
         else:
             settings = ["-tzip", "-mx=5", "-mmt=on"]
         with (work / "compression.log").open("wb") as log:
-            subprocess.run([sevenzip, "a", *settings, "-bsp0", "-xr!__pycache__", "-xr!*.pyc", "-xr!*.pyo", str(output), "VoiceBankGen"],
+            subprocess.run([sevenzip, "a", *settings, "-bsp0", str(output), "VoiceBankGen"],
                            cwd=package.parent, stdout=log, stderr=subprocess.STDOUT, check=True)
     else:
         if output.suffix.lower() == ".7z":

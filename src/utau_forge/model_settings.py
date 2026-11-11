@@ -10,7 +10,7 @@ from .storage import sha256_file, write_json
 
 
 MODEL_FIELDS = (
-    ("asr", "Whisper 转写模型目录", "directory", "包含 model.bin、config.json、tokenizer.json 的 faster-whisper / CTranslate2 模型目录。"),
+    ("asr", "Whisper 转写模型目录", "directory", "可选本项目准备的 ONNX Whisper（支持 DirectML）或 faster-whisper（CPU）。ONNX 目录包含 voicebankgen-onnx.json、config.json、generation_config.json、tokenizer.json 及 onnx/ 下的 encoder、两份解码图和共用 decoder.weights；旧格式包含 model.bin、config.json、tokenizer.json。"),
     ("tifa", "TIFA 模型目录", "directory", "包含 model.pt、config.yaml、vocabulary.json 和 dictionaries/japanese_dict_full.txt 的完整模型目录；普通话还需中文词表与 dictionaries/ds-zh-pinyin-lite.txt。"),
     ("unidic", "UniDic 日语词典目录", "directory", "包含 sys.dic、unk.dic、char.bin、matrix.bin、dicrc、mecabrc 的词典目录。"),
     ("mfa_acoustic", "MFA 声学模型文件", "file", "选择日语声学模型 ZIP；使用 TIFA 时不需要此项。"),
@@ -21,6 +21,17 @@ REQUIRED_FILES = {
     "tifa": ("model.pt", "config.yaml", "vocabulary.json", "dictionaries/japanese_dict_full.txt"),
     "unidic": ("sys.dic", "unk.dic", "char.bin", "matrix.bin", "dicrc", "mecabrc"),
 }
+
+
+def missing_asr_files(path: Path) -> list[str]:
+    from .onnx_whisper import is_onnx_model, missing_files
+    if is_onnx_model(path) or (path / "onnx").is_dir():
+        return missing_files(path)
+    return [name for name in REQUIRED_FILES["asr"] if not (path / name).is_file()]
+
+
+def asr_record(record: dict) -> bool:
+    return "faster-whisper" in record["model_id"] or record.get("backend") == "onnx_whisper"
 
 
 def load_model_paths() -> dict[str, str]:
@@ -41,7 +52,7 @@ def validate_model_paths(values: dict) -> dict[str, str]:
             raise ValueError(f"{label}：请输入绝对路径")
         path = path.resolve()
         if kind == "directory":
-            missing = [name for name in REQUIRED_FILES[key] if not (path / name).is_file()]
+            missing = missing_asr_files(path) if key == "asr" else [name for name in REQUIRED_FILES[key] if not (path / name).is_file()]
             if missing:
                 raise ValueError(f"{label}：缺少 {', '.join(missing)}")
         elif not path.is_file() or path.suffix.lower() != (".zip" if key == "mfa_acoustic" else ".dict"):
@@ -92,9 +103,9 @@ def detect_model_paths(root: Path, project: Path | None = None) -> dict[str, str
         for record in records:
             path = Path(record["local_absolute_path"])
             model_id = record["model_id"]
-            if "faster-whisper" in model_id:
+            if asr_record(record):
                 key, candidate = "asr", path
-                valid = all((candidate / name).is_file() for name in REQUIRED_FILES[key])
+                valid = not missing_asr_files(candidate)
             elif model_id in {"japanese_mfa_acoustic", "japanese_mfa_dictionary"}:
                 key = "mfa_acoustic" if model_id.endswith("acoustic") else "mfa_dictionary"
                 candidate = path / ("japanese_mfa.zip" if key == "mfa_acoustic" else "japanese_mfa.dict")
@@ -118,6 +129,9 @@ def apply_engine_model_paths(config, lock: dict, values: dict) -> None:
         files = {p.relative_to(path).as_posix(): sha256_file(p) for p in sorted(path.rglob("*")) if p.is_file()}
         record = {"model_id": "VoiceBankGen/local-asr", "local_absolute_path": str(path), "files": files, "sha256": hashlib.sha256(json.dumps(files,sort_keys=True).encode()).hexdigest()}
         config.asr.model = record["model_id"]
+        from .onnx_whisper import is_onnx_model
+        record["backend"] = "onnx_whisper" if is_onnx_model(path) else "faster_whisper"
+        config.asr.backend = record["backend"]
         lock["models"] = [r for r in lock.get("models", []) if r["model_id"] != record["model_id"]] + [record]
     for key, attribute, model_id in (("mfa_acoustic", "acoustic", "japanese_mfa_acoustic"), ("mfa_dictionary", "dictionary", "japanese_mfa_dictionary")):
         if values[key]:

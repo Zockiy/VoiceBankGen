@@ -1,3 +1,7 @@
+# DirectML 分支依赖索引
+
+本分支的固定推理依赖以 `packaging/runtime_directml_requirements.txt`、`pyproject.toml` 的 `asr-directml` 和 [DirectML 依赖记录](directml_dependencies.json) 为准。下面是原 CPU 基线的历史清点，不能直接用作 DirectML 安装清单，也不是二进制分发批准。
+
 # 首个 Release 全依赖索引
 
 基线 `c673795d097050dcc82703f411b027607aa6c81b`。原清单采集日期 2026-11-03；未声称所有条目均在 2026-11-11 重新联网验证。此处依赖代码均不在源码候选中。

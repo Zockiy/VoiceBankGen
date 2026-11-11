@@ -202,7 +202,18 @@ def load_catalog(root: Path) -> dict:
     local = root / "components.json"
     if not local.is_file():
         local = Path(__file__).parent / "data/resource-catalog.json"
-    return validate_catalog(json.loads(local.read_text(encoding="utf-8")))
+    catalog = validate_catalog(json.loads(local.read_text(encoding="utf-8")))
+    if not (root / "components.json").is_file():
+        runtime = Path(__file__).parent / "data/runtime-catalog.json"
+        if runtime.is_file():
+            runtimes = validate_catalog(json.loads(runtime.read_text(encoding="utf-8")))
+            identifiers = {c["id"] for c in catalog["components"]}
+            catalog["components"] += [c for c in runtimes["components"] if c["id"] not in identifiers]
+            validate_catalog(catalog)
+    # Existing CUDA installations can still provide shared model files. Do not
+    # offer their obsolete CUDA runtime for download/repair in this fork.
+    catalog["components"] = [c for c in catalog["components"] if c["id"] != "tifa-gpu"]
+    return catalog
 
 
 def component_ready(root: Path, component: dict, *, verify=False, cancel=None) -> bool:

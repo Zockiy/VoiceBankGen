@@ -56,6 +56,8 @@ def release_file(name):
     if path.suffix.lower() == ".md" and not legal:
         return False
     if name.startswith("licenses/"):
+        if name.startswith("licenses/GPU/"):
+            return False  # Historical CUDA notices do not describe this fork.
         if path.suffix.lower() in {".dll", ".exe", ".pyd"}:
             return False
         if path.name in {"python-packages.json", "MFA-runtime-packages.json"}:
@@ -117,10 +119,17 @@ def main():
     parser.add_argument("--runtime-assets", type=Path, default=ROOT / "build/network-runtime-assets")
     parser.add_argument("--component-cache", type=Path, help="Reuse verified payloads from package/components.json")
     parser.add_argument("--release-notices", type=Path, help="Additional exact-version legal texts and source references")
-    parser.add_argument("--include-gpu", action="store_true", help="Embed optional runtime/tifa-gpu in offline edition")
+    parser.add_argument("--runtime-catalog", type=Path, default=ROOT / "src/utau_forge/data/runtime-catalog.json")
+    parser.add_argument("--acceleration", choices=("directml", "cpu"), default="directml")
     args = parser.parse_args()
-    if args.include_gpu and args.variants != "full":
-        parser.error("--include-gpu currently requires --variants full (offline GPU payload)")
+    runtimes = validate_catalog(json.loads(args.runtime_catalog.read_text(encoding="utf-8")))
+    runtime = next(c for c in runtimes["components"] if c["id"] == "tifa-cpu")
+    has_directml = any("torch_directml/" in f["path"] for f in component_files(runtime))
+    if has_directml != (args.acceleration == "directml"):
+        parser.error("Runtime catalog does not match --acceleration; generate a fresh catalog with prepare_runtime_catalog.py --backend directml (or cpu)")
+    for component in runtimes["components"]:
+        if component["id"] == "tifa-gpu" or any("torch_cuda.dll" in f["path"].lower() for f in component_files(component)):
+            parser.error("CUDA components are not supported by the DirectML fork")
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output = (args.output or ROOT / "dist" / ("single_exe_" + stamp)).resolve()
     output.mkdir(parents=True, exist_ok=False)
@@ -147,7 +156,6 @@ def main():
                  for path in sorted(args.release_notices.rglob("*")) if path.is_file()]
     catalog = json.loads((ROOT / "src/utau_forge/data/resource-catalog.json").read_text(encoding="utf-8"))
     app = bundle("app-core", "VoiceBankGen 主程序", core, output, version=args.version)
-    runtimes = json.loads((ROOT / "src/utau_forge/data/runtime-catalog.json").read_text(encoding="utf-8"))
     editions = ("full", "online") if args.variants == "both" else (args.variants,)
     checksums = []
     for edition in editions:
@@ -157,25 +165,15 @@ def main():
                 models = {c["id"]: c for c in catalog["components"]}
                 wanted = ("tifa-cpu", "ffmpeg", "vad-model", "tifa-model", "unidic", "whisper-small")
                 by_id = {c["id"]: c for c in cached["components"]}
+                cached_dml = any("torch_directml/" in f["path"] for f in component_files(by_id["tifa-cpu"]))
+                if cached_dml != has_directml:
+                    raise ValueError("Cached TIFA runtime does not match the requested CPU/DirectML profile")
                 components = [app] + [cached_component(by_id[key], args.component_cache, output,
                                                       expected_model=models.get(key)) for key in wanted]
             else:
                 components = full_components(app, package, output, runtimes, catalog, args.runtime_assets)
         else:
             components = [app] + runtimes["components"] + catalog["components"]
-        if args.include_gpu:
-            gpu_root = package / "runtime/tifa-gpu"
-            for name in ("TIFAWorker.exe", "_internal/torch/lib/torch_cuda.dll", "_internal/torch/lib/cublas64_12.dll",
-                         "_internal/torch/lib/cublasLt64_12.dll", "_internal/torch/lib/cudnn64_9.dll", "_internal/torch/lib/cudart64_12.dll"):
-                if not (gpu_root / name).is_file():
-                    raise FileNotFoundError("Incomplete GPU runtime: " + str(gpu_root / name))
-            gpu = bundle("tifa-gpu", "NVIDIA GPU 加速组件", tree(package, "runtime/tifa-gpu"), output,
-                         required=False, version="torch2.6.0-cu124")
-            gpu["description"] = "可选；转写与 TIFA 对齐的 GPU 运行环境。需要兼容的 NVIDIA 显卡与驱动，CPU 环境始终保留。"
-            gpu["probe_files"] = ["runtime/tifa-gpu/" + name for name in (
-                "TIFAWorker.exe", "_internal/torch/lib/torch_cuda.dll", "_internal/torch/lib/cublas64_12.dll",
-                "_internal/torch/lib/cublasLt64_12.dll", "_internal/torch/lib/cudnn64_9.dll")]
-            components.append(gpu)
         build_installer(components, edition, args.version, output, stamp)
         executable = output / ("VoiceBankGen-" + ("Full" if edition == "full" else "Online") + "-Setup.exe")
         archive_record = file_record(executable, executable.name)
@@ -185,9 +183,15 @@ def main():
 
 
 def full_components(app, package, output, runtimes, catalog, runtime_assets):
+    runtime = next(c for c in runtimes["components"] if c["id"] == "tifa-cpu")
+    if not component_ready(package, runtime, verify=True):
+        raise ValueError("Prepared TIFA runtime differs from the selected pinned runtime catalog")
     components = [app,
-        bundle("tifa-cpu", "TIFA CPU 运行环境", tree(package, "runtime/tifa-cpu") + tree(package, "resources/upstream/TIFA"), output),
+        bundle("tifa-cpu", runtime["name"], tree(package, "runtime/tifa-cpu") + tree(package, "resources/upstream/TIFA"), output, version=runtime["version"]),
         bundle("ffmpeg", "FFmpeg 解码环境", tree(package, "runtime/ffmpeg"), output)]
+    components[1]["description"] = runtime["description"]
+    components[1]["probe_files"] += [f["path"] for f in component_files(components[1])
+                                      if "torch_directml/" in f["path"] or "directml" in f["path"].lower() and f["path"].endswith(".pyd")]
     vad = next(c for c in runtimes["components"] if c["id"] == "vad-model")
     vad_root = package if component_ready(package, vad, verify=True) else output / "verified-vad"
     if vad_root != package:

@@ -8,14 +8,16 @@ VoiceBankGen 便携版使用说明
 6. 编辑先暂存，点击底部“同步修改”后安装或导出音源。
 
 CPU / GPU 选择
-GPU 版共用一套支持 CPU / NVIDIA GPU 的运行环境，无需另外安装 Python、Conda、
-MFA 或完整 CUDA Toolkit。首次使用也不需要下载模型。
+本压缩包包含 CPU / DirectML 共享环境，无需另外安装 Python、Conda 或 MFA。
+不包含 CUDA / cuDNN。首次使用不需要下载模型。
 在“素材与切分”的计算设备中选择：
-- 自动：优先尝试可用 GPU，不可用时回退 CPU。
+- 自动：ONNX Whisper 与 TIFA 优先尝试 DirectML，失败后回退 CPU。
 - CPU：使用 CPU 计算。
-- NVIDIA GPU：明确使用 GPU；不可用时会提示错误，可切回 CPU。
-GPU 环境为 PyTorch 2.6.0+cu124，需要兼容 CUDA 12.4 的 NVIDIA 显卡及驱动。
-本包不会安装或更新显卡驱动。CPU 回退共用相同依赖，不另附一套 CPU PyTorch。
+- DirectML GPU：ONNX Whisper 与 TIFA 神经网络使用 DirectML；失败时会报错，可切回 CPU。
+旧 faster-whisper 格式模型仍使用 CPU；在模型设置中可切换本地模型目录。
+ONNX Whisper 的信号预处理和解码搜索在 CPU，神经网络由 DirectML 执行；
+不支持的算子可由 CPU 执行。需要支持 DirectX 12 的显卡及兼容驱动。
+CPU 与 DirectML 共用一套 TIFA 环境；本包不会安装或更新显卡驱动。
 
 空格试听当前候选；没有 oto 时播放完整切片。
 Ctrl+Z / Ctrl+Shift+Z 撤销 / 重做，最多 8 步；拼接工作台有独立历史。

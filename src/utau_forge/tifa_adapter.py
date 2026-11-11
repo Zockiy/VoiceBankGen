@@ -63,28 +63,35 @@ def phones_from_grids(utterances,output,model_hash,known):
     return phones,failed
 
 def runtime_command(device: str) -> list[str]:
+    from .devices import normalize_device
+    device=normalize_device(device)
     root=application_root()
-    shared=root/"shared-runtime.json"
-    if getattr(sys,"frozen",False) and shared.is_file():
-        capability=json.loads(shared.read_text(encoding="utf-8"))
-        if device=="cuda" and not capability.get("cuda"):
-            raise RuntimeError("此便携包仅支持 CPU；CUDA 需要 GPU 版")
-        return [str(root/"VoiceBankGenWorker.exe"),"--tifa-worker"]
-    executable=root/"runtime"/("tifa-gpu" if device=="cuda" else "tifa-cpu")/"TIFAWorker.exe"
-    if executable.exists():
+    # Both devices share one CPU PyTorch + torch-directml environment.
+    executable=root/"runtime/tifa-cpu/TIFAWorker.exe"
+    capability=executable.with_name("voicebankgen-backend.json")
+    supports_directml=False
+    if capability.is_file():
+        try:
+            supports_directml=json.loads(capability.read_text(encoding="utf-8")).get("adapter")=="directml-1"
+        except (OSError, ValueError):
+            pass
+    if executable.exists() and (device=="cpu" or supports_directml):
         return [str(executable)]
-    python = root/"runtime"/("tifa-gpu" if device=="cuda" else "tifa-cpu")/"python.exe"
+    python = root/"runtime/tifa-cpu/python.exe"
     bridge = root/"_internal"/"utau_forge"/"data"/"runtime"/"tifa_entry.py"
     if python.is_file() and bridge.is_file():
         return [str(python),str(bridge)]
     if getattr(sys,"frozen",False):
-        raise RuntimeError(f"缺少 TIFA {device} 组件")
-    python=root/".tifa-env"/"Scripts"/"python.exe" if device=="cuda" else Path(sys.executable)
+        raise RuntimeError(f"缺少 TIFA {device} 组件；旧 CPU Worker 不能冒充 DirectML，请准备本分支的共享环境")
+    shared=root/".directml-env/Scripts/python.exe"
+    python=shared if shared.exists() or device=="directml" else Path(sys.executable)
     if not python.exists():
-        raise RuntimeError("缺少 TIFA CUDA runtime")
+        raise RuntimeError("缺少 TIFA DirectML runtime；请准备 .directml-env 或下载共享 TIFA 环境")
     return [str(python),str(root/"packaging"/"tifa_entry.py")]
 
 def align_tifa(project_dir: Path,requested: str,emit=lambda **event:None,*,model_paths: dict | None = None,source_language: str | None = None) -> dict:
+    from .devices import normalize_device
+    requested=normalize_device(requested)
     from .model_settings import load_model_paths, tifa_resources
     root=application_root()
     model,dictionary,lock=tifa_resources(root,load_model_paths() if model_paths is None else model_paths)
@@ -111,7 +118,7 @@ def align_tifa(project_dir: Path,requested: str,emit=lambda **event:None,*,model
     index=json.loads(index_path.read_text(encoding="utf-8")) if index_path.exists() else {"signatures":{}}
     existing=read_jsonl(project_dir/"phones.jsonl",Phone)
     existing_ids={phone.utterance_id for phone in existing if phone.features.get("backend")=="tifa"}
-    signatures={utt.utterance_id:json_hash({"source":assets[utt.source_id].sha256,"span":utt.span.model_dump(),"text":utt.revised_text or utt.asr_text,"revision":utt.text_revision,"models":lock["files"],"device_policy":requested,"adapter":"tifa-3.1-multilingual","language":utt.language_id,"front_files":front_files}) for utt in transcribed}
+    signatures={utt.utterance_id:json_hash({"source":assets[utt.source_id].sha256,"span":utt.span.model_dump(),"text":utt.revised_text or utt.asr_text,"revision":utt.text_revision,"models":lock["files"],"device_policy":requested,"adapter":"tifa-4-directml","language":utt.language_id,"front_files":front_files}) for utt in transcribed}
     pending=[utt for utt in transcribed if not (utt.utterance_id in existing_ids and index["signatures"].get(utt.utterance_id)==signatures[utt.utterance_id])]
     if not pending:
         return {"backend":"tifa","cached":True,"device":index.get("device","cached"),"utterances":len(transcribed),"phones":len(existing),"failed":[]}
@@ -125,8 +132,7 @@ def align_tifa(project_dir: Path,requested: str,emit=lambda **event:None,*,model
     for utt in pending:
         sf.write(corpus/(utt.utterance_id+".wav"),read_region(project_dir,assets[utt.source_id],utt.span.start,utt.span.end),44100,subtype="PCM_16")
         (corpus/(utt.utterance_id+".txt")).write_text(utt.revised_text or utt.asr_text,encoding="utf-8")
-    from .devices import cpu_only_package
-    requested_device="cpu" if requested=="cpu" or (requested=="auto" and cpu_only_package(root)) else "cuda"
+    requested_device="cpu" if requested=="cpu" else "directml"
     def checkpoint(device):
         completed,failed=phones_from_grids(pending,output,lock["model_sha256"],known)
         if completed:
@@ -138,6 +144,11 @@ def align_tifa(project_dir: Path,requested: str,emit=lambda **event:None,*,model
             write_json(index_path,index)
         return completed,failed
     def inference(device,batch):
+        # Never import partial/old GPU grids as CPU output after a failed attempt.
+        attempt_output=run/f"output_{device}_{batch}"
+        attempt_output.mkdir(exist_ok=True)
+        nonlocal output
+        output=attempt_output
         request={"language":lang,"upstream":str(root/"resources/upstream/TIFA"),"model":str(model),"unidic":str(dictionary),"corpus":str(corpus),"output":str(output),"device":device,"batch_size":batch}
         path=run/(f"request_{device}_{batch}.json")
         write_json(path,request)
@@ -159,21 +170,12 @@ def align_tifa(project_dir: Path,requested: str,emit=lambda **event:None,*,model
             raise RuntimeError("".join(log)[-3500:])
     actual=requested_device
     try:
-        inference(actual,4 if actual=="cuda" else 1)
+        emit(stage="TIFA 对齐",current=0,total=len(pending),device=actual,reason="正在加载共享运行环境和模型")
+        inference(actual,1)
     except RuntimeError as error:
-        if actual=="cuda" and "out of memory" in str(error).lower():
-            emit(stage="TIFA 对齐",current=0,total=0,device="cuda",reason="显存不足，batch 降为 1")
-            try:
-                inference(actual,1)
-            except RuntimeError:
-                if requested!="auto":
-                    raise
-                actual="cpu"
-                emit(stage="TIFA 对齐",current=0,total=0,device=actual,reason="CUDA 失败，自动回退 CPU")
-                inference(actual,1)
-        elif requested=="auto":
+        if requested=="auto":
             actual="cpu"
-            emit(stage="TIFA 对齐",current=0,total=0,device=actual,reason=str(error)[-350:])
+            emit(stage="TIFA 对齐",current=0,total=0,device=actual,reason="DirectML 失败，自动回退 CPU："+str(error)[-350:])
             inference(actual,1)
         else:
             raise RuntimeError(f"TIFA {actual} 失败：{error}；可切换 CPU 后重试") from error

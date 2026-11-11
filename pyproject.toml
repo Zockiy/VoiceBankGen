@@ -23,6 +23,7 @@ dependencies = [
 desktop = ["PySide6==6.8.3", "pyqtgraph>=0.13,<1"]
 packaging = ["pyinstaller>=6.11,<7"]
 asr = ["faster-whisper>=1.1,<2"]
+asr-directml = ["onnxruntime-directml==1.24.4", "tokenizers>=0.21,<1", "librosa==0.11.0"]
 vad = ["silero-vad>=6,<7", "onnxruntime>=1.20,<2"]
 pitch = ["pyworld>=0.3.5,<1"]
 review = ["gradio>=5,<7", "plotly>=5,<7"]
@@ -44,16 +45,17 @@ only-include = [
   "src/utau_forge", "tests", "README.md", "LICENSE", "LICENSES",
   "THIRD_PARTY_NOTICES.md", "pyproject.toml", "uv.lock", ".gitignore", ".gitattributes",
   "docs/USAGE.md", "docs/UI_WORKFLOW_FORK.md", "docs/LICENSE_AUDIT.md", "docs/SOURCE_RELEASE.md",
-  "docs/BUILDING.md",
+  "docs/BUILDING.md", "docs/DIRECTML.md", "docs/directml_dependencies.json",
   "docs/dependency_inventory.json", "resources/tifa.lock.json",
   "resources/alignment-default.json", "packaging/desktop_entry.py",
   "packaging/bootstrap_entry.py", "packaging/tifa_entry.py", "packaging/build_desktop.py",
-  "packaging/runtime_requirements.txt", "packaging/prepare_download_catalog.py",
+  "packaging/runtime_requirements.txt", "packaging/runtime_directml_requirements.txt", "packaging/prepare_download_catalog.py",
   "packaging/prepare_runtime_catalog.py", "packaging/build_single_exe.py",
   "packaging/create_shortcut.ps1", "packaging/export_source.py",
   "packaging/audit_dependencies.py", "packaging/source_release_manifest.json",
   "packaging/RELEASE_QUICK_START.txt", "packaging/RELEASE_NOTICES.txt",
-  "packaging/build_shared_portable.py", "packaging/build_portable.py", "packaging/PORTABLE_QUICK_START.txt",
+  "packaging/build_portable.py", "packaging/build_directml_portable.py", "packaging/prepare_onnx_whisper.py", "packaging/PORTABLE_QUICK_START.txt",
+  "packaging/download_onnx_whisper.py", "packaging/whisper_onnx_sources.json",
 ]
 
 [tool.pytest.ini_options]

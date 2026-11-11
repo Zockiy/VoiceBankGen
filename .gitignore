@@ -14,6 +14,7 @@ Rintarou/
 models/
 *.log
 .tifa-env/
+.directml-env/
 resources/upstream/
 resources/TIFA-1.0-ST.zip
 resources/tifa/
@@ -77,6 +78,3 @@ src/utau_forge/data/.history/
 
 # .gitignore does not remove previously committed private history.
 # Use packaging/export_source.py and a new public repository.
-
-# Separate experimental branch environment; never publish its dependencies.
-/.directml-env/

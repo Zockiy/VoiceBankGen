@@ -2,6 +2,8 @@
 
 安装器源代码随公开仓库提供。仅上传代码、依赖声明和下载 URL / 哈希清单；第三方模型、运行环境、EXE、DLL 和本机打包目录均不随源码上传。
 
+本说明对应独立分支 `codex/directml`，保留新版 UI 与 DirectML；`main` 为 CPU / CUDA；先按 [DirectML 说明](DIRECTML.md) 生成共享环境的固定版本下载清单，再构建安装器。历史 CPU 清单不能用于默认 DirectML 构建。仅制作 CPU 版时明确传入 `--acceleration cpu`。
+
 ## 构建内容
 
 | 文件 | 作用 |
@@ -63,24 +65,16 @@ Full 构建会核对固定模型文件，不接纳本机自定义模型作为默
 
 已有由本项目安装器生成的完整缓存时，可增加 `--component-cache 软件目录/.component-cache`；脚本按该软件目录的 `components.json` 核对归档哈希，并核对固定模型记录后复用，避免重复下载。发布安装器只附简短 TXT 使用说明及必要许可，排除内部 Markdown 手册、开发审查报告和本机验证记录。额外的固定版本许可文本与源码来源可用 `--release-notices 目录` 一起保留。
 
-离线版可增加 `--include-gpu`，将已准备的 `软件目录/runtime/tifa-gpu` 一起打包为可选组件。目前 GPU 环境为 PyTorch 2.6.0+cu124，需保留完整配套 CUDA / cuDNN DLL 和许可文本。安装器默认不勾选 GPU；勾选后追加安装并保留 CPU，不勾选时不会复制或解压 GPU 压缩缓存。之后可重新运行同一安装器补装；命令行自动安装可用 `--gpu`。安装器不安装驱动，且不保证支持所有 NVIDIA 显卡架构。
+此分支不再打包独立 CUDA 组件；TIFA 的 CPU 与 DirectML 共用 `runtime/tifa-cpu`。`build_single_exe.py` 默认 `--acceleration directml`，可通过 `--runtime-catalog 路径` 选择已生成的固定清单；会拒绝设备类型不匹配的旧缓存。CPU-only 构建使用单独的 CPU 清单及 `--acceleration cpu`。
 
 ## 发布边界
 
-便携发布可使用 `packaging/build_portable.py --catalog 离线构建/full/install-catalog.json --payload-dir 离线构建目录 --output dist/VoiceBankGen-Windows-x64.zip`。它将全部组件展开为同一个 VoiceBankGen 目录，生成解压即用的 ZIP；若离线组件含 GPU，则 CPU / GPU 都随 ZIP 提供，运行时在设备下拉框选择。不需要执行安装器，不附内部手册或重复的安装缓存；便携版使用说明通过 generated 文件记录保存。压缩优先使用已安装的 7-Zip，没有时使用 Python ZIP64。
+便携发布可使用 `packaging/build_portable.py --catalog 离线构建/full/install-catalog.json --payload-dir 离线构建目录 --output dist/VoiceBankGen-Windows-x64.zip`。它将全部组件展开为同一个 VoiceBankGen 目录，生成解压即用的 ZIP；DirectML 发行中的 CPU 与 DirectML 使用同一份 TIFA 环境，旧 faster-whisper 转写使用 CPU；ONNX Whisper 可使用 DirectML，模型准备见 DIRECTML.md。不需要执行安装器，不附内部手册或重复的安装缓存；便携版使用说明通过 generated 文件记录保存。压缩优先使用已安装的 7-Zip，没有时使用 Python ZIP64。
 
-较小的便携版使用 `.7z` 输出，必须安装 7-Zip。`--cpu-only` 排除 GPU 环境及 GPU 专属许可，并生成 CPU 使用说明；`--prepared-dir 已准备的VoiceBankGen目录` 可替代 `--payload-dir`，通过硬链接复用文件，避免再次解包和重复占用磁盘。两版分别压缩，CPU 版保留全部必要模型。
+较小的便携版使用 `.7z` 输出，必须安装 7-Zip。`--cpu-only` 为真正的 CPU-only 清单生成 CPU 使用说明；共享 DirectML 环境不能简单删除其中的文件转为 CPU 版。`--prepared-dir 已准备的VoiceBankGen目录` 可替代 `--payload-dir`，通过硬链接复用文件，避免再次解包和重复占用磁盘。两版分别压缩，CPU 版保留全部必要模型。
 
-当前默认 `--compression balanced`：LZMA2 普通级别、32 MiB 字典、256 MiB 固实块和 4 个线程，兼顾体积、压缩耗时、解压内存和单文件提取。极限压缩需要显式选择 `--compression smallest`。如果目录已完成对应 CPU / GPU 配置，使用 `--prepared-dir 目录 --reuse-in-place` 可直接重新压缩；CPU 模式会拒绝仍含 GPU 目录的输入。
+当前默认 `--compression balanced`：LZMA2 普通级别、32 MiB 字典、256 MiB 固实块和 4 个线程，兼顾体积、压缩耗时、解压内存和单文件提取。极限压缩需要显式选择 `--compression smallest`。如果目录已完成对应 CPU / GPU 配置，使用 `--prepared-dir 目录 --reuse-in-place` 可直接重新压缩；会拒绝含旧 CUDA 目录或重复组件缓存的输入。
 
 可以上传上述安装器代码。**本次源码审查没有放行任何既有 Full / Online EXE**：即使 Online 在运行时下载模型，其 EXE 仍内置 Qt、Python 库等主程序依赖，不能视为没有第三方分发义务。Full 还涉及 TIFA 模型的 CC BY-NC-SA 4.0 条件。
 
 发布二进制前按实际构建逐项完成许可 / NOTICE、Qt / LGPL 对应源码与替换说明、FFmpeg 配置及原生依赖检查，确认模型分发条件。不要将工作目录中的实验工程、素材和任意旧 `_internal` 作为公开构建输入。
-
-## 共用依赖的 CPU / CUDA 便携包
-
-`build_shared_portable.py --base dist/VoiceBankGen --output build/shared/CPU` 准备 CPU 目录；添加 `--gpu` 并使用另一个新输出目录准备 CPU/CUDA 目录。输入应是已验收的冻结发行，含 UI 主程序及对应 TIFA 冻结包。`--legal-source` 指定已审查的许可根目录，包含 `GPU/` 及 `RELEASE_SOURCE_REFERENCES.txt`；旧软件目录未附 GPU 许可时必须另行提供。构建器同时选取其 Python 代码对象和原生库，不用开发环境代码替代其他版本的 DLL；GPU 版仅共用 CUDA PyTorch，并可在同一依赖树中回退 CPU。
-
-两个主程序共用 `_internal`；TIFA 通过 `VoiceBankGenWorker.exe --tifa-worker` 启动，不再附独立 TIFA EXE/环境。`shared-runtime.json` 声明设备能力，CPU 包自动模式固定为 CPU。完整 Whisper small、TIFA 和 UniDic 推理词典均保留，去掉测试缓存、头文件、静态库、调试符号和重复安装缓存；保留所需许可。便携版损坏时重新解压原包修复。
-
-目录验收后，用 `build_portable.py --catalog 目录/VoiceBankGen/components.json --prepared-dir 目录/VoiceBankGen --reuse-in-place --output 新文件.7z` 压缩；CPU 版另加 `--cpu-only`。默认均衡压缩；测试素材、测试报告、构建记录和旧 EXE 均留在便携目录外。仅对启动、短句转写/对齐及设备选择做针对性检查，未运行统一音高验收或全量音频回归。

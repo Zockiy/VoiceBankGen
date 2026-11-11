@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "version": "0.1.0",
-  "source_baseline": "c673795d097050dcc82703f411b027607aa6c81b",
+  "source_branch": "codex/directml",
+  "source_baseline": "d16f0ec86067fa09caab8bbb55c58495cc7ac5b5",
   "code_license": "MIT",
   "data_license": "CC-BY-SA-4.0",
-  "scope": "Source only; no development Git history, recordings, models or third-party runtimes",
+  "scope": "Source only; no private Git history, recordings, models or runtimes",
   "files": [
     {
       "path": ".gitattributes",
@@ -13,13 +13,18 @@
     },
     {
       "path": ".gitignore",
-      "size": 1178,
-      "sha256": "552860d28a43daa356f4b121054847bff7bb43185f1ad0a523501f0af47eafb1"
+      "size": 1100,
+      "sha256": "62b17e05ab3642da866d41899cbbefe48fce3d9ef4e1606bb7227bdcf5d6749d"
     },
     {
       "path": "LICENSE",
       "size": 1082,
       "sha256": "a6771bee65ef355dd3efa878576eb58c03a0dc81a13cd896d42a11bba36cffb0"
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "size": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
     },
     {
       "path": "LICENSES/CC-BY-SA-4.0.txt",
@@ -33,8 +38,8 @@
     },
     {
       "path": "LICENSES/README.md",
-      "size": 1369,
-      "sha256": "4cad467b92c89542ca2aded3964714de482d51123b3aa5830e3d8bdf14ab9949"
+      "size": 1630,
+      "sha256": "4e52acd4324ac089cea5e18e3db587dacba333eadd359eddece585092ad7ece1"
     },
     {
       "path": "LICENSES/TIFA-MIT.txt",
@@ -42,39 +47,59 @@
       "sha256": "515ecbf58c3f070e2bc8e95b0c3aa66a41431950ce31cd25d3e9abd49db28d0f"
     },
     {
+      "path": "LICENSES/Whisper-ONNX-NOTICE.txt",
+      "size": 752,
+      "sha256": "1f2873869a9cec81f06bbe9b0616ed13f90241a60b91cd34cc9be590e7ea060d"
+    },
+    {
       "path": "LICENSES/sources.json",
-      "size": 859,
-      "sha256": "cf39be7e251f11bdd10ee9b8a0859c061a614aa3f312ff0cf80946b450800cf4"
+      "size": 2426,
+      "sha256": "679b4af3269df6306e3005a3065b2a92ae718c2058e6e35d0dc1d7b2a63c1894"
+    },
+    {
+      "path": "LICENSES/torch-directml-MIT.txt",
+      "size": 1162,
+      "sha256": "27ebda9d51f0a56b7e281ccd8230a27236dcb51c05f64b07869ecf6e965d68b0"
+    },
+    {
+      "path": "LICENSES/torch-directml-NOTICE.txt",
+      "size": 51883,
+      "sha256": "86f5686ccdf4466cdb32a785e2408173b3b8f99c477260a1da0bd6590f8e83cc"
     },
     {
       "path": "README.md",
-      "size": 14414,
-      "sha256": "6f5b1ec44ae15326b3416e7fa0ccf752fc3003aa3dcc27750e3beb9542ad59fc"
+      "size": 11580,
+      "sha256": "1f04ef30fe0a7185d42f8c4fb203ad5da09b2ae47245bf02b4d427e5d0ab87ae"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "size": 5358,
-      "sha256": "231b676ad9902962642aa53a7feef7c956b4155447063d1946935a3a35df1ae6"
+      "size": 6285,
+      "sha256": "cdecc4c94f1e831390265c2a5947cb5592bf445f3d66f38794659e073db0796b"
     },
     {
       "path": "docs/BUILDING.md",
-      "size": 8175,
-      "sha256": "6f9a76e63b407dd9ed44f1efa983397c9762209d5d5f920f6d33e6af4b6bff5c"
+      "size": 7000,
+      "sha256": "1c9f972566c9cc2f98edf725ea1678bc0fee6d91f093c9037d3ef4dc2f311a40"
     },
     {
       "path": "docs/DEPENDENCIES.md",
-      "size": 34446,
-      "sha256": "b0a33c7ebb9adfbb469418ab540d8ab95685f0e2c9d2536306bc62d3d3cd00fa"
+      "size": 34779,
+      "sha256": "dbda647ab0f123adfbdb295805017a33d93892d2c04fef42a4acff6348311dbd"
+    },
+    {
+      "path": "docs/DIRECTML.md",
+      "size": 13228,
+      "sha256": "9806a9198085383ec4c5a6677f756a48d05ea37930407911660ee130bf768c30"
     },
     {
       "path": "docs/LICENSE_AUDIT.md",
-      "size": 3893,
-      "sha256": "6ccd2e1432ea941d265401e0cd2feee9f3db990a3107ec727015ddcdfcfd4c74"
+      "size": 5186,
+      "sha256": "bafa681afd5ede9ee267a075c1968a647c0fafcad0baabad4aab279141be54af"
     },
     {
       "path": "docs/SOURCE_RELEASE.md",
-      "size": 1765,
-      "sha256": "e6d244f68a49b3cbef7be3feeb6ae03e3ae8d6ab6c4fe7a14ad9165d5bd01f86"
+      "size": 1508,
+      "sha256": "6ac5eea9a14932774ddda0b1d68cbf6946cd77cd450a2b87574a6109ae82d804"
     },
     {
       "path": "docs/UI_WORKFLOW_FORK.md",
@@ -92,19 +117,24 @@
       "sha256": "4ba8aa97ab2e70fb4c7ec4ce5be5be63be9a37db1310e6752dec0207592be604"
     },
     {
+      "path": "docs/directml_dependencies.json",
+      "size": 12928,
+      "sha256": "7ba491c8af8843b465dc83e201f92898bee01b0a4b998c07286c6f0a3de38541"
+    },
+    {
       "path": "packaging/PORTABLE_QUICK_START.txt",
-      "size": 1992,
-      "sha256": "825cb1c61496a23cca9d7c1234e8723619bb06efa5738360c1add2e02a8dd685"
+      "size": 2196,
+      "sha256": "46354592ff567a2bb85401c7d05a92ea780aa0808d30f3a693dcd14dc2eb630e"
     },
     {
       "path": "packaging/RELEASE_NOTICES.txt",
-      "size": 2162,
-      "sha256": "c008cfc2b35476d478ad63f5cb4a56ea76adc9a34b1568f8802a67c76c91a10f"
+      "size": 2481,
+      "sha256": "740a372b13ce9fcb201ea428ebd90a47e21e28024a30ccea40c100e71da00c99"
     },
     {
       "path": "packaging/RELEASE_QUICK_START.txt",
-      "size": 2055,
-      "sha256": "1cf11a4cbac7fc89a8dba32bda0f26fe20acde4026ac4457b579a46197f9e47e"
+      "size": 1937,
+      "sha256": "e675e9b57a7cbeb5d04728507faf42c8470931f1e62cfd59236450a30633b90a"
     },
     {
       "path": "packaging/audit_dependencies.py",
@@ -113,8 +143,8 @@
     },
     {
       "path": "packaging/bootstrap_entry.py",
-      "size": 14675,
-      "sha256": "9f0100cbbde1b0c87287ce9e172f0b463231816ade333ee2c85c4b314f1787d0"
+      "size": 13874,
+      "sha256": "418f21570fcf29eb345f117304b4e6647fb4a01977809d537cbd037f619ead01"
     },
     {
       "path": "packaging/build_desktop.py",
@@ -122,19 +152,19 @@
       "sha256": "7ee133b043654c67e15df33c9936102171d128f6d155682affff90ac57e72744"
     },
     {
-      "path": "packaging/build_portable.py",
-      "size": 8609,
-      "sha256": "ccd31e0abe1bd55786f0b1547c195ff78a59dae0ac76b7a21dfaa5341c6ab603"
+      "path": "packaging/build_directml_portable.py",
+      "size": 15179,
+      "sha256": "fffc0a0a87fad25ba7c24c6814abd552b242fc91bca9b5f6413505e896953c13"
     },
     {
-      "path": "packaging/build_shared_portable.py",
-      "size": 9483,
-      "sha256": "2dc6b0f28b1e249e0ed5ea6c53be3db7a1551f659e02739170855786734a0818"
+      "path": "packaging/build_portable.py",
+      "size": 8341,
+      "sha256": "b0faf7921a3c83f2a059cecc869205640ad9350adfb91fc1c2227c571c8b0f4d"
     },
     {
       "path": "packaging/build_single_exe.py",
-      "size": 14567,
-      "sha256": "f21ecbfcb8f7064e74b22d5211e859ccdbfb4ebdd6fffb60f31e951a19a4b15d"
+      "size": 14918,
+      "sha256": "fd8f3c67c5c0adcad73302c8ef210d780f548865ab515bd5ce24a08ef49412ba"
     },
     {
       "path": "packaging/create_shortcut.ps1",
@@ -143,13 +173,18 @@
     },
     {
       "path": "packaging/desktop_entry.py",
-      "size": 246,
-      "sha256": "0a31bf7577382880dc8527f8a0d8545312f43e7ab61ad7057901b399e0d4daa5"
+      "size": 564,
+      "sha256": "e6818e97ecff808c1cb48ca5cff74a2e2491e81b1696ea3873e09e1f0768123a"
+    },
+    {
+      "path": "packaging/download_onnx_whisper.py",
+      "size": 1572,
+      "sha256": "223e99fbe816bf459d3adf9d03474ac5cb602204e7510ef88f5f3ae97341d399"
     },
     {
       "path": "packaging/export_source.py",
-      "size": 6472,
-      "sha256": "7c0b716d42dd9687e54bba0324dbffe04a3ee241db316d3077a507f7bf7fa15e"
+      "size": 6489,
+      "sha256": "22735669b2c08dee5768c1a68a52458e3a3fce69e994af20d7332533588fdccf"
     },
     {
       "path": "packaging/prepare_download_catalog.py",
@@ -157,9 +192,19 @@
       "sha256": "7a05601a4a4a405207c2013abdadef43cb27cd7c4d7eedaa27b4863d0b238c6b"
     },
     {
+      "path": "packaging/prepare_onnx_whisper.py",
+      "size": 6575,
+      "sha256": "c49a6a44c0b9c2f18d1202c2df34244ef16c93ffec520e19d7153ce20d0e4942"
+    },
+    {
       "path": "packaging/prepare_runtime_catalog.py",
-      "size": 10849,
-      "sha256": "f6b7afda490b5f094b69ebe9448a79ddcf7daa52d64b94ca0b84f079207fdab0"
+      "size": 13703,
+      "sha256": "81a0aa87fab731410470e8a6b9be15c70d09db36eb7dd1c38ebf06be5945f216"
+    },
+    {
+      "path": "packaging/runtime_directml_requirements.txt",
+      "size": 1041,
+      "sha256": "4a77f42f9aab16681c1ed5f58359b821ecae55b6b0fa38f5e4cbe88278c83df9"
     },
     {
       "path": "packaging/runtime_requirements.txt",
@@ -168,23 +213,28 @@
     },
     {
       "path": "packaging/source_release_manifest.json",
-      "size": 4930,
-      "sha256": "a2facbfe8c00d9eb10084d0db2aba629d0737415cdfbe5ea19bbca16db73bbad"
+      "size": 5382,
+      "sha256": "357f9db4683d7cc78f85e82fbf2e04758349ffe21f14c0a8b0745842805eaf2c"
     },
     {
       "path": "packaging/tifa_entry.py",
-      "size": 4570,
-      "sha256": "86571b9bb5324ed96f817438bdb4bbd57c7bedaa83359a03f0e1f76e684d5bc4"
+      "size": 6792,
+      "sha256": "4ae00125c7b3c139f081928dca54cbfb30b0037e93ad65d1e6a6da6b8ee7dde0"
+    },
+    {
+      "path": "packaging/whisper_onnx_sources.json",
+      "size": 2893,
+      "sha256": "6fe2538a2398762c47b4c24d2d7dbb98744c0c2e88e0ab0e1eee35c5354359b7"
     },
     {
       "path": "pyproject.toml",
-      "size": 2225,
-      "sha256": "df727cac6e8d78797a5023cc5c7a682fef5c4ac6105781f726deb3dbd4f89814"
+      "size": 2535,
+      "sha256": "ac5db47efed5912223459531026a3d6a33b5e8ce0e3df223bdd8c221390337b5"
     },
     {
       "path": "resources/alignment-default.json",
-      "size": 45,
-      "sha256": "e58709c4f8e8d9bf231abbe718b3da764ea6578b6545bc5d742ece5e743936ba"
+      "size": 36,
+      "sha256": "1bcb05c516d541478c4b4a3d6104e9085e4d0b2001b67da06787a1b25c584ec2"
     },
     {
       "path": "resources/tifa.lock.json",
@@ -238,8 +288,8 @@
     },
     {
       "path": "src/utau_forge/config.py",
-      "size": 4413,
-      "sha256": "26b7c88db6e63daefbaa6df499fb493a16cf432768b51e55be06b47a9fea4d13"
+      "size": 4429,
+      "sha256": "f0f40080767e013cc14998406fe7eeaea2f44d1036b4d26e8eb337cbef585047"
     },
     {
       "path": "src/utau_forge/cross_language.py",
@@ -313,8 +363,8 @@
     },
     {
       "path": "src/utau_forge/desktop_engine.py",
-      "size": 11877,
-      "sha256": "5abf2a4cc83460b8a48a133f6c33de2ae8cecd615c5d570bd8a0e7dbca70b779"
+      "size": 11939,
+      "sha256": "cbf8bd55ee7fe145d1412ee4a553fcd24cbbbaf2ddc990945dc7b7dd2e305afc"
     },
     {
       "path": "src/utau_forge/desktop_import.py",
@@ -358,8 +408,8 @@
     },
     {
       "path": "src/utau_forge/devices.py",
-      "size": 2255,
-      "sha256": "0d8298af453787ffa6af1f385c7ff48d734aff5ef8e3775daabe91b1c11f6caa"
+      "size": 1764,
+      "sha256": "cecab97345fb9986b2bdbc6bd61ff0f96f9ac1d78aa12921f9022d5caec95501"
     },
     {
       "path": "src/utau_forge/evaluation.py",
@@ -408,8 +458,8 @@
     },
     {
       "path": "src/utau_forge/model_settings.py",
-      "size": 8181,
-      "sha256": "3de690b901d7bc3f4af36ea049ad5a33dc4d203a9d23109945adbeba7711d344"
+      "size": 9000,
+      "sha256": "a23f2824c4195deb2855cfb8c4947561cb2ce7f6edadf7222e5d781d2ca2dde6"
     },
     {
       "path": "src/utau_forge/model_settings_dialog.py",
@@ -420,6 +470,11 @@
       "path": "src/utau_forge/models.py",
       "size": 7057,
       "sha256": "564ff5fe44e55c8dc55549e7462a6c6637726a6addb99bdb47de2313f91e956f"
+    },
+    {
+      "path": "src/utau_forge/onnx_whisper.py",
+      "size": 14436,
+      "sha256": "1d6ca759c34c6e25051486ab8074075a76f49a8c507fd1c4427dc73ef2e3a084"
     },
     {
       "path": "src/utau_forge/oto.py",
@@ -448,8 +503,8 @@
     },
     {
       "path": "src/utau_forge/resource_download.py",
-      "size": 24577,
-      "sha256": "dc86cb31e382cd8e307f993a1462c8706f19bd97fff8cc60851f4907b8a851de"
+      "size": 25286,
+      "sha256": "619896db5475e6502330571f6f63216f42a85d1b35aa6ecfac9f74eee9e7fb91"
     },
     {
       "path": "src/utau_forge/resource_download_dialog.py",
@@ -498,13 +553,13 @@
     },
     {
       "path": "src/utau_forge/tifa_adapter.py",
-      "size": 11526,
-      "sha256": "59ccab7b9375ed636eaffa36255673235dd4515bd64b544ae2320c2282d106cf"
+      "size": 11598,
+      "sha256": "25d579e0b8a9b4b613658c873ca36f2a51f9674d0e14cbdda6c971b5605ad784"
     },
     {
       "path": "src/utau_forge/transcribe.py",
-      "size": 3809,
-      "sha256": "a6da59d7baa52d6abf1703caa440286964b73564ae1572d1f617ccbaafc2fc7a"
+      "size": 5913,
+      "sha256": "d2a20aed490a038dbae983217971a3219569fe36fd0323060a52f9c848bb2a9d"
     },
     {
       "path": "src/utau_forge/ui_theme.py",
@@ -518,8 +573,8 @@
     },
     {
       "path": "src/utau_forge/workflow_ui.py",
-      "size": 21289,
-      "sha256": "077393e7546b4ca50f9f03ca664e519975d3f67a4faeceb3f51c301d6e358da4"
+      "size": 21404,
+      "sha256": "d130a0979b97b4fd09330b18a846dc529df7bfb39985fbd7967006477d2021d3"
     },
     {
       "path": "tests/test_align_cache.py",
@@ -583,13 +638,18 @@
     },
     {
       "path": "tests/test_model_settings.py",
-      "size": 10206,
-      "sha256": "197bf472e558104b56cd4fb890d3d4469c26d99ff536b88bc193871f61c40b55"
+      "size": 10586,
+      "sha256": "8c1ab668eb7157e0a971fd356aa820b40dbf4c59bde589070a78023bee826add"
     },
     {
       "path": "tests/test_multilingual.py",
       "size": 9696,
       "sha256": "f93678017ea47d6beff01089173127e42661fbf55f865872513ea9226ae1fd0d"
+    },
+    {
+      "path": "tests/test_onnx_whisper.py",
+      "size": 5457,
+      "sha256": "2a184d21c5f746b33f4a4a947f193e07e20ef93360df39ddd9e102c0e710c2ea"
     },
     {
       "path": "tests/test_oto.py",
@@ -628,8 +688,8 @@
     },
     {
       "path": "tests/test_runtime_layout.py",
-      "size": 2255,
-      "sha256": "4692f2d7480f64e0ac70c1d96ce4fcbd60fc36af034bd6ef9c827590d9b40f60"
+      "size": 927,
+      "sha256": "fb6abdcfef483a5bb3261f1f2bd3379b7abed7d2f0d8bca075746f11ce37af89"
     },
     {
       "path": "tests/test_shared_cv.py",

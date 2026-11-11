@@ -38,6 +38,11 @@ def import_transcripts(project_dir: Path, path: Path) -> int:
 
 
 def transcribe(project_dir: Path, config: Config, emit=lambda **event: None) -> int:
+    if config.asr.backend == "onnx_whisper":
+        return transcribe_onnx(project_dir, config, emit)
+    from .devices import whisper_device
+    actual = whisper_device(config.asr.device)
+    config.asr.device, config.asr.compute_type = actual["device"], actual["precision"]
     try:
         from faster_whisper import WhisperModel
     except ImportError as exc:
@@ -75,4 +80,35 @@ def transcribe(project_dir: Path, config: Config, emit=lambda **event: None) -> 
         count += 1
         write_jsonl(project_dir / "utterances.jsonl", utterances)
         emit(stage="转写", current=count, total=len(pending), device=config.asr.device, precision=config.asr.compute_type)
+    return count
+
+
+def transcribe_onnx(project_dir: Path, config: Config, emit=lambda **event: None) -> int:
+    from .onnx_whisper import OnnxWhisper
+    assets = {asset.source_id: asset for asset in read_jsonl(project_dir / "sources/manifest.jsonl", SourceAsset)}
+    pending = [utt for utt in read_jsonl(project_dir / "utterances.jsonl", Utterance) if not (utt.revised_text or utt.asr_text)]
+    if not pending:
+        return 0
+    utterances = read_jsonl(project_dir / "utterances.jsonl", Utterance)
+    lock = json.loads((project_dir / "models.lock.json").read_text(encoding="utf-8"))
+    record = next((r for r in lock.get("models", []) if r["model_id"] == config.asr.model), None)
+    if not record or not verify_model(project_dir, record):
+        raise RuntimeError("ONNX Whisper 本地模型缺失或哈希不匹配")
+    directory = Path(record["local_absolute_path"]) if record.get("local_absolute_path") else project_dir / record["local_relative_path"]
+    model = OnnxWhisper(directory, config.asr.device, emit)
+    pending_ids = {u.utterance_id for u in pending}
+    count = 0
+    for utt in utterances:
+        if utt.utterance_id not in pending_ids:
+            continue
+        audio = read_region(project_dir, assets[utt.source_id], utt.span.start, utt.span.end)
+        text, no_speech = model.transcribe(audio, utt.language_id)
+        utt.asr_text = text
+        if not text and "ASR_EMPTY" not in utt.quality_flags:
+            utt.quality_flags.append("ASR_EMPTY")
+        if no_speech > .6 and "ASR_SPEECH_UNCERTAIN" not in utt.quality_flags:
+            utt.quality_flags.append("ASR_SPEECH_UNCERTAIN")
+        count += 1
+        write_jsonl(project_dir / "utterances.jsonl", utterances)
+        emit(stage="转写", current=count, total=len(pending), device=model.device, precision=model.precision)
     return count

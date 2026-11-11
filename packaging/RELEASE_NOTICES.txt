@@ -13,9 +13,9 @@ VoiceBankGen 自研程序与安装器采用 MIT，原文见 LICENSE。
 - NumPy / SciPy：BSD 等；随 wheel 附带的原生库采用各自许可。
 - SoundFile：BSD；libsndfile、libsoxr 等原生库适用 LGPL 等许可。
 - PyTorch、Lightning、librosa、fugashi / MeCab：见各组件附带许可。
-- 可选 NVIDIA GPU 组件：PyTorch 2.6.0+cu124 及 CUDA 12.4 / cuDNN 运行库。
-  NVIDIA 库采用 NVIDIA 的独立条款，并非本项目 MIT；仅随本应用提供推理用途。
-  许可文本与来源见 licenses/GPU。安装器不提供或安装 NVIDIA 显卡驱动。
+- torch-directml 0.2.5.dev240914：MIT，Copyright Microsoft Corporation。
+  MIT 与完整第三方 NOTICE 见 LICENSES/torch-directml-*；依赖 CPU PyTorch 2.4.1 / torchvision 0.19.1。
+  此分支不包含 NVIDIA CUDA / cuDNN 环境。其他独立二进制仍按各自许可。
 - FFmpeg / ffprobe：本离线发行复用的固定构建为 GPLv3-or-later，
   与独立进程交互；实际构建配置和许可见 licenses/FFmpeg-license-build.txt。
 - UniDic 2.3.0：选择 BSD 许可；版权属于 UniDic Consortium。
@@ -25,6 +25,10 @@ VoiceBankGen 自研程序与安装器采用 MIT，原文见 LICENSE。
   上游说明此模型许可约束模型文件本身，不约束流经模型的数据。
   该说明不授予第三方录音、角色素材或人物声音的权利。
 - Whisper small 转换模型：按固定 Systran 模型卡的 MIT 许可。
+  ONNX Whisper 版本改用 onnx-community/whisper-small 的固定转换权重，
+  原始 openai/whisper-small 模型卡声明 Apache-2.0；本项目拆分解码图并
+  调整计算精度，保留权重存储精度。见 LICENSES/Whisper-ONNX-NOTICE.txt
+  与 Apache-2.0.txt；不将模型声明为本项目 MIT。
 - 普通话内置音节表：CC BY-SA 4.0，保留 CC-CEDICT / MDBG / CEDICT 署名；
   改编说明与原始署名见 LICENSES/zh_inventory_LICENSE.txt。
 

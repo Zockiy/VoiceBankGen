@@ -1,0 +1,14 @@
+Whisper small ONNX weights
+
+Base model: https://huggingface.co/openai/whisper-small
+The official base-model card declares Apache-2.0. See Apache-2.0.txt.
+ONNX conversion source: https://huggingface.co/onnx-community/whisper-small
+Pinned revision: 36050c46d777d46dc4b5f43f6d90574fc38f8732
+The conversion repository identifies openai/whisper-small as its base model.
+
+VoiceBankGen adaptation (2026-11-05): separated the merged decoder branches,
+shared decoder weights in one external data file, and promoted ONNX computation
+to FP32 while retaining FP16 weight storage. Original upstream downloads remain
+unchanged. Model provenance and hashes are recorded in voicebankgen-onnx.json.
+
+This notice does not relicense the weights as VoiceBankGen MIT code.

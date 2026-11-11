@@ -11,7 +11,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = "packaging/source_release_manifest.json"
-BLOCKED_PARTS = {".git", ".history", ".venv", ".tifa-env", ".mfa-env", "runtime",
+BLOCKED_PARTS = {".git", ".history", ".venv", ".tifa-env", ".directml-env", ".mfa-env", "runtime",
                  "dist", "build", "verification_runs", "examples", "deliverables"}
 TEXT_EXTENSIONS = {".py", ".md", ".txt", ".toml", ".lock", ".yaml", ".yml",
                    ".json", ".ps1", ".svg", ".license"}

@@ -4,6 +4,57 @@ import json
 import sys
 from pathlib import Path
 
+
+def directml_callback(backend, torch, pl):
+    """Accelerate only the neural network; retain FFT/scoring/decoding on CPU.
+
+    Lightning does not have an official DirectML accelerator. Its CPU trainer
+    still owns the dataset and upstream callbacks, while this boundary copies
+    model inputs to DirectML and returns outputs to CPU. No upstream edits or
+    global torch/device monkey patches are needed.
+    """
+    import torch_directml
+    if not torch_directml.is_available():
+        raise RuntimeError("没有可用 DirectML 设备，请检查显卡驱动或选择 CPU")
+    device = torch_directml.device()
+
+    def transfer(value, target):
+        if isinstance(value, torch.Tensor):
+            return value.to(target)
+        if isinstance(value, tuple):
+            return tuple(transfer(item, target) for item in value)
+        if isinstance(value, list):
+            return [transfer(item, target) for item in value]
+        if isinstance(value, dict):
+            return {key: transfer(item, target) for key, item in value.items()}
+        return value
+
+    class NetworkBridge(torch.nn.Module):
+        def __init__(self, network):
+            super().__init__()
+            self.network = network
+
+        def forward(self, *args, **kwargs):
+            from torch.nn.attention import SDPBackend, sdpa_kernel
+            # CUDA flash/efficient kernels cannot run on DirectML.
+            with sdpa_kernel(SDPBackend.MATH):
+                result = self.network(*transfer(args, device), **transfer(kwargs, device))
+            return transfer(result, "cpu")
+
+    bridge = NetworkBridge(backend.model)
+    backend.model = bridge
+
+    class ActivateDirectML(pl.Callback):
+        def on_predict_start(self, trainer, pl_module):
+            # Trainer setup moves registered modules to CPU. Activate after it.
+            bridge.network.to(device).eval()
+            print(json.dumps({"stage": "TIFA 对齐", "current": 0, "total": 0,
+                              "device": "directml", "precision": "32-true",
+                              "reason": torch_directml.device_name(device.index).rstrip("\x00")}, ensure_ascii=False), flush=True)
+
+    return ActivateDirectML()
+
+
 def run(request_path):
     for stream in (sys.stdout,sys.stderr):
         if stream and hasattr(stream,"reconfigure"):
@@ -19,8 +70,8 @@ def run(request_path):
     from inference.callbacks import SaveTextGridCallback, StatisticsCallback
     from lib.config.schema import ConfigurationScope, G2PPipelineConfig
     device=request["device"]
-    if device=="cuda" and not torch.cuda.is_available():
-        raise RuntimeError("TIFA PyTorch CUDA 不可用")
+    if device not in {"cpu", "directml"}:
+        raise ValueError("本分支的 TIFA 只支持 CPU / DirectML")
     model=Path(request["model"])
     backend,vocabulary,config=load_inference_model(model,scope=ConfigurationScope.FA)
     # Preserve the official model config. A Japanese-only front end prevents
@@ -48,16 +99,18 @@ def run(request_path):
         output.mkdir(parents=True,exist_ok=True)
         (output/"readings.json").write_text(json.dumps(readings,ensure_ascii=False),encoding="utf-8")
     callbacks=[SaveTextGridCallback(output_dir=output,language=lang,timestep=backend.timestep,skip_handling="omit"),StatisticsCallback(save_dir=output/"statistics")]
+    if device=="directml":
+        callbacks.append(directml_callback(backend,torch,pl))
     class Progress(pl.Callback):
         def on_predict_batch_end(self,trainer,pl_module,outputs,batch,batch_idx,dataloader_idx=0):
             print(json.dumps({"stage":"TIFA 对齐","current":min(len(dataset),(batch_idx+1)*request.get("batch_size",1)),"total":len(dataset),"device":device,"precision":"32-true"},ensure_ascii=False),flush=True)
     callbacks.append(Progress())
     module=ForcedAlignmentInferenceModule(backend,score_unit="levenshtein",skip_penalty=.5)
     callbacks.append(pl.callbacks.TQDMProgressBar(refresh_rate=0))
-    trainer=pl.Trainer(accelerator="gpu" if device=="cuda" else "cpu",devices=1,precision="32-true",logger=False,enable_checkpointing=False,enable_progress_bar=True,callbacks=callbacks)
+    trainer=pl.Trainer(accelerator="cpu",devices=1,precision="32-true",logger=False,enable_checkpointing=False,enable_progress_bar=True,callbacks=callbacks)
     loader=torch.utils.data.DataLoader(dataset,batch_size=request.get("batch_size",1),num_workers=0,shuffle=False,collate_fn=dataset.collate)
     trainer.predict(module,loader)
-    print(json.dumps({"kind":"tifa_complete","device":device,"torch":torch.__version__,"cuda":torch.version.cuda,"grids":len(list(output.glob("*.TextGrid")))}),flush=True)
+    print(json.dumps({"kind":"tifa_complete","device":device,"torch":torch.__version__,"grids":len(list(output.glob("*.TextGrid")))}),flush=True)
 
 if __name__=="__main__":
     run(sys.argv[1])

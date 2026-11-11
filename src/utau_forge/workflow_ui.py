@@ -37,7 +37,7 @@ def label(text,layout,role=None):
 
 def build_workbench(self):
     from .app import MarkLine,MARK_NAMES,MARK_HELP,COLORS
-    self.setWindowTitle("VoiceBankGen · 工作流 UI Fork")
+    self.setWindowTitle("VoiceBankGen")
     self.settings.setFallbacksEnabled(False)
     self.workflow_actions=[]
     self.workflow_controls=[]
@@ -107,8 +107,8 @@ def build_workbench(self):
     self.source_language.setToolTip("用于新增素材的识别与对齐；目标声库版本由上方选择。")
     self.source_language.currentIndexChanged.connect(self.save_source_language)
     self.device=QComboBox()
-    for text,value in (("自动（推荐）","auto"),("CPU","cpu"),("NVIDIA GPU","cuda")): self.device.addItem(text,value)
-    self.device.setToolTip("自动优先使用可用 GPU；任务详情显示实际计算设备。")
+    for text,value in (("自动（推荐）","auto"),("CPU","cpu"),("DirectML GPU","directml")): self.device.addItem(text,value)
+    self.device.setToolTip("ONNX Whisper 与 TIFA 支持 DirectML；旧 faster-whisper 模型的转写使用 CPU。自动模式失败后回退 CPU；明确选择 DirectML 时失败报错。支持情况取决于显卡与驱动。")
     self.backend=QComboBox()
     self.backend.addItem("TIFA（默认）","tifa")
     self.backend.addItem("MFA（旧版可选）","mfa")

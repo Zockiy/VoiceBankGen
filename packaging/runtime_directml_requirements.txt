@@ -1,0 +1,25 @@
+# Windows CPython 3.11; isolated from the main application's torch environment.
+# torch-directml's published 0.2.5 line requires torch 2.4.1 + torchvision 0.19.1.
+# CPU wheel + DirectML: do not install torch from a CUDA index.
+torch @ https://files.pythonhosted.org/packages/5a/6a/775b93d6888c31f1f1fc457e4f5cc89f0984412d5dcdef792b8f2aa6e812/torch-2.4.1-cp311-cp311-win_amd64.whl#sha256=092e7c2280c860eff762ac08c4bdcd53d701677851670695e0c22d6d345b269c
+torchvision @ https://files.pythonhosted.org/packages/f8/69/dc769cf54df8e828c0b8957b4521f35178f5bd4cc5b8fbe8a37ffd89a27c/torchvision-0.19.1-cp311-cp311-win_amd64.whl#sha256=70dea324174f5e9981b68e4b7cd524512c106ba64aedef560a86a0bbf2fbf62c
+torch-directml==0.2.5.dev240914
+lightning==2.5.0.post0
+torchmetrics==1.7.1
+numpy==1.26.4
+librosa==0.11.0
+numba==0.61.2
+scipy==1.15.3
+pydantic==2.11.7
+h5py==3.13.0
+einops==0.8.1
+matplotlib==3.10.3
+omegaconf==2.3.0
+loguru==0.7.3
+textgrid==1.6.1
+fugashi==1.4.0
+unidic==1.1.0
+wasabi==0.10.1
+colorednoise==2.2.0
+resampy==0.4.3
+onnxruntime-directml==1.24.4
